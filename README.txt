@@ -1,0 +1,1 @@
+Source for staresc documentation

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="pdoc 12.1.0"/>
+    <meta name="generator" content="pdoc 12.2.0"/>
     <title>staresc.plugin_parser.plugin API documentation</title>
 
     <style>/*! * Bootstrap Reboot v5.0.0 (https://getbootstrap.com/) * Copyright 2011-2021 The Bootstrap Authors * Copyright 2011-2021 Twitter, Inc. * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE) * Forked from Normalize.css, licensed MIT (https://github.com/necolas/normalize.css/blob/master/LICENSE.md) */*,::after,::before{box-sizing:border-box}@media (prefers-reduced-motion:no-preference){:root{scroll-behavior:smooth}}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";font-size:1rem;font-weight:400;line-height:1.5;color:#212529;background-color:#fff;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}hr{margin:1rem 0;color:inherit;background-color:currentColor;border:0;opacity:.25}hr:not([size]){height:1px}h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:.5rem;font-weight:500;line-height:1.2}h1{font-size:calc(1.375rem + 1.5vw)}@media (min-width:1200px){h1{font-size:2.5rem}}h2{font-size:calc(1.325rem + .9vw)}@media (min-width:1200px){h2{font-size:2rem}}h3{font-size:calc(1.3rem + .6vw)}@media (min-width:1200px){h3{font-size:1.75rem}}h4{font-size:calc(1.275rem + .3vw)}@media (min-width:1200px){h4{font-size:1.5rem}}h5{font-size:1.25rem}h6{font-size:1rem}p{margin-top:0;margin-bottom:1rem}abbr[data-bs-original-title],abbr[title]{-webkit-text-decoration:underline dotted;text-decoration:underline dotted;cursor:help;-webkit-text-decoration-skip-ink:none;text-decoration-skip-ink:none}address{margin-bottom:1rem;font-style:normal;line-height:inherit}ol,ul{padding-left:2rem}dl,ol,ul{margin-top:0;margin-bottom:1rem}ol ol,ol ul,ul ol,ul ul{margin-bottom:0}dt{font-weight:700}dd{margin-bottom:.5rem;margin-left:0}blockquote{margin:0 0 1rem}b,strong{font-weight:bolder}small{font-size:.875em}mark{padding:.2em;background-color:#fcf8e3}sub,sup{position:relative;font-size:.75em;line-height:0;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}a{color:#0d6efd;text-decoration:underline}a:hover{color:#0a58ca}a:not([href]):not([class]),a:not([href]):not([class]):hover{color:inherit;text-decoration:none}code,kbd,pre,samp{font-family:SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:1em;direction:ltr;unicode-bidi:bidi-override}pre{display:block;margin-top:0;margin-bottom:1rem;overflow:auto;font-size:.875em}pre code{font-size:inherit;color:inherit;word-break:normal}code{font-size:.875em;color:#d63384;word-wrap:break-word}a>code{color:inherit}kbd{padding:.2rem .4rem;font-size:.875em;color:#fff;background-color:#212529;border-radius:.2rem}kbd kbd{padding:0;font-size:1em;font-weight:700}figure{margin:0 0 1rem}img,svg{vertical-align:middle}table{caption-side:bottom;border-collapse:collapse}caption{padding-top:.5rem;padding-bottom:.5rem;color:#6c757d;text-align:left}th{text-align:inherit;text-align:-webkit-match-parent}tbody,td,tfoot,th,thead,tr{border-color:inherit;border-style:solid;border-width:0}label{display:inline-block}button{border-radius:0}button:focus:not(:focus-visible){outline:0}button,input,optgroup,select,textarea{margin:0;font-family:inherit;font-size:inherit;line-height:inherit}button,select{text-transform:none}[role=button]{cursor:pointer}select{word-wrap:normal}select:disabled{opacity:1}[list]::-webkit-calendar-picker-indicator{display:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]:not(:disabled),[type=reset]:not(:disabled),[type=submit]:not(:disabled),button:not(:disabled){cursor:pointer}::-moz-focus-inner{padding:0;border-style:none}textarea{resize:vertical}fieldset{min-width:0;padding:0;margin:0;border:0}legend{float:left;width:100%;padding:0;margin-bottom:.5rem;font-size:calc(1.275rem + .3vw);line-height:inherit}@media (min-width:1200px){legend{font-size:1.5rem}}legend+*{clear:left}::-webkit-datetime-edit-day-field,::-webkit-datetime-edit-fields-wrapper,::-webkit-datetime-edit-hour-field,::-webkit-datetime-edit-minute,::-webkit-datetime-edit-month-field,::-webkit-datetime-edit-text,::-webkit-datetime-edit-year-field{padding:0}::-webkit-inner-spin-button{height:auto}[type=search]{outline-offset:-2px;-webkit-appearance:textfield}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-color-swatch-wrapper{padding:0}::file-selector-button{font:inherit}::-webkit-file-upload-button{font:inherit;-webkit-appearance:button}output{display:inline-block}iframe{border:0}summary{display:list-item;cursor:pointer}progress{vertical-align:baseline}[hidden]{display:none!important}</style>
@@ -35,9 +35,6 @@
                             <ul class="memberlist">
                         <li>
                                 <a class="function" href="#Plugin.__init__">Plugin</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#Plugin.ALLOWED_MATCH_CONDS">ALLOWED_MATCH_CONDS</a>
                         </li>
                         <li>
                                 <a class="variable" href="#Plugin.tests">tests</a>
@@ -98,9 +95,9 @@
 <a href="./../../staresc.html">staresc</a><wbr>.<a href="./../plugin_parser.html">plugin_parser</a><wbr>.plugin    </h1>
 
                 
-                        <input id="plugin-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+                        <input id="mod-plugin-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 
-                        <label class="view-source-button" for="plugin-view-source"><span>View Source</span></label>
+                        <label class="view-source-button" for="mod-plugin-view-source"><span>View Source</span></label>
 
                         <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos">  1</span></a><span class="kn">from</span> <span class="nn">staresc.exceptions</span> <span class="kn">import</span> <span class="n">StarescPluginError</span>
 </span><span id="L-2"><a href="#L-2"><span class="linenos">  2</span></a><span class="kn">from</span> <span class="nn">staresc.plugin_parser</span> <span class="kn">import</span> <span class="n">Test</span>
@@ -172,7 +169,7 @@
 </span><span id="L-68"><a href="#L-68"><span class="linenos"> 68</span></a>
 </span><span id="L-69"><a href="#L-69"><span class="linenos"> 69</span></a><span class="sd">        This field contains advices about remediations options for the given vulnerability. </span>
 </span><span id="L-70"><a href="#L-70"><span class="linenos"> 70</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="L-71"><a href="#L-71"><span class="linenos"> 71</span></a>    <span class="c1"># TODO tags?</span>
+</span><span id="L-71"><a href="#L-71"><span class="linenos"> 71</span></a>    <span class="n">cvss_vector</span><span class="p">:</span> <span class="nb">str</span>
 </span><span id="L-72"><a href="#L-72"><span class="linenos"> 72</span></a>
 </span><span id="L-73"><a href="#L-73"><span class="linenos"> 73</span></a>    <span class="nd">@staticmethod</span>
 </span><span id="L-74"><a href="#L-74"><span class="linenos"> 74</span></a>    <span class="k">def</span> <span class="nf">__get_condition</span><span class="p">(</span><span class="n">d</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
@@ -225,7 +222,7 @@
 </span><span id="L-121"><a href="#L-121"><span class="linenos">121</span></a>
 </span><span id="L-122"><a href="#L-122"><span class="linenos">122</span></a><span class="sd">        Attributes:</span>
 </span><span id="L-123"><a href="#L-123"><span class="linenos">123</span></a><span class="sd">           plugin_content -- dict containing data parsed from the YAML file&quot;&quot;&quot;</span>
-</span><span id="L-124"><a href="#L-124"><span class="linenos">124</span></a>        <span class="k">for</span> <span class="n">info</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;cve&quot;</span><span class="p">,</span> <span class="s2">&quot;cvss&quot;</span><span class="p">,</span> <span class="s2">&quot;author&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;severity&quot;</span><span class="p">,</span> <span class="s2">&quot;reference&quot;</span><span class="p">,</span> <span class="s2">&quot;remediation&quot;</span><span class="p">]:</span>
+</span><span id="L-124"><a href="#L-124"><span class="linenos">124</span></a>        <span class="k">for</span> <span class="n">info</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;cve&quot;</span><span class="p">,</span> <span class="s2">&quot;cvss&quot;</span><span class="p">,</span> <span class="s2">&quot;author&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;severity&quot;</span><span class="p">,</span> <span class="s2">&quot;reference&quot;</span><span class="p">,</span> <span class="s2">&quot;remediation&quot;</span><span class="p">,</span> <span class="s2">&quot;cvss_vector&quot;</span><span class="p">]:</span>
 </span><span id="L-125"><a href="#L-125"><span class="linenos">125</span></a>            <span class="k">if</span> <span class="n">info</span> <span class="ow">in</span> <span class="n">plugin_content</span><span class="p">:</span>
 </span><span id="L-126"><a href="#L-126"><span class="linenos">126</span></a>                <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">info</span><span class="p">,</span> <span class="n">plugin_content</span><span class="p">[</span><span class="n">info</span><span class="p">])</span>
 </span><span id="L-127"><a href="#L-127"><span class="linenos">127</span></a>
@@ -320,7 +317,7 @@
 </span><span id="Plugin-69"><a href="#Plugin-69"><span class="linenos"> 69</span></a>
 </span><span id="Plugin-70"><a href="#Plugin-70"><span class="linenos"> 70</span></a><span class="sd">        This field contains advices about remediations options for the given vulnerability. </span>
 </span><span id="Plugin-71"><a href="#Plugin-71"><span class="linenos"> 71</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="Plugin-72"><a href="#Plugin-72"><span class="linenos"> 72</span></a>    <span class="c1"># TODO tags?</span>
+</span><span id="Plugin-72"><a href="#Plugin-72"><span class="linenos"> 72</span></a>    <span class="n">cvss_vector</span><span class="p">:</span> <span class="nb">str</span>
 </span><span id="Plugin-73"><a href="#Plugin-73"><span class="linenos"> 73</span></a>
 </span><span id="Plugin-74"><a href="#Plugin-74"><span class="linenos"> 74</span></a>    <span class="nd">@staticmethod</span>
 </span><span id="Plugin-75"><a href="#Plugin-75"><span class="linenos"> 75</span></a>    <span class="k">def</span> <span class="nf">__get_condition</span><span class="p">(</span><span class="n">d</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
@@ -373,7 +370,7 @@
 </span><span id="Plugin-122"><a href="#Plugin-122"><span class="linenos">122</span></a>
 </span><span id="Plugin-123"><a href="#Plugin-123"><span class="linenos">123</span></a><span class="sd">        Attributes:</span>
 </span><span id="Plugin-124"><a href="#Plugin-124"><span class="linenos">124</span></a><span class="sd">           plugin_content -- dict containing data parsed from the YAML file&quot;&quot;&quot;</span>
-</span><span id="Plugin-125"><a href="#Plugin-125"><span class="linenos">125</span></a>        <span class="k">for</span> <span class="n">info</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;cve&quot;</span><span class="p">,</span> <span class="s2">&quot;cvss&quot;</span><span class="p">,</span> <span class="s2">&quot;author&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;severity&quot;</span><span class="p">,</span> <span class="s2">&quot;reference&quot;</span><span class="p">,</span> <span class="s2">&quot;remediation&quot;</span><span class="p">]:</span>
+</span><span id="Plugin-125"><a href="#Plugin-125"><span class="linenos">125</span></a>        <span class="k">for</span> <span class="n">info</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;cve&quot;</span><span class="p">,</span> <span class="s2">&quot;cvss&quot;</span><span class="p">,</span> <span class="s2">&quot;author&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;severity&quot;</span><span class="p">,</span> <span class="s2">&quot;reference&quot;</span><span class="p">,</span> <span class="s2">&quot;remediation&quot;</span><span class="p">,</span> <span class="s2">&quot;cvss_vector&quot;</span><span class="p">]:</span>
 </span><span id="Plugin-126"><a href="#Plugin-126"><span class="linenos">126</span></a>            <span class="k">if</span> <span class="n">info</span> <span class="ow">in</span> <span class="n">plugin_content</span><span class="p">:</span>
 </span><span id="Plugin-127"><a href="#Plugin-127"><span class="linenos">127</span></a>                <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">info</span><span class="p">,</span> <span class="n">plugin_content</span><span class="p">[</span><span class="n">info</span><span class="p">])</span>
 </span><span id="Plugin-128"><a href="#Plugin-128"><span class="linenos">128</span></a>
@@ -446,17 +443,6 @@
 </ul>
 </div>
 
-
-                            </div>
-                            <div id="Plugin.ALLOWED_MATCH_CONDS" class="classattr">
-                                <div class="attr variable">
-            <span class="name">ALLOWED_MATCH_CONDS</span><span class="default_value"> = [&#39;and&#39;, &#39;or&#39;]</span>
-
-        
-    </div>
-    <a class="headerlink" href="#Plugin.ALLOWED_MATCH_CONDS"></a>
-    
-    
 
                             </div>
                             <div id="Plugin.tests" class="classattr">

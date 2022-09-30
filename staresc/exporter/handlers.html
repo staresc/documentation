@@ -96,6 +96,18 @@
                 </ul>
 
             </li>
+            <li>
+                    <a class="class" href="#StarescRawHandler">StarescRawHandler</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="function" href="#StarescRawHandler.import_handler">import_handler</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#StarescRawHandler.export_handler">export_handler</a>
+                        </li>
+                </ul>
+
+            </li>
     </ul>
 
 
@@ -360,6 +372,31 @@
 </span><span id="L-241"><a href="#L-241"><span class="linenos">241</span></a>        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
 </span><span id="L-242"><a href="#L-242"><span class="linenos">242</span></a>            <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">out_dict</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
 </span><span id="L-243"><a href="#L-243"><span class="linenos">243</span></a>            <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span><span id="L-244"><a href="#L-244"><span class="linenos">244</span></a>
+</span><span id="L-245"><a href="#L-245"><span class="linenos">245</span></a><span class="k">class</span> <span class="nc">StarescRawHandler</span><span class="p">(</span><span class="n">StarescHandler</span><span class="p">):</span>
+</span><span id="L-246"><a href="#L-246"><span class="linenos">246</span></a>
+</span><span id="L-247"><a href="#L-247"><span class="linenos">247</span></a>    <span class="k">def</span> <span class="nf">import_handler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">o</span><span class="p">:</span> <span class="n">Output</span><span class="p">):</span>
+</span><span id="L-248"><a href="#L-248"><span class="linenos">248</span></a>        <span class="k">pass</span>
+</span><span id="L-249"><a href="#L-249"><span class="linenos">249</span></a>
+</span><span id="L-250"><a href="#L-250"><span class="linenos">250</span></a>    <span class="k">def</span> <span class="nf">export_handler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">outputs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Output</span><span class="p">],</span> <span class="n">outfile</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="L-251"><a href="#L-251"><span class="linenos">251</span></a>        <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+</span><span id="L-252"><a href="#L-252"><span class="linenos">252</span></a>        <span class="kn">import</span> <span class="nn">os</span>
+</span><span id="L-253"><a href="#L-253"><span class="linenos">253</span></a>        
+</span><span id="L-254"><a href="#L-254"><span class="linenos">254</span></a>        <span class="k">for</span> <span class="n">output</span> <span class="ow">in</span> <span class="n">outputs</span><span class="p">:</span>
+</span><span id="L-255"><a href="#L-255"><span class="linenos">255</span></a>            <span class="n">output_dir</span> <span class="o">=</span> <span class="n">outfile</span>
+</span><span id="L-256"><a href="#L-256"><span class="linenos">256</span></a>            <span class="k">if</span> <span class="ow">not</span> <span class="n">output_dir</span><span class="p">:</span>
+</span><span id="L-257"><a href="#L-257"><span class="linenos">257</span></a>                <span class="n">output_dir</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;staresc_</span><span class="si">{</span><span class="n">output</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">hostname</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="L-258"><a href="#L-258"><span class="linenos">258</span></a>            <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="L-259"><a href="#L-259"><span class="linenos">259</span></a>
+</span><span id="L-260"><a href="#L-260"><span class="linenos">260</span></a>            <span class="n">base_filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">output</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">hostname</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%m-</span><span class="si">%d</span><span class="s1">_%H.%M.%S&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="L-261"><a href="#L-261"><span class="linenos">261</span></a>
+</span><span id="L-262"><a href="#L-262"><span class="linenos">262</span></a>            <span class="n">outstream</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s2">&quot;$ &quot;</span> <span class="o">+</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;stdin&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;stdout&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">output</span><span class="o">.</span><span class="n">test_results</span><span class="p">])</span>
+</span><span id="L-263"><a href="#L-263"><span class="linenos">263</span></a>            <span class="n">errstream</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;stderr&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">output</span><span class="o">.</span><span class="n">test_results</span><span class="p">])</span>
+</span><span id="L-264"><a href="#L-264"><span class="linenos">264</span></a>            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">base_filename</span> <span class="o">+</span> <span class="s1">&#39;.out.log&#39;</span><span class="p">),</span> <span class="s1">&#39;a+&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span><span id="L-265"><a href="#L-265"><span class="linenos">265</span></a>                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">outstream</span><span class="p">)</span>
+</span><span id="L-266"><a href="#L-266"><span class="linenos">266</span></a>            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">errstream</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="L-267"><a href="#L-267"><span class="linenos">267</span></a>                <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">base_filename</span> <span class="o">+</span> <span class="s1">&#39;.err.log&#39;</span><span class="p">),</span> <span class="s1">&#39;a+&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span><span id="L-268"><a href="#L-268"><span class="linenos">268</span></a>                    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">errstream</span><span class="p">)</span>
 </span></pre></div>
 
 
@@ -1176,6 +1213,127 @@ whole queue is converted to a list.</p>
                                 <dl>
                                     <div><dt><a href="#StarescHandler">StarescHandler</a></dt>
                                 <dd id="StarescJSONHandler.__init__" class="function"><a href="#StarescHandler.__init__">StarescHandler</a></dd>
+
+            </div>
+                                </dl>
+                            </div>
+                </section>
+                <section id="StarescRawHandler">
+                            <input id="StarescRawHandler-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr class">
+            
+    <span class="def">class</span>
+    <span class="name">StarescRawHandler</span><wbr>(<span class="base"><a href="#StarescHandler">StarescHandler</a></span>):
+
+                <label class="view-source-button" for="StarescRawHandler-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#StarescRawHandler"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="StarescRawHandler-246"><a href="#StarescRawHandler-246"><span class="linenos">246</span></a><span class="k">class</span> <span class="nc">StarescRawHandler</span><span class="p">(</span><span class="n">StarescHandler</span><span class="p">):</span>
+</span><span id="StarescRawHandler-247"><a href="#StarescRawHandler-247"><span class="linenos">247</span></a>
+</span><span id="StarescRawHandler-248"><a href="#StarescRawHandler-248"><span class="linenos">248</span></a>    <span class="k">def</span> <span class="nf">import_handler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">o</span><span class="p">:</span> <span class="n">Output</span><span class="p">):</span>
+</span><span id="StarescRawHandler-249"><a href="#StarescRawHandler-249"><span class="linenos">249</span></a>        <span class="k">pass</span>
+</span><span id="StarescRawHandler-250"><a href="#StarescRawHandler-250"><span class="linenos">250</span></a>
+</span><span id="StarescRawHandler-251"><a href="#StarescRawHandler-251"><span class="linenos">251</span></a>    <span class="k">def</span> <span class="nf">export_handler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">outputs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Output</span><span class="p">],</span> <span class="n">outfile</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="StarescRawHandler-252"><a href="#StarescRawHandler-252"><span class="linenos">252</span></a>        <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+</span><span id="StarescRawHandler-253"><a href="#StarescRawHandler-253"><span class="linenos">253</span></a>        <span class="kn">import</span> <span class="nn">os</span>
+</span><span id="StarescRawHandler-254"><a href="#StarescRawHandler-254"><span class="linenos">254</span></a>        
+</span><span id="StarescRawHandler-255"><a href="#StarescRawHandler-255"><span class="linenos">255</span></a>        <span class="k">for</span> <span class="n">output</span> <span class="ow">in</span> <span class="n">outputs</span><span class="p">:</span>
+</span><span id="StarescRawHandler-256"><a href="#StarescRawHandler-256"><span class="linenos">256</span></a>            <span class="n">output_dir</span> <span class="o">=</span> <span class="n">outfile</span>
+</span><span id="StarescRawHandler-257"><a href="#StarescRawHandler-257"><span class="linenos">257</span></a>            <span class="k">if</span> <span class="ow">not</span> <span class="n">output_dir</span><span class="p">:</span>
+</span><span id="StarescRawHandler-258"><a href="#StarescRawHandler-258"><span class="linenos">258</span></a>                <span class="n">output_dir</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;staresc_</span><span class="si">{</span><span class="n">output</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">hostname</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="StarescRawHandler-259"><a href="#StarescRawHandler-259"><span class="linenos">259</span></a>            <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="StarescRawHandler-260"><a href="#StarescRawHandler-260"><span class="linenos">260</span></a>
+</span><span id="StarescRawHandler-261"><a href="#StarescRawHandler-261"><span class="linenos">261</span></a>            <span class="n">base_filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">output</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">hostname</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%m-</span><span class="si">%d</span><span class="s1">_%H.%M.%S&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="StarescRawHandler-262"><a href="#StarescRawHandler-262"><span class="linenos">262</span></a>
+</span><span id="StarescRawHandler-263"><a href="#StarescRawHandler-263"><span class="linenos">263</span></a>            <span class="n">outstream</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s2">&quot;$ &quot;</span> <span class="o">+</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;stdin&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;stdout&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">output</span><span class="o">.</span><span class="n">test_results</span><span class="p">])</span>
+</span><span id="StarescRawHandler-264"><a href="#StarescRawHandler-264"><span class="linenos">264</span></a>            <span class="n">errstream</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;stderr&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">output</span><span class="o">.</span><span class="n">test_results</span><span class="p">])</span>
+</span><span id="StarescRawHandler-265"><a href="#StarescRawHandler-265"><span class="linenos">265</span></a>            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">base_filename</span> <span class="o">+</span> <span class="s1">&#39;.out.log&#39;</span><span class="p">),</span> <span class="s1">&#39;a+&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span><span id="StarescRawHandler-266"><a href="#StarescRawHandler-266"><span class="linenos">266</span></a>                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">outstream</span><span class="p">)</span>
+</span><span id="StarescRawHandler-267"><a href="#StarescRawHandler-267"><span class="linenos">267</span></a>            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">errstream</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="StarescRawHandler-268"><a href="#StarescRawHandler-268"><span class="linenos">268</span></a>                <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">base_filename</span> <span class="o">+</span> <span class="s1">&#39;.err.log&#39;</span><span class="p">),</span> <span class="s1">&#39;a+&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span><span id="StarescRawHandler-269"><a href="#StarescRawHandler-269"><span class="linenos">269</span></a>                    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">errstream</span><span class="p">)</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>Generic handler</p>
+
+<p>This is a generic handler for StarescExporter</p>
+</div>
+
+
+                            <div id="StarescRawHandler.import_handler" class="classattr">
+                                        <input id="StarescRawHandler.import_handler-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">import_handler</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">o</span><span class="p">:</span> <span class="n"><a href="../output.html#Output">staresc.output.Output</a></span></span><span class="return-annotation">):</span></span>
+
+                <label class="view-source-button" for="StarescRawHandler.import_handler-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#StarescRawHandler.import_handler"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="StarescRawHandler.import_handler-248"><a href="#StarescRawHandler.import_handler-248"><span class="linenos">248</span></a>    <span class="k">def</span> <span class="nf">import_handler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">o</span><span class="p">:</span> <span class="n">Output</span><span class="p">):</span>
+</span><span id="StarescRawHandler.import_handler-249"><a href="#StarescRawHandler.import_handler-249"><span class="linenos">249</span></a>        <span class="k">pass</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>Import Handler</p>
+
+<p>This method is called on the hadler when a new output is added to the 
+queue. Each handler can decide to either do nothing or perform special
+operations, such as the StarescStdoutHandler, which prints the 
+vulnerabilities when discovered in the Output</p>
+</div>
+
+
+                            </div>
+                            <div id="StarescRawHandler.export_handler" class="classattr">
+                                        <input id="StarescRawHandler.export_handler-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">export_handler</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">outputs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n"><a href="../output.html#Output">staresc.output.Output</a></span><span class="p">]</span>, </span><span class="param"><span class="n">outfile</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">):</span></span>
+
+                <label class="view-source-button" for="StarescRawHandler.export_handler-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#StarescRawHandler.export_handler"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="StarescRawHandler.export_handler-251"><a href="#StarescRawHandler.export_handler-251"><span class="linenos">251</span></a>    <span class="k">def</span> <span class="nf">export_handler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">outputs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Output</span><span class="p">],</span> <span class="n">outfile</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="StarescRawHandler.export_handler-252"><a href="#StarescRawHandler.export_handler-252"><span class="linenos">252</span></a>        <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+</span><span id="StarescRawHandler.export_handler-253"><a href="#StarescRawHandler.export_handler-253"><span class="linenos">253</span></a>        <span class="kn">import</span> <span class="nn">os</span>
+</span><span id="StarescRawHandler.export_handler-254"><a href="#StarescRawHandler.export_handler-254"><span class="linenos">254</span></a>        
+</span><span id="StarescRawHandler.export_handler-255"><a href="#StarescRawHandler.export_handler-255"><span class="linenos">255</span></a>        <span class="k">for</span> <span class="n">output</span> <span class="ow">in</span> <span class="n">outputs</span><span class="p">:</span>
+</span><span id="StarescRawHandler.export_handler-256"><a href="#StarescRawHandler.export_handler-256"><span class="linenos">256</span></a>            <span class="n">output_dir</span> <span class="o">=</span> <span class="n">outfile</span>
+</span><span id="StarescRawHandler.export_handler-257"><a href="#StarescRawHandler.export_handler-257"><span class="linenos">257</span></a>            <span class="k">if</span> <span class="ow">not</span> <span class="n">output_dir</span><span class="p">:</span>
+</span><span id="StarescRawHandler.export_handler-258"><a href="#StarescRawHandler.export_handler-258"><span class="linenos">258</span></a>                <span class="n">output_dir</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;staresc_</span><span class="si">{</span><span class="n">output</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">hostname</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="StarescRawHandler.export_handler-259"><a href="#StarescRawHandler.export_handler-259"><span class="linenos">259</span></a>            <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="StarescRawHandler.export_handler-260"><a href="#StarescRawHandler.export_handler-260"><span class="linenos">260</span></a>
+</span><span id="StarescRawHandler.export_handler-261"><a href="#StarescRawHandler.export_handler-261"><span class="linenos">261</span></a>            <span class="n">base_filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">output</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">hostname</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%m-</span><span class="si">%d</span><span class="s1">_%H.%M.%S&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="StarescRawHandler.export_handler-262"><a href="#StarescRawHandler.export_handler-262"><span class="linenos">262</span></a>
+</span><span id="StarescRawHandler.export_handler-263"><a href="#StarescRawHandler.export_handler-263"><span class="linenos">263</span></a>            <span class="n">outstream</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s2">&quot;$ &quot;</span> <span class="o">+</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;stdin&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;stdout&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">output</span><span class="o">.</span><span class="n">test_results</span><span class="p">])</span>
+</span><span id="StarescRawHandler.export_handler-264"><a href="#StarescRawHandler.export_handler-264"><span class="linenos">264</span></a>            <span class="n">errstream</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;stderr&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">output</span><span class="o">.</span><span class="n">test_results</span><span class="p">])</span>
+</span><span id="StarescRawHandler.export_handler-265"><a href="#StarescRawHandler.export_handler-265"><span class="linenos">265</span></a>            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">base_filename</span> <span class="o">+</span> <span class="s1">&#39;.out.log&#39;</span><span class="p">),</span> <span class="s1">&#39;a+&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span><span id="StarescRawHandler.export_handler-266"><a href="#StarescRawHandler.export_handler-266"><span class="linenos">266</span></a>                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">outstream</span><span class="p">)</span>
+</span><span id="StarescRawHandler.export_handler-267"><a href="#StarescRawHandler.export_handler-267"><span class="linenos">267</span></a>            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">errstream</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="StarescRawHandler.export_handler-268"><a href="#StarescRawHandler.export_handler-268"><span class="linenos">268</span></a>                <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">base_filename</span> <span class="o">+</span> <span class="s1">&#39;.err.log&#39;</span><span class="p">),</span> <span class="s1">&#39;a+&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span><span id="StarescRawHandler.export_handler-269"><a href="#StarescRawHandler.export_handler-269"><span class="linenos">269</span></a>                    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">errstream</span><span class="p">)</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>Export Handler</p>
+
+<p>This method is called on the hadler when the execution is over and the
+whole queue is converted to a list.</p>
+</div>
+
+
+                            </div>
+                            <div class="inherited">
+                                <h5>Inherited Members</h5>
+                                <dl>
+                                    <div><dt><a href="#StarescHandler">StarescHandler</a></dt>
+                                <dd id="StarescRawHandler.__init__" class="function"><a href="#StarescHandler.__init__">StarescHandler</a></dd>
 
             </div>
                                 </dl>

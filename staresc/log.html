@@ -32,43 +32,43 @@
         <h2>API Documentation</h2>
             <ul class="memberlist">
             <li>
-                    <a class="class" href="#StarescLogger">StarescLogger</a>
+                    <a class="class" href="#Logger">Logger</a>
                             <ul class="memberlist">
                         <li>
-                                <a class="function" href="#StarescLogger.__init__">StarescLogger</a>
+                                <a class="function" href="#Logger.__init__">Logger</a>
                         </li>
                         <li>
-                                <a class="class" href="#StarescLogger.StarescLoggingFormatter">StarescLogger.StarescLoggingFormatter</a>
+                                <a class="class" href="#Logger.LoggingFormatter">Logger.LoggingFormatter</a>
                                         <ul class="memberlist">
                                     <li>
-                                            <a class="function" href="#StarescLogger.StarescLoggingFormatter.format">format</a>
+                                            <a class="function" href="#Logger.LoggingFormatter.format">format</a>
                                     </li>
                             </ul>
 
                         </li>
                         <li>
-                                <a class="function" href="#StarescLogger.setLevelInfo">setLevelInfo</a>
+                                <a class="function" href="#Logger.setLevelInfo">setLevelInfo</a>
                         </li>
                         <li>
-                                <a class="function" href="#StarescLogger.setLevelDebug">setLevelDebug</a>
+                                <a class="function" href="#Logger.setLevelDebug">setLevelDebug</a>
                         </li>
                         <li>
-                                <a class="function" href="#StarescLogger.info">info</a>
+                                <a class="function" href="#Logger.info">info</a>
                         </li>
                         <li>
-                                <a class="function" href="#StarescLogger.debug">debug</a>
+                                <a class="function" href="#Logger.debug">debug</a>
                         </li>
                         <li>
-                                <a class="function" href="#StarescLogger.error">error</a>
+                                <a class="function" href="#Logger.error">error</a>
                         </li>
                         <li>
-                                <a class="function" href="#StarescLogger.print_if_vuln">print_if_vuln</a>
+                                <a class="function" href="#Logger.print_if_vuln">print_if_vuln</a>
                         </li>
                         <li>
-                                <a class="function" href="#StarescLogger.raw">raw</a>
+                                <a class="function" href="#Logger.raw">raw</a>
                         </li>
                         <li>
-                                <a class="function" href="#StarescLogger.check">check</a>
+                                <a class="function" href="#Logger.check">check</a>
                         </li>
                 </ul>
 
@@ -111,7 +111,7 @@
 </span><span id="L-15"><a href="#L-15"><span class="linenos"> 15</span></a>    <span class="s2">&quot;info&quot;</span>     <span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[0;32m&quot;</span><span class="p">,</span> <span class="c1"># green</span>
 </span><span id="L-16"><a href="#L-16"><span class="linenos"> 16</span></a><span class="p">}</span>
 </span><span id="L-17"><a href="#L-17"><span class="linenos"> 17</span></a>
-</span><span id="L-18"><a href="#L-18"><span class="linenos"> 18</span></a><span class="k">class</span> <span class="nc">StarescLogger</span><span class="p">:</span>
+</span><span id="L-18"><a href="#L-18"><span class="linenos"> 18</span></a><span class="k">class</span> <span class="nc">Logger</span><span class="p">:</span>
 </span><span id="L-19"><a href="#L-19"><span class="linenos"> 19</span></a>
 </span><span id="L-20"><a href="#L-20"><span class="linenos"> 20</span></a>    <span class="n">LEVEL_TO_STRING</span> <span class="o">=</span> <span class="p">{</span>
 </span><span id="L-21"><a href="#L-21"><span class="linenos"> 21</span></a>        <span class="n">VULN</span>      <span class="p">:</span> <span class="s2">&quot;VULN&quot;</span><span class="p">,</span>
@@ -120,15 +120,15 @@
 </span><span id="L-24"><a href="#L-24"><span class="linenos"> 24</span></a>    <span class="p">}</span>
 </span><span id="L-25"><a href="#L-25"><span class="linenos"> 25</span></a>
 </span><span id="L-26"><a href="#L-26"><span class="linenos"> 26</span></a>    <span class="n">logger</span><span class="p">:</span> <span class="n">logging</span><span class="o">.</span><span class="n">Logger</span>
-</span><span id="L-27"><a href="#L-27"><span class="linenos"> 27</span></a>    <span class="n">progress_msg</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;[STARESC]:[</span><span class="si">{}</span><span class="s2">]:[RAW]: </span><span class="si">{}</span><span class="s2">&quot;</span>
+</span><span id="L-27"><a href="#L-27"><span class="linenos"> 27</span></a>    <span class="n">progress_msg</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;[RAW]:[</span><span class="si">{}</span><span class="s2">]: </span><span class="si">{}</span><span class="s2">&quot;</span>
 </span><span id="L-28"><a href="#L-28"><span class="linenos"> 28</span></a>
-</span><span id="L-29"><a href="#L-29"><span class="linenos"> 29</span></a>    <span class="k">class</span> <span class="nc">StarescLoggingFormatter</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">):</span>
+</span><span id="L-29"><a href="#L-29"><span class="linenos"> 29</span></a>    <span class="k">class</span> <span class="nc">LoggingFormatter</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">):</span>
 </span><span id="L-30"><a href="#L-30"><span class="linenos"> 30</span></a>
 </span><span id="L-31"><a href="#L-31"><span class="linenos"> 31</span></a>        <span class="n">FORMATS</span> <span class="o">=</span> <span class="p">{</span>
-</span><span id="L-32"><a href="#L-32"><span class="linenos"> 32</span></a>            <span class="n">DEFAULT</span> <span class="p">:</span> <span class="s1">&#39;[STARESC]:[</span><span class="si">%(asctime)s</span><span class="s1">]:[</span><span class="si">%(levelname)s</span><span class="s1">]: </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">,</span>
-</span><span id="L-33"><a href="#L-33"><span class="linenos"> 33</span></a>            <span class="n">VULN</span>    <span class="p">:</span> <span class="s1">&#39;[STARESC]:[</span><span class="si">%(target)s</span><span class="s1">]:[</span><span class="si">%(c)s%(severity)s%(r)s</span><span class="s1">]:[</span><span class="si">%(c)s%(plugin)s%(r)s</span><span class="s1">]&#39;</span><span class="p">,</span>
-</span><span id="L-34"><a href="#L-34"><span class="linenos"> 34</span></a>            <span class="n">RAW</span>     <span class="p">:</span> <span class="s1">&#39;[STARESC]:[</span><span class="si">%(target)s</span><span class="s1">]:[RAW]: </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">,</span>
-</span><span id="L-35"><a href="#L-35"><span class="linenos"> 35</span></a>            <span class="n">CHECK</span>   <span class="p">:</span> <span class="s1">&#39;[STARESC]:[</span><span class="si">%(asctime)s</span><span class="s1">]:[CHECK]: </span><span class="si">%(target)s</span><span class="s1">: </span><span class="si">%(message)s</span><span class="s1">&#39;</span>
+</span><span id="L-32"><a href="#L-32"><span class="linenos"> 32</span></a>            <span class="n">DEFAULT</span> <span class="p">:</span> <span class="s1">&#39;[</span><span class="si">%(asctime)s</span><span class="s1">]:[</span><span class="si">%(levelname)s</span><span class="s1">]: </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">,</span>
+</span><span id="L-33"><a href="#L-33"><span class="linenos"> 33</span></a>            <span class="n">VULN</span>    <span class="p">:</span> <span class="s1">&#39;[SCAN]:[</span><span class="si">%(target)s</span><span class="s1">]:[</span><span class="si">%(c)s%(severity)s%(r)s</span><span class="s1">]:[</span><span class="si">%(c)s%(plugin)s%(r)s</span><span class="s1">]&#39;</span><span class="p">,</span>
+</span><span id="L-34"><a href="#L-34"><span class="linenos"> 34</span></a>            <span class="n">RAW</span>     <span class="p">:</span> <span class="s1">&#39;[RAW]:[</span><span class="si">%(target)s</span><span class="s1">]: </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">,</span>
+</span><span id="L-35"><a href="#L-35"><span class="linenos"> 35</span></a>            <span class="n">CHECK</span>   <span class="p">:</span> <span class="s1">&#39;[CHECK]:[</span><span class="si">%(asctime)s</span><span class="s1">]: </span><span class="si">%(target)s</span><span class="s1">: </span><span class="si">%(message)s</span><span class="s1">&#39;</span>
 </span><span id="L-36"><a href="#L-36"><span class="linenos"> 36</span></a>        <span class="p">}</span>
 </span><span id="L-37"><a href="#L-37"><span class="linenos"> 37</span></a>
 </span><span id="L-38"><a href="#L-38"><span class="linenos"> 38</span></a>        <span class="k">def</span> <span class="nf">format</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record</span><span class="p">):</span>  
@@ -176,7 +176,7 @@
 </span><span id="L-80"><a href="#L-80"><span class="linenos"> 80</span></a>            <span class="k">return</span>
 </span><span id="L-81"><a href="#L-81"><span class="linenos"> 81</span></a>            
 </span><span id="L-82"><a href="#L-82"><span class="linenos"> 82</span></a>        <span class="n">hdlr</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">()</span>
-</span><span id="L-83"><a href="#L-83"><span class="linenos"> 83</span></a>        <span class="n">hdlr</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">StarescLoggingFormatter</span><span class="p">())</span>
+</span><span id="L-83"><a href="#L-83"><span class="linenos"> 83</span></a>        <span class="n">hdlr</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">LoggingFormatter</span><span class="p">())</span>
 </span><span id="L-84"><a href="#L-84"><span class="linenos"> 84</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">hdlr</span><span class="p">)</span>
 </span><span id="L-85"><a href="#L-85"><span class="linenos"> 85</span></a>
 </span><span id="L-86"><a href="#L-86"><span class="linenos"> 86</span></a>
@@ -204,369 +204,378 @@
 </span><span id="L-108"><a href="#L-108"><span class="linenos">108</span></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">o</span><span class="o">.</span><span class="n">is_vuln_found</span><span class="p">():</span>
 </span><span id="L-109"><a href="#L-109"><span class="linenos">109</span></a>            <span class="k">return</span>
 </span><span id="L-110"><a href="#L-110"><span class="linenos">110</span></a>
-</span><span id="L-111"><a href="#L-111"><span class="linenos">111</span></a>        <span class="n">host</span> <span class="o">=</span> <span class="n">o</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">get_hostname</span><span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">connection</span><span class="p">)</span>
-</span><span id="L-112"><a href="#L-112"><span class="linenos">112</span></a>        <span class="n">port</span> <span class="o">=</span> <span class="n">o</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">get_port</span><span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">connection</span><span class="p">)</span>
+</span><span id="L-111"><a href="#L-111"><span class="linenos">111</span></a>        <span class="k">if</span> <span class="n">o</span><span class="o">.</span><span class="n">plugin</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="L-112"><a href="#L-112"><span class="linenos">112</span></a>            <span class="k">return</span>
 </span><span id="L-113"><a href="#L-113"><span class="linenos">113</span></a>
-</span><span id="L-114"><a href="#L-114"><span class="linenos">114</span></a>        <span class="n">e</span> <span class="o">=</span> <span class="p">{</span>
-</span><span id="L-115"><a href="#L-115"><span class="linenos">115</span></a>            <span class="s2">&quot;target&quot;</span>   <span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
-</span><span id="L-116"><a href="#L-116"><span class="linenos">116</span></a>            <span class="s2">&quot;severity&quot;</span> <span class="p">:</span> <span class="n">o</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">severity</span><span class="p">,</span>
-</span><span id="L-117"><a href="#L-117"><span class="linenos">117</span></a>            <span class="s2">&quot;plugin&quot;</span>   <span class="p">:</span> <span class="n">o</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
-</span><span id="L-118"><a href="#L-118"><span class="linenos">118</span></a>            <span class="s2">&quot;c&quot;</span>        <span class="p">:</span> <span class="n">SEVERITY2COLOR</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">severity</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="s2">&quot;&quot;</span><span class="p">),</span>
-</span><span id="L-119"><a href="#L-119"><span class="linenos">119</span></a>            <span class="s2">&quot;r&quot;</span>        <span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[0m&quot;</span><span class="p">,</span>
-</span><span id="L-120"><a href="#L-120"><span class="linenos">120</span></a>        <span class="p">}</span>
-</span><span id="L-121"><a href="#L-121"><span class="linenos">121</span></a>
-</span><span id="L-122"><a href="#L-122"><span class="linenos">122</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">vuln</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="n">e</span><span class="p">)</span>
-</span><span id="L-123"><a href="#L-123"><span class="linenos">123</span></a>
+</span><span id="L-114"><a href="#L-114"><span class="linenos">114</span></a>        <span class="n">host</span> <span class="o">=</span> <span class="n">o</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">hostname</span>
+</span><span id="L-115"><a href="#L-115"><span class="linenos">115</span></a>        <span class="n">port</span> <span class="o">=</span> <span class="n">o</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">port</span>
+</span><span id="L-116"><a href="#L-116"><span class="linenos">116</span></a>
+</span><span id="L-117"><a href="#L-117"><span class="linenos">117</span></a>        <span class="n">e</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="L-118"><a href="#L-118"><span class="linenos">118</span></a>            <span class="s2">&quot;target&quot;</span>   <span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+</span><span id="L-119"><a href="#L-119"><span class="linenos">119</span></a>            <span class="s2">&quot;severity&quot;</span> <span class="p">:</span> <span class="n">o</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">severity</span><span class="p">,</span>
+</span><span id="L-120"><a href="#L-120"><span class="linenos">120</span></a>            <span class="s2">&quot;plugin&quot;</span>   <span class="p">:</span> <span class="n">o</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+</span><span id="L-121"><a href="#L-121"><span class="linenos">121</span></a>            <span class="s2">&quot;c&quot;</span>        <span class="p">:</span> <span class="n">SEVERITY2COLOR</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">severity</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="s2">&quot;&quot;</span><span class="p">),</span>
+</span><span id="L-122"><a href="#L-122"><span class="linenos">122</span></a>            <span class="s2">&quot;r&quot;</span>        <span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[0m&quot;</span><span class="p">,</span>
+</span><span id="L-123"><a href="#L-123"><span class="linenos">123</span></a>        <span class="p">}</span>
 </span><span id="L-124"><a href="#L-124"><span class="linenos">124</span></a>
-</span><span id="L-125"><a href="#L-125"><span class="linenos">125</span></a>    <span class="k">def</span> <span class="nf">raw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
-</span><span id="L-126"><a href="#L-126"><span class="linenos">126</span></a>        <span class="n">e</span> <span class="o">=</span> <span class="p">{</span>
-</span><span id="L-127"><a href="#L-127"><span class="linenos">127</span></a>            <span class="s2">&quot;target&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">target</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
-</span><span id="L-128"><a href="#L-128"><span class="linenos">128</span></a>        <span class="p">}</span>     
-</span><span id="L-129"><a href="#L-129"><span class="linenos">129</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">raw</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="n">e</span><span class="p">)</span>
-</span><span id="L-130"><a href="#L-130"><span class="linenos">130</span></a>
-</span><span id="L-131"><a href="#L-131"><span class="linenos">131</span></a>    
-</span><span id="L-132"><a href="#L-132"><span class="linenos">132</span></a>    <span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
-</span><span id="L-133"><a href="#L-133"><span class="linenos">133</span></a>        <span class="n">e</span> <span class="o">=</span> <span class="p">{</span>
-</span><span id="L-134"><a href="#L-134"><span class="linenos">134</span></a>            <span class="s2">&quot;target&quot;</span><span class="p">:</span> <span class="n">target</span><span class="p">,</span>
-</span><span id="L-135"><a href="#L-135"><span class="linenos">135</span></a>        <span class="p">}</span>     
-</span><span id="L-136"><a href="#L-136"><span class="linenos">136</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="n">e</span><span class="p">)</span>
+</span><span id="L-125"><a href="#L-125"><span class="linenos">125</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">vuln</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="n">e</span><span class="p">)</span> <span class="c1">#type: ignore</span>
+</span><span id="L-126"><a href="#L-126"><span class="linenos">126</span></a>
+</span><span id="L-127"><a href="#L-127"><span class="linenos">127</span></a>
+</span><span id="L-128"><a href="#L-128"><span class="linenos">128</span></a>    <span class="k">def</span> <span class="nf">raw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+</span><span id="L-129"><a href="#L-129"><span class="linenos">129</span></a>        <span class="n">e</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="L-130"><a href="#L-130"><span class="linenos">130</span></a>            <span class="s2">&quot;target&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">target</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+</span><span id="L-131"><a href="#L-131"><span class="linenos">131</span></a>        <span class="p">}</span>     
+</span><span id="L-132"><a href="#L-132"><span class="linenos">132</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">raw</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="n">e</span><span class="p">)</span> <span class="c1">#type: ignore</span>
+</span><span id="L-133"><a href="#L-133"><span class="linenos">133</span></a>
+</span><span id="L-134"><a href="#L-134"><span class="linenos">134</span></a>    
+</span><span id="L-135"><a href="#L-135"><span class="linenos">135</span></a>    <span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+</span><span id="L-136"><a href="#L-136"><span class="linenos">136</span></a>        <span class="n">e</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="L-137"><a href="#L-137"><span class="linenos">137</span></a>            <span class="s2">&quot;target&quot;</span><span class="p">:</span> <span class="n">target</span><span class="p">,</span>
+</span><span id="L-138"><a href="#L-138"><span class="linenos">138</span></a>        <span class="p">}</span>     
+</span><span id="L-139"><a href="#L-139"><span class="linenos">139</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="n">e</span><span class="p">)</span> <span class="c1">#type: ignore</span>
 </span></pre></div>
 
 
             </section>
-                <section id="StarescLogger">
-                            <input id="StarescLogger-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+                <section id="Logger">
+                            <input id="Logger-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr class">
             
     <span class="def">class</span>
-    <span class="name">StarescLogger</span>:
+    <span class="name">Logger</span>:
 
-                <label class="view-source-button" for="StarescLogger-view-source"><span>View Source</span></label>
+                <label class="view-source-button" for="Logger-view-source"><span>View Source</span></label>
 
     </div>
-    <a class="headerlink" href="#StarescLogger"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="StarescLogger-19"><a href="#StarescLogger-19"><span class="linenos"> 19</span></a><span class="k">class</span> <span class="nc">StarescLogger</span><span class="p">:</span>
-</span><span id="StarescLogger-20"><a href="#StarescLogger-20"><span class="linenos"> 20</span></a>
-</span><span id="StarescLogger-21"><a href="#StarescLogger-21"><span class="linenos"> 21</span></a>    <span class="n">LEVEL_TO_STRING</span> <span class="o">=</span> <span class="p">{</span>
-</span><span id="StarescLogger-22"><a href="#StarescLogger-22"><span class="linenos"> 22</span></a>        <span class="n">VULN</span>      <span class="p">:</span> <span class="s2">&quot;VULN&quot;</span><span class="p">,</span>
-</span><span id="StarescLogger-23"><a href="#StarescLogger-23"><span class="linenos"> 23</span></a>        <span class="n">RAW</span>       <span class="p">:</span> <span class="s2">&quot;RAW&quot;</span><span class="p">,</span>
-</span><span id="StarescLogger-24"><a href="#StarescLogger-24"><span class="linenos"> 24</span></a>        <span class="n">CHECK</span>     <span class="p">:</span> <span class="s2">&quot;CHECK&quot;</span><span class="p">,</span>
-</span><span id="StarescLogger-25"><a href="#StarescLogger-25"><span class="linenos"> 25</span></a>    <span class="p">}</span>
-</span><span id="StarescLogger-26"><a href="#StarescLogger-26"><span class="linenos"> 26</span></a>
-</span><span id="StarescLogger-27"><a href="#StarescLogger-27"><span class="linenos"> 27</span></a>    <span class="n">logger</span><span class="p">:</span> <span class="n">logging</span><span class="o">.</span><span class="n">Logger</span>
-</span><span id="StarescLogger-28"><a href="#StarescLogger-28"><span class="linenos"> 28</span></a>    <span class="n">progress_msg</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;[STARESC]:[</span><span class="si">{}</span><span class="s2">]:[RAW]: </span><span class="si">{}</span><span class="s2">&quot;</span>
-</span><span id="StarescLogger-29"><a href="#StarescLogger-29"><span class="linenos"> 29</span></a>
-</span><span id="StarescLogger-30"><a href="#StarescLogger-30"><span class="linenos"> 30</span></a>    <span class="k">class</span> <span class="nc">StarescLoggingFormatter</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">):</span>
-</span><span id="StarescLogger-31"><a href="#StarescLogger-31"><span class="linenos"> 31</span></a>
-</span><span id="StarescLogger-32"><a href="#StarescLogger-32"><span class="linenos"> 32</span></a>        <span class="n">FORMATS</span> <span class="o">=</span> <span class="p">{</span>
-</span><span id="StarescLogger-33"><a href="#StarescLogger-33"><span class="linenos"> 33</span></a>            <span class="n">DEFAULT</span> <span class="p">:</span> <span class="s1">&#39;[STARESC]:[</span><span class="si">%(asctime)s</span><span class="s1">]:[</span><span class="si">%(levelname)s</span><span class="s1">]: </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">,</span>
-</span><span id="StarescLogger-34"><a href="#StarescLogger-34"><span class="linenos"> 34</span></a>            <span class="n">VULN</span>    <span class="p">:</span> <span class="s1">&#39;[STARESC]:[</span><span class="si">%(target)s</span><span class="s1">]:[</span><span class="si">%(c)s%(severity)s%(r)s</span><span class="s1">]:[</span><span class="si">%(c)s%(plugin)s%(r)s</span><span class="s1">]&#39;</span><span class="p">,</span>
-</span><span id="StarescLogger-35"><a href="#StarescLogger-35"><span class="linenos"> 35</span></a>            <span class="n">RAW</span>     <span class="p">:</span> <span class="s1">&#39;[STARESC]:[</span><span class="si">%(target)s</span><span class="s1">]:[RAW]: </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">,</span>
-</span><span id="StarescLogger-36"><a href="#StarescLogger-36"><span class="linenos"> 36</span></a>            <span class="n">CHECK</span>   <span class="p">:</span> <span class="s1">&#39;[STARESC]:[</span><span class="si">%(asctime)s</span><span class="s1">]:[CHECK]: </span><span class="si">%(target)s</span><span class="s1">: </span><span class="si">%(message)s</span><span class="s1">&#39;</span>
-</span><span id="StarescLogger-37"><a href="#StarescLogger-37"><span class="linenos"> 37</span></a>        <span class="p">}</span>
-</span><span id="StarescLogger-38"><a href="#StarescLogger-38"><span class="linenos"> 38</span></a>
-</span><span id="StarescLogger-39"><a href="#StarescLogger-39"><span class="linenos"> 39</span></a>        <span class="k">def</span> <span class="nf">format</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record</span><span class="p">):</span>  
-</span><span id="StarescLogger-40"><a href="#StarescLogger-40"><span class="linenos"> 40</span></a>            <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">FORMATS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">levelno</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">FORMATS</span><span class="p">[</span><span class="n">DEFAULT</span><span class="p">])</span>
-</span><span id="StarescLogger-41"><a href="#StarescLogger-41"><span class="linenos"> 41</span></a>            <span class="n">formatter</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="n">fmt</span><span class="o">=</span><span class="n">f</span><span class="p">,</span> <span class="n">datefmt</span><span class="o">=</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">)</span>
-</span><span id="StarescLogger-42"><a href="#StarescLogger-42"><span class="linenos"> 42</span></a>            <span class="k">return</span> <span class="n">formatter</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">record</span><span class="p">)</span> 
-</span><span id="StarescLogger-43"><a href="#StarescLogger-43"><span class="linenos"> 43</span></a>
-</span><span id="StarescLogger-44"><a href="#StarescLogger-44"><span class="linenos"> 44</span></a>
-</span><span id="StarescLogger-45"><a href="#StarescLogger-45"><span class="linenos"> 45</span></a>    <span class="c1"># This function is taken from: https://stackoverflow.com/a/35804945</span>
-</span><span id="StarescLogger-46"><a href="#StarescLogger-46"><span class="linenos"> 46</span></a>    <span class="nd">@staticmethod</span>
-</span><span id="StarescLogger-47"><a href="#StarescLogger-47"><span class="linenos"> 47</span></a>    <span class="k">def</span> <span class="nf">__add_logging_level</span><span class="p">(</span><span class="n">levelName</span><span class="p">,</span> <span class="n">levelNum</span><span class="p">,</span> <span class="n">methodName</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-</span><span id="StarescLogger-48"><a href="#StarescLogger-48"><span class="linenos"> 48</span></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">methodName</span><span class="p">:</span>
-</span><span id="StarescLogger-49"><a href="#StarescLogger-49"><span class="linenos"> 49</span></a>            <span class="n">methodName</span> <span class="o">=</span> <span class="n">levelName</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-</span><span id="StarescLogger-50"><a href="#StarescLogger-50"><span class="linenos"> 50</span></a>
-</span><span id="StarescLogger-51"><a href="#StarescLogger-51"><span class="linenos"> 51</span></a>        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">logging</span><span class="p">,</span> <span class="n">levelName</span><span class="p">):</span>
-</span><span id="StarescLogger-52"><a href="#StarescLogger-52"><span class="linenos"> 52</span></a>            <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">levelName</span><span class="si">}</span><span class="s1"> already defined in logging module&#39;</span><span class="p">)</span>
-</span><span id="StarescLogger-53"><a href="#StarescLogger-53"><span class="linenos"> 53</span></a>        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">logging</span><span class="p">,</span> <span class="n">methodName</span><span class="p">):</span>
-</span><span id="StarescLogger-54"><a href="#StarescLogger-54"><span class="linenos"> 54</span></a>            <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">methodName</span><span class="si">}</span><span class="s1"> already defined in logging module&#39;</span><span class="p">)</span>
-</span><span id="StarescLogger-55"><a href="#StarescLogger-55"><span class="linenos"> 55</span></a>        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">getLoggerClass</span><span class="p">(),</span> <span class="n">methodName</span><span class="p">):</span>
-</span><span id="StarescLogger-56"><a href="#StarescLogger-56"><span class="linenos"> 56</span></a>            <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">methodName</span><span class="si">}</span><span class="s1"> already defined in logger class&#39;</span><span class="p">)</span>
-</span><span id="StarescLogger-57"><a href="#StarescLogger-57"><span class="linenos"> 57</span></a>
-</span><span id="StarescLogger-58"><a href="#StarescLogger-58"><span class="linenos"> 58</span></a>        <span class="k">def</span> <span class="nf">logForLevel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-</span><span id="StarescLogger-59"><a href="#StarescLogger-59"><span class="linenos"> 59</span></a>            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isEnabledFor</span><span class="p">(</span><span class="n">levelNum</span><span class="p">):</span>
-</span><span id="StarescLogger-60"><a href="#StarescLogger-60"><span class="linenos"> 60</span></a>                <span class="bp">self</span><span class="o">.</span><span class="n">_log</span><span class="p">(</span><span class="n">levelNum</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-</span><span id="StarescLogger-61"><a href="#StarescLogger-61"><span class="linenos"> 61</span></a>        <span class="k">def</span> <span class="nf">logToRoot</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-</span><span id="StarescLogger-62"><a href="#StarescLogger-62"><span class="linenos"> 62</span></a>            <span class="n">logging</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">levelNum</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-</span><span id="StarescLogger-63"><a href="#StarescLogger-63"><span class="linenos"> 63</span></a>
-</span><span id="StarescLogger-64"><a href="#StarescLogger-64"><span class="linenos"> 64</span></a>        <span class="n">logging</span><span class="o">.</span><span class="n">addLevelName</span><span class="p">(</span><span class="n">levelNum</span><span class="p">,</span> <span class="n">levelName</span><span class="p">)</span>
-</span><span id="StarescLogger-65"><a href="#StarescLogger-65"><span class="linenos"> 65</span></a>        <span class="nb">setattr</span><span class="p">(</span><span class="n">logging</span><span class="p">,</span> <span class="n">levelName</span><span class="p">,</span> <span class="n">levelNum</span><span class="p">)</span>
-</span><span id="StarescLogger-66"><a href="#StarescLogger-66"><span class="linenos"> 66</span></a>        <span class="nb">setattr</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">getLoggerClass</span><span class="p">(),</span> <span class="n">methodName</span><span class="p">,</span> <span class="n">logForLevel</span><span class="p">)</span>
-</span><span id="StarescLogger-67"><a href="#StarescLogger-67"><span class="linenos"> 67</span></a>        <span class="nb">setattr</span><span class="p">(</span><span class="n">logging</span><span class="p">,</span> <span class="n">methodName</span><span class="p">,</span> <span class="n">logToRoot</span><span class="p">)</span>
-</span><span id="StarescLogger-68"><a href="#StarescLogger-68"><span class="linenos"> 68</span></a>
-</span><span id="StarescLogger-69"><a href="#StarescLogger-69"><span class="linenos"> 69</span></a>
-</span><span id="StarescLogger-70"><a href="#StarescLogger-70"><span class="linenos"> 70</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="StarescLogger-71"><a href="#StarescLogger-71"><span class="linenos"> 71</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
-</span><span id="StarescLogger-72"><a href="#StarescLogger-72"><span class="linenos"> 72</span></a>        
-</span><span id="StarescLogger-73"><a href="#StarescLogger-73"><span class="linenos"> 73</span></a>        <span class="k">try</span><span class="p">:</span>
-</span><span id="StarescLogger-74"><a href="#StarescLogger-74"><span class="linenos"> 74</span></a>            <span class="c1"># Initialize all levels in root logger</span>
-</span><span id="StarescLogger-75"><a href="#StarescLogger-75"><span class="linenos"> 75</span></a>            <span class="k">for</span> <span class="n">lev</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">LEVEL_TO_STRING</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-</span><span id="StarescLogger-76"><a href="#StarescLogger-76"><span class="linenos"> 76</span></a>                <span class="bp">self</span><span class="o">.</span><span class="n">__add_logging_level</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">lev</span><span class="p">)</span>
-</span><span id="StarescLogger-77"><a href="#StarescLogger-77"><span class="linenos"> 77</span></a>
-</span><span id="StarescLogger-78"><a href="#StarescLogger-78"><span class="linenos"> 78</span></a>        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
-</span><span id="StarescLogger-79"><a href="#StarescLogger-79"><span class="linenos"> 79</span></a>            <span class="c1"># If attribute error: logger already configured</span>
-</span><span id="StarescLogger-80"><a href="#StarescLogger-80"><span class="linenos"> 80</span></a>            <span class="c1"># so we can skip this step</span>
-</span><span id="StarescLogger-81"><a href="#StarescLogger-81"><span class="linenos"> 81</span></a>            <span class="k">return</span>
-</span><span id="StarescLogger-82"><a href="#StarescLogger-82"><span class="linenos"> 82</span></a>            
-</span><span id="StarescLogger-83"><a href="#StarescLogger-83"><span class="linenos"> 83</span></a>        <span class="n">hdlr</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">()</span>
-</span><span id="StarescLogger-84"><a href="#StarescLogger-84"><span class="linenos"> 84</span></a>        <span class="n">hdlr</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">StarescLoggingFormatter</span><span class="p">())</span>
-</span><span id="StarescLogger-85"><a href="#StarescLogger-85"><span class="linenos"> 85</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">hdlr</span><span class="p">)</span>
-</span><span id="StarescLogger-86"><a href="#StarescLogger-86"><span class="linenos"> 86</span></a>
-</span><span id="StarescLogger-87"><a href="#StarescLogger-87"><span class="linenos"> 87</span></a>
-</span><span id="StarescLogger-88"><a href="#StarescLogger-88"><span class="linenos"> 88</span></a>    <span class="k">def</span> <span class="nf">setLevelInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="StarescLogger-89"><a href="#StarescLogger-89"><span class="linenos"> 89</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
-</span><span id="StarescLogger-90"><a href="#StarescLogger-90"><span class="linenos"> 90</span></a>
-</span><span id="StarescLogger-91"><a href="#StarescLogger-91"><span class="linenos"> 91</span></a>    
-</span><span id="StarescLogger-92"><a href="#StarescLogger-92"><span class="linenos"> 92</span></a>    <span class="k">def</span> <span class="nf">setLevelDebug</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="StarescLogger-93"><a href="#StarescLogger-93"><span class="linenos"> 93</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
-</span><span id="StarescLogger-94"><a href="#StarescLogger-94"><span class="linenos"> 94</span></a>
-</span><span id="StarescLogger-95"><a href="#StarescLogger-95"><span class="linenos"> 95</span></a>
-</span><span id="StarescLogger-96"><a href="#StarescLogger-96"><span class="linenos"> 96</span></a>    <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-</span><span id="StarescLogger-97"><a href="#StarescLogger-97"><span class="linenos"> 97</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-</span><span id="StarescLogger-98"><a href="#StarescLogger-98"><span class="linenos"> 98</span></a>
-</span><span id="StarescLogger-99"><a href="#StarescLogger-99"><span class="linenos"> 99</span></a>    
-</span><span id="StarescLogger-100"><a href="#StarescLogger-100"><span class="linenos">100</span></a>    <span class="k">def</span> <span class="nf">debug</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-</span><span id="StarescLogger-101"><a href="#StarescLogger-101"><span class="linenos">101</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-</span><span id="StarescLogger-102"><a href="#StarescLogger-102"><span class="linenos">102</span></a>
-</span><span id="StarescLogger-103"><a href="#StarescLogger-103"><span class="linenos">103</span></a>    
-</span><span id="StarescLogger-104"><a href="#StarescLogger-104"><span class="linenos">104</span></a>    <span class="k">def</span> <span class="nf">error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-</span><span id="StarescLogger-105"><a href="#StarescLogger-105"><span class="linenos">105</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-</span><span id="StarescLogger-106"><a href="#StarescLogger-106"><span class="linenos">106</span></a>
-</span><span id="StarescLogger-107"><a href="#StarescLogger-107"><span class="linenos">107</span></a>
-</span><span id="StarescLogger-108"><a href="#StarescLogger-108"><span class="linenos">108</span></a>    <span class="k">def</span> <span class="nf">print_if_vuln</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">o</span><span class="p">:</span> <span class="n">Output</span><span class="p">):</span>
-</span><span id="StarescLogger-109"><a href="#StarescLogger-109"><span class="linenos">109</span></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">o</span><span class="o">.</span><span class="n">is_vuln_found</span><span class="p">():</span>
-</span><span id="StarescLogger-110"><a href="#StarescLogger-110"><span class="linenos">110</span></a>            <span class="k">return</span>
-</span><span id="StarescLogger-111"><a href="#StarescLogger-111"><span class="linenos">111</span></a>
-</span><span id="StarescLogger-112"><a href="#StarescLogger-112"><span class="linenos">112</span></a>        <span class="n">host</span> <span class="o">=</span> <span class="n">o</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">get_hostname</span><span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">connection</span><span class="p">)</span>
-</span><span id="StarescLogger-113"><a href="#StarescLogger-113"><span class="linenos">113</span></a>        <span class="n">port</span> <span class="o">=</span> <span class="n">o</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">get_port</span><span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">connection</span><span class="p">)</span>
-</span><span id="StarescLogger-114"><a href="#StarescLogger-114"><span class="linenos">114</span></a>
-</span><span id="StarescLogger-115"><a href="#StarescLogger-115"><span class="linenos">115</span></a>        <span class="n">e</span> <span class="o">=</span> <span class="p">{</span>
-</span><span id="StarescLogger-116"><a href="#StarescLogger-116"><span class="linenos">116</span></a>            <span class="s2">&quot;target&quot;</span>   <span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
-</span><span id="StarescLogger-117"><a href="#StarescLogger-117"><span class="linenos">117</span></a>            <span class="s2">&quot;severity&quot;</span> <span class="p">:</span> <span class="n">o</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">severity</span><span class="p">,</span>
-</span><span id="StarescLogger-118"><a href="#StarescLogger-118"><span class="linenos">118</span></a>            <span class="s2">&quot;plugin&quot;</span>   <span class="p">:</span> <span class="n">o</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
-</span><span id="StarescLogger-119"><a href="#StarescLogger-119"><span class="linenos">119</span></a>            <span class="s2">&quot;c&quot;</span>        <span class="p">:</span> <span class="n">SEVERITY2COLOR</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">severity</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="s2">&quot;&quot;</span><span class="p">),</span>
-</span><span id="StarescLogger-120"><a href="#StarescLogger-120"><span class="linenos">120</span></a>            <span class="s2">&quot;r&quot;</span>        <span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[0m&quot;</span><span class="p">,</span>
-</span><span id="StarescLogger-121"><a href="#StarescLogger-121"><span class="linenos">121</span></a>        <span class="p">}</span>
-</span><span id="StarescLogger-122"><a href="#StarescLogger-122"><span class="linenos">122</span></a>
-</span><span id="StarescLogger-123"><a href="#StarescLogger-123"><span class="linenos">123</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">vuln</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="n">e</span><span class="p">)</span>
-</span><span id="StarescLogger-124"><a href="#StarescLogger-124"><span class="linenos">124</span></a>
-</span><span id="StarescLogger-125"><a href="#StarescLogger-125"><span class="linenos">125</span></a>
-</span><span id="StarescLogger-126"><a href="#StarescLogger-126"><span class="linenos">126</span></a>    <span class="k">def</span> <span class="nf">raw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
-</span><span id="StarescLogger-127"><a href="#StarescLogger-127"><span class="linenos">127</span></a>        <span class="n">e</span> <span class="o">=</span> <span class="p">{</span>
-</span><span id="StarescLogger-128"><a href="#StarescLogger-128"><span class="linenos">128</span></a>            <span class="s2">&quot;target&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">target</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
-</span><span id="StarescLogger-129"><a href="#StarescLogger-129"><span class="linenos">129</span></a>        <span class="p">}</span>     
-</span><span id="StarescLogger-130"><a href="#StarescLogger-130"><span class="linenos">130</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">raw</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="n">e</span><span class="p">)</span>
-</span><span id="StarescLogger-131"><a href="#StarescLogger-131"><span class="linenos">131</span></a>
-</span><span id="StarescLogger-132"><a href="#StarescLogger-132"><span class="linenos">132</span></a>    
-</span><span id="StarescLogger-133"><a href="#StarescLogger-133"><span class="linenos">133</span></a>    <span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
-</span><span id="StarescLogger-134"><a href="#StarescLogger-134"><span class="linenos">134</span></a>        <span class="n">e</span> <span class="o">=</span> <span class="p">{</span>
-</span><span id="StarescLogger-135"><a href="#StarescLogger-135"><span class="linenos">135</span></a>            <span class="s2">&quot;target&quot;</span><span class="p">:</span> <span class="n">target</span><span class="p">,</span>
-</span><span id="StarescLogger-136"><a href="#StarescLogger-136"><span class="linenos">136</span></a>        <span class="p">}</span>     
-</span><span id="StarescLogger-137"><a href="#StarescLogger-137"><span class="linenos">137</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="n">e</span><span class="p">)</span>
+    <a class="headerlink" href="#Logger"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="Logger-19"><a href="#Logger-19"><span class="linenos"> 19</span></a><span class="k">class</span> <span class="nc">Logger</span><span class="p">:</span>
+</span><span id="Logger-20"><a href="#Logger-20"><span class="linenos"> 20</span></a>
+</span><span id="Logger-21"><a href="#Logger-21"><span class="linenos"> 21</span></a>    <span class="n">LEVEL_TO_STRING</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="Logger-22"><a href="#Logger-22"><span class="linenos"> 22</span></a>        <span class="n">VULN</span>      <span class="p">:</span> <span class="s2">&quot;VULN&quot;</span><span class="p">,</span>
+</span><span id="Logger-23"><a href="#Logger-23"><span class="linenos"> 23</span></a>        <span class="n">RAW</span>       <span class="p">:</span> <span class="s2">&quot;RAW&quot;</span><span class="p">,</span>
+</span><span id="Logger-24"><a href="#Logger-24"><span class="linenos"> 24</span></a>        <span class="n">CHECK</span>     <span class="p">:</span> <span class="s2">&quot;CHECK&quot;</span><span class="p">,</span>
+</span><span id="Logger-25"><a href="#Logger-25"><span class="linenos"> 25</span></a>    <span class="p">}</span>
+</span><span id="Logger-26"><a href="#Logger-26"><span class="linenos"> 26</span></a>
+</span><span id="Logger-27"><a href="#Logger-27"><span class="linenos"> 27</span></a>    <span class="n">logger</span><span class="p">:</span> <span class="n">logging</span><span class="o">.</span><span class="n">Logger</span>
+</span><span id="Logger-28"><a href="#Logger-28"><span class="linenos"> 28</span></a>    <span class="n">progress_msg</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;[RAW]:[</span><span class="si">{}</span><span class="s2">]: </span><span class="si">{}</span><span class="s2">&quot;</span>
+</span><span id="Logger-29"><a href="#Logger-29"><span class="linenos"> 29</span></a>
+</span><span id="Logger-30"><a href="#Logger-30"><span class="linenos"> 30</span></a>    <span class="k">class</span> <span class="nc">LoggingFormatter</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">):</span>
+</span><span id="Logger-31"><a href="#Logger-31"><span class="linenos"> 31</span></a>
+</span><span id="Logger-32"><a href="#Logger-32"><span class="linenos"> 32</span></a>        <span class="n">FORMATS</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="Logger-33"><a href="#Logger-33"><span class="linenos"> 33</span></a>            <span class="n">DEFAULT</span> <span class="p">:</span> <span class="s1">&#39;[</span><span class="si">%(asctime)s</span><span class="s1">]:[</span><span class="si">%(levelname)s</span><span class="s1">]: </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">,</span>
+</span><span id="Logger-34"><a href="#Logger-34"><span class="linenos"> 34</span></a>            <span class="n">VULN</span>    <span class="p">:</span> <span class="s1">&#39;[SCAN]:[</span><span class="si">%(target)s</span><span class="s1">]:[</span><span class="si">%(c)s%(severity)s%(r)s</span><span class="s1">]:[</span><span class="si">%(c)s%(plugin)s%(r)s</span><span class="s1">]&#39;</span><span class="p">,</span>
+</span><span id="Logger-35"><a href="#Logger-35"><span class="linenos"> 35</span></a>            <span class="n">RAW</span>     <span class="p">:</span> <span class="s1">&#39;[RAW]:[</span><span class="si">%(target)s</span><span class="s1">]: </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">,</span>
+</span><span id="Logger-36"><a href="#Logger-36"><span class="linenos"> 36</span></a>            <span class="n">CHECK</span>   <span class="p">:</span> <span class="s1">&#39;[CHECK]:[</span><span class="si">%(asctime)s</span><span class="s1">]: </span><span class="si">%(target)s</span><span class="s1">: </span><span class="si">%(message)s</span><span class="s1">&#39;</span>
+</span><span id="Logger-37"><a href="#Logger-37"><span class="linenos"> 37</span></a>        <span class="p">}</span>
+</span><span id="Logger-38"><a href="#Logger-38"><span class="linenos"> 38</span></a>
+</span><span id="Logger-39"><a href="#Logger-39"><span class="linenos"> 39</span></a>        <span class="k">def</span> <span class="nf">format</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record</span><span class="p">):</span>  
+</span><span id="Logger-40"><a href="#Logger-40"><span class="linenos"> 40</span></a>            <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">FORMATS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">levelno</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">FORMATS</span><span class="p">[</span><span class="n">DEFAULT</span><span class="p">])</span>
+</span><span id="Logger-41"><a href="#Logger-41"><span class="linenos"> 41</span></a>            <span class="n">formatter</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="n">fmt</span><span class="o">=</span><span class="n">f</span><span class="p">,</span> <span class="n">datefmt</span><span class="o">=</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">)</span>
+</span><span id="Logger-42"><a href="#Logger-42"><span class="linenos"> 42</span></a>            <span class="k">return</span> <span class="n">formatter</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">record</span><span class="p">)</span> 
+</span><span id="Logger-43"><a href="#Logger-43"><span class="linenos"> 43</span></a>
+</span><span id="Logger-44"><a href="#Logger-44"><span class="linenos"> 44</span></a>
+</span><span id="Logger-45"><a href="#Logger-45"><span class="linenos"> 45</span></a>    <span class="c1"># This function is taken from: https://stackoverflow.com/a/35804945</span>
+</span><span id="Logger-46"><a href="#Logger-46"><span class="linenos"> 46</span></a>    <span class="nd">@staticmethod</span>
+</span><span id="Logger-47"><a href="#Logger-47"><span class="linenos"> 47</span></a>    <span class="k">def</span> <span class="nf">__add_logging_level</span><span class="p">(</span><span class="n">levelName</span><span class="p">,</span> <span class="n">levelNum</span><span class="p">,</span> <span class="n">methodName</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+</span><span id="Logger-48"><a href="#Logger-48"><span class="linenos"> 48</span></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">methodName</span><span class="p">:</span>
+</span><span id="Logger-49"><a href="#Logger-49"><span class="linenos"> 49</span></a>            <span class="n">methodName</span> <span class="o">=</span> <span class="n">levelName</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+</span><span id="Logger-50"><a href="#Logger-50"><span class="linenos"> 50</span></a>
+</span><span id="Logger-51"><a href="#Logger-51"><span class="linenos"> 51</span></a>        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">logging</span><span class="p">,</span> <span class="n">levelName</span><span class="p">):</span>
+</span><span id="Logger-52"><a href="#Logger-52"><span class="linenos"> 52</span></a>            <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">levelName</span><span class="si">}</span><span class="s1"> already defined in logging module&#39;</span><span class="p">)</span>
+</span><span id="Logger-53"><a href="#Logger-53"><span class="linenos"> 53</span></a>        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">logging</span><span class="p">,</span> <span class="n">methodName</span><span class="p">):</span>
+</span><span id="Logger-54"><a href="#Logger-54"><span class="linenos"> 54</span></a>            <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">methodName</span><span class="si">}</span><span class="s1"> already defined in logging module&#39;</span><span class="p">)</span>
+</span><span id="Logger-55"><a href="#Logger-55"><span class="linenos"> 55</span></a>        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">getLoggerClass</span><span class="p">(),</span> <span class="n">methodName</span><span class="p">):</span>
+</span><span id="Logger-56"><a href="#Logger-56"><span class="linenos"> 56</span></a>            <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">methodName</span><span class="si">}</span><span class="s1"> already defined in logger class&#39;</span><span class="p">)</span>
+</span><span id="Logger-57"><a href="#Logger-57"><span class="linenos"> 57</span></a>
+</span><span id="Logger-58"><a href="#Logger-58"><span class="linenos"> 58</span></a>        <span class="k">def</span> <span class="nf">logForLevel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</span><span id="Logger-59"><a href="#Logger-59"><span class="linenos"> 59</span></a>            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isEnabledFor</span><span class="p">(</span><span class="n">levelNum</span><span class="p">):</span>
+</span><span id="Logger-60"><a href="#Logger-60"><span class="linenos"> 60</span></a>                <span class="bp">self</span><span class="o">.</span><span class="n">_log</span><span class="p">(</span><span class="n">levelNum</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</span><span id="Logger-61"><a href="#Logger-61"><span class="linenos"> 61</span></a>        <span class="k">def</span> <span class="nf">logToRoot</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</span><span id="Logger-62"><a href="#Logger-62"><span class="linenos"> 62</span></a>            <span class="n">logging</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">levelNum</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</span><span id="Logger-63"><a href="#Logger-63"><span class="linenos"> 63</span></a>
+</span><span id="Logger-64"><a href="#Logger-64"><span class="linenos"> 64</span></a>        <span class="n">logging</span><span class="o">.</span><span class="n">addLevelName</span><span class="p">(</span><span class="n">levelNum</span><span class="p">,</span> <span class="n">levelName</span><span class="p">)</span>
+</span><span id="Logger-65"><a href="#Logger-65"><span class="linenos"> 65</span></a>        <span class="nb">setattr</span><span class="p">(</span><span class="n">logging</span><span class="p">,</span> <span class="n">levelName</span><span class="p">,</span> <span class="n">levelNum</span><span class="p">)</span>
+</span><span id="Logger-66"><a href="#Logger-66"><span class="linenos"> 66</span></a>        <span class="nb">setattr</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">getLoggerClass</span><span class="p">(),</span> <span class="n">methodName</span><span class="p">,</span> <span class="n">logForLevel</span><span class="p">)</span>
+</span><span id="Logger-67"><a href="#Logger-67"><span class="linenos"> 67</span></a>        <span class="nb">setattr</span><span class="p">(</span><span class="n">logging</span><span class="p">,</span> <span class="n">methodName</span><span class="p">,</span> <span class="n">logToRoot</span><span class="p">)</span>
+</span><span id="Logger-68"><a href="#Logger-68"><span class="linenos"> 68</span></a>
+</span><span id="Logger-69"><a href="#Logger-69"><span class="linenos"> 69</span></a>
+</span><span id="Logger-70"><a href="#Logger-70"><span class="linenos"> 70</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="Logger-71"><a href="#Logger-71"><span class="linenos"> 71</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+</span><span id="Logger-72"><a href="#Logger-72"><span class="linenos"> 72</span></a>        
+</span><span id="Logger-73"><a href="#Logger-73"><span class="linenos"> 73</span></a>        <span class="k">try</span><span class="p">:</span>
+</span><span id="Logger-74"><a href="#Logger-74"><span class="linenos"> 74</span></a>            <span class="c1"># Initialize all levels in root logger</span>
+</span><span id="Logger-75"><a href="#Logger-75"><span class="linenos"> 75</span></a>            <span class="k">for</span> <span class="n">lev</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">LEVEL_TO_STRING</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+</span><span id="Logger-76"><a href="#Logger-76"><span class="linenos"> 76</span></a>                <span class="bp">self</span><span class="o">.</span><span class="n">__add_logging_level</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">lev</span><span class="p">)</span>
+</span><span id="Logger-77"><a href="#Logger-77"><span class="linenos"> 77</span></a>
+</span><span id="Logger-78"><a href="#Logger-78"><span class="linenos"> 78</span></a>        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+</span><span id="Logger-79"><a href="#Logger-79"><span class="linenos"> 79</span></a>            <span class="c1"># If attribute error: logger already configured</span>
+</span><span id="Logger-80"><a href="#Logger-80"><span class="linenos"> 80</span></a>            <span class="c1"># so we can skip this step</span>
+</span><span id="Logger-81"><a href="#Logger-81"><span class="linenos"> 81</span></a>            <span class="k">return</span>
+</span><span id="Logger-82"><a href="#Logger-82"><span class="linenos"> 82</span></a>            
+</span><span id="Logger-83"><a href="#Logger-83"><span class="linenos"> 83</span></a>        <span class="n">hdlr</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">()</span>
+</span><span id="Logger-84"><a href="#Logger-84"><span class="linenos"> 84</span></a>        <span class="n">hdlr</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">LoggingFormatter</span><span class="p">())</span>
+</span><span id="Logger-85"><a href="#Logger-85"><span class="linenos"> 85</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">hdlr</span><span class="p">)</span>
+</span><span id="Logger-86"><a href="#Logger-86"><span class="linenos"> 86</span></a>
+</span><span id="Logger-87"><a href="#Logger-87"><span class="linenos"> 87</span></a>
+</span><span id="Logger-88"><a href="#Logger-88"><span class="linenos"> 88</span></a>    <span class="k">def</span> <span class="nf">setLevelInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="Logger-89"><a href="#Logger-89"><span class="linenos"> 89</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+</span><span id="Logger-90"><a href="#Logger-90"><span class="linenos"> 90</span></a>
+</span><span id="Logger-91"><a href="#Logger-91"><span class="linenos"> 91</span></a>    
+</span><span id="Logger-92"><a href="#Logger-92"><span class="linenos"> 92</span></a>    <span class="k">def</span> <span class="nf">setLevelDebug</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="Logger-93"><a href="#Logger-93"><span class="linenos"> 93</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+</span><span id="Logger-94"><a href="#Logger-94"><span class="linenos"> 94</span></a>
+</span><span id="Logger-95"><a href="#Logger-95"><span class="linenos"> 95</span></a>
+</span><span id="Logger-96"><a href="#Logger-96"><span class="linenos"> 96</span></a>    <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="Logger-97"><a href="#Logger-97"><span class="linenos"> 97</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</span><span id="Logger-98"><a href="#Logger-98"><span class="linenos"> 98</span></a>
+</span><span id="Logger-99"><a href="#Logger-99"><span class="linenos"> 99</span></a>    
+</span><span id="Logger-100"><a href="#Logger-100"><span class="linenos">100</span></a>    <span class="k">def</span> <span class="nf">debug</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="Logger-101"><a href="#Logger-101"><span class="linenos">101</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</span><span id="Logger-102"><a href="#Logger-102"><span class="linenos">102</span></a>
+</span><span id="Logger-103"><a href="#Logger-103"><span class="linenos">103</span></a>    
+</span><span id="Logger-104"><a href="#Logger-104"><span class="linenos">104</span></a>    <span class="k">def</span> <span class="nf">error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="Logger-105"><a href="#Logger-105"><span class="linenos">105</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</span><span id="Logger-106"><a href="#Logger-106"><span class="linenos">106</span></a>
+</span><span id="Logger-107"><a href="#Logger-107"><span class="linenos">107</span></a>
+</span><span id="Logger-108"><a href="#Logger-108"><span class="linenos">108</span></a>    <span class="k">def</span> <span class="nf">print_if_vuln</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">o</span><span class="p">:</span> <span class="n">Output</span><span class="p">):</span>
+</span><span id="Logger-109"><a href="#Logger-109"><span class="linenos">109</span></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">o</span><span class="o">.</span><span class="n">is_vuln_found</span><span class="p">():</span>
+</span><span id="Logger-110"><a href="#Logger-110"><span class="linenos">110</span></a>            <span class="k">return</span>
+</span><span id="Logger-111"><a href="#Logger-111"><span class="linenos">111</span></a>
+</span><span id="Logger-112"><a href="#Logger-112"><span class="linenos">112</span></a>        <span class="k">if</span> <span class="n">o</span><span class="o">.</span><span class="n">plugin</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="Logger-113"><a href="#Logger-113"><span class="linenos">113</span></a>            <span class="k">return</span>
+</span><span id="Logger-114"><a href="#Logger-114"><span class="linenos">114</span></a>
+</span><span id="Logger-115"><a href="#Logger-115"><span class="linenos">115</span></a>        <span class="n">host</span> <span class="o">=</span> <span class="n">o</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">hostname</span>
+</span><span id="Logger-116"><a href="#Logger-116"><span class="linenos">116</span></a>        <span class="n">port</span> <span class="o">=</span> <span class="n">o</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">port</span>
+</span><span id="Logger-117"><a href="#Logger-117"><span class="linenos">117</span></a>
+</span><span id="Logger-118"><a href="#Logger-118"><span class="linenos">118</span></a>        <span class="n">e</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="Logger-119"><a href="#Logger-119"><span class="linenos">119</span></a>            <span class="s2">&quot;target&quot;</span>   <span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+</span><span id="Logger-120"><a href="#Logger-120"><span class="linenos">120</span></a>            <span class="s2">&quot;severity&quot;</span> <span class="p">:</span> <span class="n">o</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">severity</span><span class="p">,</span>
+</span><span id="Logger-121"><a href="#Logger-121"><span class="linenos">121</span></a>            <span class="s2">&quot;plugin&quot;</span>   <span class="p">:</span> <span class="n">o</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+</span><span id="Logger-122"><a href="#Logger-122"><span class="linenos">122</span></a>            <span class="s2">&quot;c&quot;</span>        <span class="p">:</span> <span class="n">SEVERITY2COLOR</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">severity</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="s2">&quot;&quot;</span><span class="p">),</span>
+</span><span id="Logger-123"><a href="#Logger-123"><span class="linenos">123</span></a>            <span class="s2">&quot;r&quot;</span>        <span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[0m&quot;</span><span class="p">,</span>
+</span><span id="Logger-124"><a href="#Logger-124"><span class="linenos">124</span></a>        <span class="p">}</span>
+</span><span id="Logger-125"><a href="#Logger-125"><span class="linenos">125</span></a>
+</span><span id="Logger-126"><a href="#Logger-126"><span class="linenos">126</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">vuln</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="n">e</span><span class="p">)</span> <span class="c1">#type: ignore</span>
+</span><span id="Logger-127"><a href="#Logger-127"><span class="linenos">127</span></a>
+</span><span id="Logger-128"><a href="#Logger-128"><span class="linenos">128</span></a>
+</span><span id="Logger-129"><a href="#Logger-129"><span class="linenos">129</span></a>    <span class="k">def</span> <span class="nf">raw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+</span><span id="Logger-130"><a href="#Logger-130"><span class="linenos">130</span></a>        <span class="n">e</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="Logger-131"><a href="#Logger-131"><span class="linenos">131</span></a>            <span class="s2">&quot;target&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">target</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+</span><span id="Logger-132"><a href="#Logger-132"><span class="linenos">132</span></a>        <span class="p">}</span>     
+</span><span id="Logger-133"><a href="#Logger-133"><span class="linenos">133</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">raw</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="n">e</span><span class="p">)</span> <span class="c1">#type: ignore</span>
+</span><span id="Logger-134"><a href="#Logger-134"><span class="linenos">134</span></a>
+</span><span id="Logger-135"><a href="#Logger-135"><span class="linenos">135</span></a>    
+</span><span id="Logger-136"><a href="#Logger-136"><span class="linenos">136</span></a>    <span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+</span><span id="Logger-137"><a href="#Logger-137"><span class="linenos">137</span></a>        <span class="n">e</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="Logger-138"><a href="#Logger-138"><span class="linenos">138</span></a>            <span class="s2">&quot;target&quot;</span><span class="p">:</span> <span class="n">target</span><span class="p">,</span>
+</span><span id="Logger-139"><a href="#Logger-139"><span class="linenos">139</span></a>        <span class="p">}</span>     
+</span><span id="Logger-140"><a href="#Logger-140"><span class="linenos">140</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="n">e</span><span class="p">)</span> <span class="c1">#type: ignore</span>
 </span></pre></div>
 
 
     
 
-                            <div id="StarescLogger.__init__" class="classattr">
-                                        <input id="StarescLogger.__init__-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+                            <div id="Logger.__init__" class="classattr">
+                                        <input id="Logger.__init__-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">
             
-        <span class="name">StarescLogger</span><span class="signature pdoc-code condensed">()</span>
+        <span class="name">Logger</span><span class="signature pdoc-code condensed">()</span>
 
-                <label class="view-source-button" for="StarescLogger.__init__-view-source"><span>View Source</span></label>
+                <label class="view-source-button" for="Logger.__init__-view-source"><span>View Source</span></label>
 
     </div>
-    <a class="headerlink" href="#StarescLogger.__init__"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="StarescLogger.__init__-70"><a href="#StarescLogger.__init__-70"><span class="linenos">70</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="StarescLogger.__init__-71"><a href="#StarescLogger.__init__-71"><span class="linenos">71</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
-</span><span id="StarescLogger.__init__-72"><a href="#StarescLogger.__init__-72"><span class="linenos">72</span></a>        
-</span><span id="StarescLogger.__init__-73"><a href="#StarescLogger.__init__-73"><span class="linenos">73</span></a>        <span class="k">try</span><span class="p">:</span>
-</span><span id="StarescLogger.__init__-74"><a href="#StarescLogger.__init__-74"><span class="linenos">74</span></a>            <span class="c1"># Initialize all levels in root logger</span>
-</span><span id="StarescLogger.__init__-75"><a href="#StarescLogger.__init__-75"><span class="linenos">75</span></a>            <span class="k">for</span> <span class="n">lev</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">LEVEL_TO_STRING</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-</span><span id="StarescLogger.__init__-76"><a href="#StarescLogger.__init__-76"><span class="linenos">76</span></a>                <span class="bp">self</span><span class="o">.</span><span class="n">__add_logging_level</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">lev</span><span class="p">)</span>
-</span><span id="StarescLogger.__init__-77"><a href="#StarescLogger.__init__-77"><span class="linenos">77</span></a>
-</span><span id="StarescLogger.__init__-78"><a href="#StarescLogger.__init__-78"><span class="linenos">78</span></a>        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
-</span><span id="StarescLogger.__init__-79"><a href="#StarescLogger.__init__-79"><span class="linenos">79</span></a>            <span class="c1"># If attribute error: logger already configured</span>
-</span><span id="StarescLogger.__init__-80"><a href="#StarescLogger.__init__-80"><span class="linenos">80</span></a>            <span class="c1"># so we can skip this step</span>
-</span><span id="StarescLogger.__init__-81"><a href="#StarescLogger.__init__-81"><span class="linenos">81</span></a>            <span class="k">return</span>
-</span><span id="StarescLogger.__init__-82"><a href="#StarescLogger.__init__-82"><span class="linenos">82</span></a>            
-</span><span id="StarescLogger.__init__-83"><a href="#StarescLogger.__init__-83"><span class="linenos">83</span></a>        <span class="n">hdlr</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">()</span>
-</span><span id="StarescLogger.__init__-84"><a href="#StarescLogger.__init__-84"><span class="linenos">84</span></a>        <span class="n">hdlr</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">StarescLoggingFormatter</span><span class="p">())</span>
-</span><span id="StarescLogger.__init__-85"><a href="#StarescLogger.__init__-85"><span class="linenos">85</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">hdlr</span><span class="p">)</span>
+    <a class="headerlink" href="#Logger.__init__"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="Logger.__init__-70"><a href="#Logger.__init__-70"><span class="linenos">70</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="Logger.__init__-71"><a href="#Logger.__init__-71"><span class="linenos">71</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+</span><span id="Logger.__init__-72"><a href="#Logger.__init__-72"><span class="linenos">72</span></a>        
+</span><span id="Logger.__init__-73"><a href="#Logger.__init__-73"><span class="linenos">73</span></a>        <span class="k">try</span><span class="p">:</span>
+</span><span id="Logger.__init__-74"><a href="#Logger.__init__-74"><span class="linenos">74</span></a>            <span class="c1"># Initialize all levels in root logger</span>
+</span><span id="Logger.__init__-75"><a href="#Logger.__init__-75"><span class="linenos">75</span></a>            <span class="k">for</span> <span class="n">lev</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">LEVEL_TO_STRING</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+</span><span id="Logger.__init__-76"><a href="#Logger.__init__-76"><span class="linenos">76</span></a>                <span class="bp">self</span><span class="o">.</span><span class="n">__add_logging_level</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">lev</span><span class="p">)</span>
+</span><span id="Logger.__init__-77"><a href="#Logger.__init__-77"><span class="linenos">77</span></a>
+</span><span id="Logger.__init__-78"><a href="#Logger.__init__-78"><span class="linenos">78</span></a>        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+</span><span id="Logger.__init__-79"><a href="#Logger.__init__-79"><span class="linenos">79</span></a>            <span class="c1"># If attribute error: logger already configured</span>
+</span><span id="Logger.__init__-80"><a href="#Logger.__init__-80"><span class="linenos">80</span></a>            <span class="c1"># so we can skip this step</span>
+</span><span id="Logger.__init__-81"><a href="#Logger.__init__-81"><span class="linenos">81</span></a>            <span class="k">return</span>
+</span><span id="Logger.__init__-82"><a href="#Logger.__init__-82"><span class="linenos">82</span></a>            
+</span><span id="Logger.__init__-83"><a href="#Logger.__init__-83"><span class="linenos">83</span></a>        <span class="n">hdlr</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">()</span>
+</span><span id="Logger.__init__-84"><a href="#Logger.__init__-84"><span class="linenos">84</span></a>        <span class="n">hdlr</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">LoggingFormatter</span><span class="p">())</span>
+</span><span id="Logger.__init__-85"><a href="#Logger.__init__-85"><span class="linenos">85</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">hdlr</span><span class="p">)</span>
 </span></pre></div>
 
 
     
 
                             </div>
-                            <div id="StarescLogger.setLevelInfo" class="classattr">
-                                        <input id="StarescLogger.setLevelInfo-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+                            <div id="Logger.setLevelInfo" class="classattr">
+                                        <input id="Logger.setLevelInfo-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">
             
         <span class="def">def</span>
         <span class="name">setLevelInfo</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">):</span></span>
 
-                <label class="view-source-button" for="StarescLogger.setLevelInfo-view-source"><span>View Source</span></label>
+                <label class="view-source-button" for="Logger.setLevelInfo-view-source"><span>View Source</span></label>
 
     </div>
-    <a class="headerlink" href="#StarescLogger.setLevelInfo"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="StarescLogger.setLevelInfo-88"><a href="#StarescLogger.setLevelInfo-88"><span class="linenos">88</span></a>    <span class="k">def</span> <span class="nf">setLevelInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="StarescLogger.setLevelInfo-89"><a href="#StarescLogger.setLevelInfo-89"><span class="linenos">89</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+    <a class="headerlink" href="#Logger.setLevelInfo"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="Logger.setLevelInfo-88"><a href="#Logger.setLevelInfo-88"><span class="linenos">88</span></a>    <span class="k">def</span> <span class="nf">setLevelInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="Logger.setLevelInfo-89"><a href="#Logger.setLevelInfo-89"><span class="linenos">89</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
 </span></pre></div>
 
 
     
 
                             </div>
-                            <div id="StarescLogger.setLevelDebug" class="classattr">
-                                        <input id="StarescLogger.setLevelDebug-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+                            <div id="Logger.setLevelDebug" class="classattr">
+                                        <input id="Logger.setLevelDebug-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">
             
         <span class="def">def</span>
         <span class="name">setLevelDebug</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">):</span></span>
 
-                <label class="view-source-button" for="StarescLogger.setLevelDebug-view-source"><span>View Source</span></label>
+                <label class="view-source-button" for="Logger.setLevelDebug-view-source"><span>View Source</span></label>
 
     </div>
-    <a class="headerlink" href="#StarescLogger.setLevelDebug"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="StarescLogger.setLevelDebug-92"><a href="#StarescLogger.setLevelDebug-92"><span class="linenos">92</span></a>    <span class="k">def</span> <span class="nf">setLevelDebug</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="StarescLogger.setLevelDebug-93"><a href="#StarescLogger.setLevelDebug-93"><span class="linenos">93</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+    <a class="headerlink" href="#Logger.setLevelDebug"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="Logger.setLevelDebug-92"><a href="#Logger.setLevelDebug-92"><span class="linenos">92</span></a>    <span class="k">def</span> <span class="nf">setLevelDebug</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="Logger.setLevelDebug-93"><a href="#Logger.setLevelDebug-93"><span class="linenos">93</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
 </span></pre></div>
 
 
     
 
                             </div>
-                            <div id="StarescLogger.info" class="classattr">
-                                        <input id="StarescLogger.info-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+                            <div id="Logger.info" class="classattr">
+                                        <input id="Logger.info-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">
             
         <span class="def">def</span>
         <span class="name">info</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">msg</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">):</span></span>
 
-                <label class="view-source-button" for="StarescLogger.info-view-source"><span>View Source</span></label>
+                <label class="view-source-button" for="Logger.info-view-source"><span>View Source</span></label>
 
     </div>
-    <a class="headerlink" href="#StarescLogger.info"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="StarescLogger.info-96"><a href="#StarescLogger.info-96"><span class="linenos">96</span></a>    <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-</span><span id="StarescLogger.info-97"><a href="#StarescLogger.info-97"><span class="linenos">97</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <a class="headerlink" href="#Logger.info"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="Logger.info-96"><a href="#Logger.info-96"><span class="linenos">96</span></a>    <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="Logger.info-97"><a href="#Logger.info-97"><span class="linenos">97</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 </span></pre></div>
 
 
     
 
                             </div>
-                            <div id="StarescLogger.debug" class="classattr">
-                                        <input id="StarescLogger.debug-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+                            <div id="Logger.debug" class="classattr">
+                                        <input id="Logger.debug-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">
             
         <span class="def">def</span>
         <span class="name">debug</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">msg</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">):</span></span>
 
-                <label class="view-source-button" for="StarescLogger.debug-view-source"><span>View Source</span></label>
+                <label class="view-source-button" for="Logger.debug-view-source"><span>View Source</span></label>
 
     </div>
-    <a class="headerlink" href="#StarescLogger.debug"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="StarescLogger.debug-100"><a href="#StarescLogger.debug-100"><span class="linenos">100</span></a>    <span class="k">def</span> <span class="nf">debug</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-</span><span id="StarescLogger.debug-101"><a href="#StarescLogger.debug-101"><span class="linenos">101</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <a class="headerlink" href="#Logger.debug"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="Logger.debug-100"><a href="#Logger.debug-100"><span class="linenos">100</span></a>    <span class="k">def</span> <span class="nf">debug</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="Logger.debug-101"><a href="#Logger.debug-101"><span class="linenos">101</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 </span></pre></div>
 
 
     
 
                             </div>
-                            <div id="StarescLogger.error" class="classattr">
-                                        <input id="StarescLogger.error-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+                            <div id="Logger.error" class="classattr">
+                                        <input id="Logger.error-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">
             
         <span class="def">def</span>
         <span class="name">error</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">msg</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">):</span></span>
 
-                <label class="view-source-button" for="StarescLogger.error-view-source"><span>View Source</span></label>
+                <label class="view-source-button" for="Logger.error-view-source"><span>View Source</span></label>
 
     </div>
-    <a class="headerlink" href="#StarescLogger.error"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="StarescLogger.error-104"><a href="#StarescLogger.error-104"><span class="linenos">104</span></a>    <span class="k">def</span> <span class="nf">error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-</span><span id="StarescLogger.error-105"><a href="#StarescLogger.error-105"><span class="linenos">105</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <a class="headerlink" href="#Logger.error"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="Logger.error-104"><a href="#Logger.error-104"><span class="linenos">104</span></a>    <span class="k">def</span> <span class="nf">error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="Logger.error-105"><a href="#Logger.error-105"><span class="linenos">105</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 </span></pre></div>
 
 
     
 
                             </div>
-                            <div id="StarescLogger.print_if_vuln" class="classattr">
-                                        <input id="StarescLogger.print_if_vuln-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+                            <div id="Logger.print_if_vuln" class="classattr">
+                                        <input id="Logger.print_if_vuln-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">
             
         <span class="def">def</span>
         <span class="name">print_if_vuln</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">o</span><span class="p">:</span> <span class="n"><a href="output.html#Output">staresc.output.Output</a></span></span><span class="return-annotation">):</span></span>
 
-                <label class="view-source-button" for="StarescLogger.print_if_vuln-view-source"><span>View Source</span></label>
+                <label class="view-source-button" for="Logger.print_if_vuln-view-source"><span>View Source</span></label>
 
     </div>
-    <a class="headerlink" href="#StarescLogger.print_if_vuln"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="StarescLogger.print_if_vuln-108"><a href="#StarescLogger.print_if_vuln-108"><span class="linenos">108</span></a>    <span class="k">def</span> <span class="nf">print_if_vuln</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">o</span><span class="p">:</span> <span class="n">Output</span><span class="p">):</span>
-</span><span id="StarescLogger.print_if_vuln-109"><a href="#StarescLogger.print_if_vuln-109"><span class="linenos">109</span></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">o</span><span class="o">.</span><span class="n">is_vuln_found</span><span class="p">():</span>
-</span><span id="StarescLogger.print_if_vuln-110"><a href="#StarescLogger.print_if_vuln-110"><span class="linenos">110</span></a>            <span class="k">return</span>
-</span><span id="StarescLogger.print_if_vuln-111"><a href="#StarescLogger.print_if_vuln-111"><span class="linenos">111</span></a>
-</span><span id="StarescLogger.print_if_vuln-112"><a href="#StarescLogger.print_if_vuln-112"><span class="linenos">112</span></a>        <span class="n">host</span> <span class="o">=</span> <span class="n">o</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">get_hostname</span><span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">connection</span><span class="p">)</span>
-</span><span id="StarescLogger.print_if_vuln-113"><a href="#StarescLogger.print_if_vuln-113"><span class="linenos">113</span></a>        <span class="n">port</span> <span class="o">=</span> <span class="n">o</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">get_port</span><span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">connection</span><span class="p">)</span>
-</span><span id="StarescLogger.print_if_vuln-114"><a href="#StarescLogger.print_if_vuln-114"><span class="linenos">114</span></a>
-</span><span id="StarescLogger.print_if_vuln-115"><a href="#StarescLogger.print_if_vuln-115"><span class="linenos">115</span></a>        <span class="n">e</span> <span class="o">=</span> <span class="p">{</span>
-</span><span id="StarescLogger.print_if_vuln-116"><a href="#StarescLogger.print_if_vuln-116"><span class="linenos">116</span></a>            <span class="s2">&quot;target&quot;</span>   <span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
-</span><span id="StarescLogger.print_if_vuln-117"><a href="#StarescLogger.print_if_vuln-117"><span class="linenos">117</span></a>            <span class="s2">&quot;severity&quot;</span> <span class="p">:</span> <span class="n">o</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">severity</span><span class="p">,</span>
-</span><span id="StarescLogger.print_if_vuln-118"><a href="#StarescLogger.print_if_vuln-118"><span class="linenos">118</span></a>            <span class="s2">&quot;plugin&quot;</span>   <span class="p">:</span> <span class="n">o</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
-</span><span id="StarescLogger.print_if_vuln-119"><a href="#StarescLogger.print_if_vuln-119"><span class="linenos">119</span></a>            <span class="s2">&quot;c&quot;</span>        <span class="p">:</span> <span class="n">SEVERITY2COLOR</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">severity</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="s2">&quot;&quot;</span><span class="p">),</span>
-</span><span id="StarescLogger.print_if_vuln-120"><a href="#StarescLogger.print_if_vuln-120"><span class="linenos">120</span></a>            <span class="s2">&quot;r&quot;</span>        <span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[0m&quot;</span><span class="p">,</span>
-</span><span id="StarescLogger.print_if_vuln-121"><a href="#StarescLogger.print_if_vuln-121"><span class="linenos">121</span></a>        <span class="p">}</span>
-</span><span id="StarescLogger.print_if_vuln-122"><a href="#StarescLogger.print_if_vuln-122"><span class="linenos">122</span></a>
-</span><span id="StarescLogger.print_if_vuln-123"><a href="#StarescLogger.print_if_vuln-123"><span class="linenos">123</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">vuln</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="n">e</span><span class="p">)</span>
+    <a class="headerlink" href="#Logger.print_if_vuln"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="Logger.print_if_vuln-108"><a href="#Logger.print_if_vuln-108"><span class="linenos">108</span></a>    <span class="k">def</span> <span class="nf">print_if_vuln</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">o</span><span class="p">:</span> <span class="n">Output</span><span class="p">):</span>
+</span><span id="Logger.print_if_vuln-109"><a href="#Logger.print_if_vuln-109"><span class="linenos">109</span></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">o</span><span class="o">.</span><span class="n">is_vuln_found</span><span class="p">():</span>
+</span><span id="Logger.print_if_vuln-110"><a href="#Logger.print_if_vuln-110"><span class="linenos">110</span></a>            <span class="k">return</span>
+</span><span id="Logger.print_if_vuln-111"><a href="#Logger.print_if_vuln-111"><span class="linenos">111</span></a>
+</span><span id="Logger.print_if_vuln-112"><a href="#Logger.print_if_vuln-112"><span class="linenos">112</span></a>        <span class="k">if</span> <span class="n">o</span><span class="o">.</span><span class="n">plugin</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="Logger.print_if_vuln-113"><a href="#Logger.print_if_vuln-113"><span class="linenos">113</span></a>            <span class="k">return</span>
+</span><span id="Logger.print_if_vuln-114"><a href="#Logger.print_if_vuln-114"><span class="linenos">114</span></a>
+</span><span id="Logger.print_if_vuln-115"><a href="#Logger.print_if_vuln-115"><span class="linenos">115</span></a>        <span class="n">host</span> <span class="o">=</span> <span class="n">o</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">hostname</span>
+</span><span id="Logger.print_if_vuln-116"><a href="#Logger.print_if_vuln-116"><span class="linenos">116</span></a>        <span class="n">port</span> <span class="o">=</span> <span class="n">o</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">port</span>
+</span><span id="Logger.print_if_vuln-117"><a href="#Logger.print_if_vuln-117"><span class="linenos">117</span></a>
+</span><span id="Logger.print_if_vuln-118"><a href="#Logger.print_if_vuln-118"><span class="linenos">118</span></a>        <span class="n">e</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="Logger.print_if_vuln-119"><a href="#Logger.print_if_vuln-119"><span class="linenos">119</span></a>            <span class="s2">&quot;target&quot;</span>   <span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+</span><span id="Logger.print_if_vuln-120"><a href="#Logger.print_if_vuln-120"><span class="linenos">120</span></a>            <span class="s2">&quot;severity&quot;</span> <span class="p">:</span> <span class="n">o</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">severity</span><span class="p">,</span>
+</span><span id="Logger.print_if_vuln-121"><a href="#Logger.print_if_vuln-121"><span class="linenos">121</span></a>            <span class="s2">&quot;plugin&quot;</span>   <span class="p">:</span> <span class="n">o</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+</span><span id="Logger.print_if_vuln-122"><a href="#Logger.print_if_vuln-122"><span class="linenos">122</span></a>            <span class="s2">&quot;c&quot;</span>        <span class="p">:</span> <span class="n">SEVERITY2COLOR</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">severity</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="s2">&quot;&quot;</span><span class="p">),</span>
+</span><span id="Logger.print_if_vuln-123"><a href="#Logger.print_if_vuln-123"><span class="linenos">123</span></a>            <span class="s2">&quot;r&quot;</span>        <span class="p">:</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[0m&quot;</span><span class="p">,</span>
+</span><span id="Logger.print_if_vuln-124"><a href="#Logger.print_if_vuln-124"><span class="linenos">124</span></a>        <span class="p">}</span>
+</span><span id="Logger.print_if_vuln-125"><a href="#Logger.print_if_vuln-125"><span class="linenos">125</span></a>
+</span><span id="Logger.print_if_vuln-126"><a href="#Logger.print_if_vuln-126"><span class="linenos">126</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">vuln</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="n">e</span><span class="p">)</span> <span class="c1">#type: ignore</span>
 </span></pre></div>
 
 
     
 
                             </div>
-                            <div id="StarescLogger.raw" class="classattr">
-                                        <input id="StarescLogger.raw-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+                            <div id="Logger.raw" class="classattr">
+                                        <input id="Logger.raw-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">
             
         <span class="def">def</span>
         <span class="name">raw</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">target</span><span class="p">:</span> <span class="nb">str</span>, </span><span class="param"><span class="n">port</span><span class="p">:</span> <span class="nb">str</span>, </span><span class="param"><span class="n">msg</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">):</span></span>
 
-                <label class="view-source-button" for="StarescLogger.raw-view-source"><span>View Source</span></label>
+                <label class="view-source-button" for="Logger.raw-view-source"><span>View Source</span></label>
 
     </div>
-    <a class="headerlink" href="#StarescLogger.raw"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="StarescLogger.raw-126"><a href="#StarescLogger.raw-126"><span class="linenos">126</span></a>    <span class="k">def</span> <span class="nf">raw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
-</span><span id="StarescLogger.raw-127"><a href="#StarescLogger.raw-127"><span class="linenos">127</span></a>        <span class="n">e</span> <span class="o">=</span> <span class="p">{</span>
-</span><span id="StarescLogger.raw-128"><a href="#StarescLogger.raw-128"><span class="linenos">128</span></a>            <span class="s2">&quot;target&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">target</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
-</span><span id="StarescLogger.raw-129"><a href="#StarescLogger.raw-129"><span class="linenos">129</span></a>        <span class="p">}</span>     
-</span><span id="StarescLogger.raw-130"><a href="#StarescLogger.raw-130"><span class="linenos">130</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">raw</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="n">e</span><span class="p">)</span>
+    <a class="headerlink" href="#Logger.raw"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="Logger.raw-129"><a href="#Logger.raw-129"><span class="linenos">129</span></a>    <span class="k">def</span> <span class="nf">raw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+</span><span id="Logger.raw-130"><a href="#Logger.raw-130"><span class="linenos">130</span></a>        <span class="n">e</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="Logger.raw-131"><a href="#Logger.raw-131"><span class="linenos">131</span></a>            <span class="s2">&quot;target&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">target</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+</span><span id="Logger.raw-132"><a href="#Logger.raw-132"><span class="linenos">132</span></a>        <span class="p">}</span>     
+</span><span id="Logger.raw-133"><a href="#Logger.raw-133"><span class="linenos">133</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">raw</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="n">e</span><span class="p">)</span> <span class="c1">#type: ignore</span>
 </span></pre></div>
 
 
     
 
                             </div>
-                            <div id="StarescLogger.check" class="classattr">
-                                        <input id="StarescLogger.check-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+                            <div id="Logger.check" class="classattr">
+                                        <input id="Logger.check-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">
             
         <span class="def">def</span>
         <span class="name">check</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">target</span><span class="p">:</span> <span class="nb">str</span>, </span><span class="param"><span class="n">msg</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">):</span></span>
 
-                <label class="view-source-button" for="StarescLogger.check-view-source"><span>View Source</span></label>
+                <label class="view-source-button" for="Logger.check-view-source"><span>View Source</span></label>
 
     </div>
-    <a class="headerlink" href="#StarescLogger.check"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="StarescLogger.check-133"><a href="#StarescLogger.check-133"><span class="linenos">133</span></a>    <span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
-</span><span id="StarescLogger.check-134"><a href="#StarescLogger.check-134"><span class="linenos">134</span></a>        <span class="n">e</span> <span class="o">=</span> <span class="p">{</span>
-</span><span id="StarescLogger.check-135"><a href="#StarescLogger.check-135"><span class="linenos">135</span></a>            <span class="s2">&quot;target&quot;</span><span class="p">:</span> <span class="n">target</span><span class="p">,</span>
-</span><span id="StarescLogger.check-136"><a href="#StarescLogger.check-136"><span class="linenos">136</span></a>        <span class="p">}</span>     
-</span><span id="StarescLogger.check-137"><a href="#StarescLogger.check-137"><span class="linenos">137</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="n">e</span><span class="p">)</span>
+    <a class="headerlink" href="#Logger.check"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="Logger.check-136"><a href="#Logger.check-136"><span class="linenos">136</span></a>    <span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+</span><span id="Logger.check-137"><a href="#Logger.check-137"><span class="linenos">137</span></a>        <span class="n">e</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="Logger.check-138"><a href="#Logger.check-138"><span class="linenos">138</span></a>            <span class="s2">&quot;target&quot;</span><span class="p">:</span> <span class="n">target</span><span class="p">,</span>
+</span><span id="Logger.check-139"><a href="#Logger.check-139"><span class="linenos">139</span></a>        <span class="p">}</span>     
+</span><span id="Logger.check-140"><a href="#Logger.check-140"><span class="linenos">140</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="n">e</span><span class="p">)</span> <span class="c1">#type: ignore</span>
 </span></pre></div>
 
 
@@ -574,30 +583,30 @@
 
                             </div>
                 </section>
-                <section id="StarescLogger.StarescLoggingFormatter">
-                            <input id="StarescLogger.StarescLoggingFormatter-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+                <section id="Logger.LoggingFormatter">
+                            <input id="Logger.LoggingFormatter-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr class">
             
     <span class="def">class</span>
-    <span class="name">StarescLogger.StarescLoggingFormatter</span><wbr>(<span class="base">logging.Formatter</span>):
+    <span class="name">Logger.LoggingFormatter</span><wbr>(<span class="base">logging.Formatter</span>):
 
-                <label class="view-source-button" for="StarescLogger.StarescLoggingFormatter-view-source"><span>View Source</span></label>
+                <label class="view-source-button" for="Logger.LoggingFormatter-view-source"><span>View Source</span></label>
 
     </div>
-    <a class="headerlink" href="#StarescLogger.StarescLoggingFormatter"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="StarescLogger.StarescLoggingFormatter-30"><a href="#StarescLogger.StarescLoggingFormatter-30"><span class="linenos">30</span></a>    <span class="k">class</span> <span class="nc">StarescLoggingFormatter</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">):</span>
-</span><span id="StarescLogger.StarescLoggingFormatter-31"><a href="#StarescLogger.StarescLoggingFormatter-31"><span class="linenos">31</span></a>
-</span><span id="StarescLogger.StarescLoggingFormatter-32"><a href="#StarescLogger.StarescLoggingFormatter-32"><span class="linenos">32</span></a>        <span class="n">FORMATS</span> <span class="o">=</span> <span class="p">{</span>
-</span><span id="StarescLogger.StarescLoggingFormatter-33"><a href="#StarescLogger.StarescLoggingFormatter-33"><span class="linenos">33</span></a>            <span class="n">DEFAULT</span> <span class="p">:</span> <span class="s1">&#39;[STARESC]:[</span><span class="si">%(asctime)s</span><span class="s1">]:[</span><span class="si">%(levelname)s</span><span class="s1">]: </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">,</span>
-</span><span id="StarescLogger.StarescLoggingFormatter-34"><a href="#StarescLogger.StarescLoggingFormatter-34"><span class="linenos">34</span></a>            <span class="n">VULN</span>    <span class="p">:</span> <span class="s1">&#39;[STARESC]:[</span><span class="si">%(target)s</span><span class="s1">]:[</span><span class="si">%(c)s%(severity)s%(r)s</span><span class="s1">]:[</span><span class="si">%(c)s%(plugin)s%(r)s</span><span class="s1">]&#39;</span><span class="p">,</span>
-</span><span id="StarescLogger.StarescLoggingFormatter-35"><a href="#StarescLogger.StarescLoggingFormatter-35"><span class="linenos">35</span></a>            <span class="n">RAW</span>     <span class="p">:</span> <span class="s1">&#39;[STARESC]:[</span><span class="si">%(target)s</span><span class="s1">]:[RAW]: </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">,</span>
-</span><span id="StarescLogger.StarescLoggingFormatter-36"><a href="#StarescLogger.StarescLoggingFormatter-36"><span class="linenos">36</span></a>            <span class="n">CHECK</span>   <span class="p">:</span> <span class="s1">&#39;[STARESC]:[</span><span class="si">%(asctime)s</span><span class="s1">]:[CHECK]: </span><span class="si">%(target)s</span><span class="s1">: </span><span class="si">%(message)s</span><span class="s1">&#39;</span>
-</span><span id="StarescLogger.StarescLoggingFormatter-37"><a href="#StarescLogger.StarescLoggingFormatter-37"><span class="linenos">37</span></a>        <span class="p">}</span>
-</span><span id="StarescLogger.StarescLoggingFormatter-38"><a href="#StarescLogger.StarescLoggingFormatter-38"><span class="linenos">38</span></a>
-</span><span id="StarescLogger.StarescLoggingFormatter-39"><a href="#StarescLogger.StarescLoggingFormatter-39"><span class="linenos">39</span></a>        <span class="k">def</span> <span class="nf">format</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record</span><span class="p">):</span>  
-</span><span id="StarescLogger.StarescLoggingFormatter-40"><a href="#StarescLogger.StarescLoggingFormatter-40"><span class="linenos">40</span></a>            <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">FORMATS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">levelno</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">FORMATS</span><span class="p">[</span><span class="n">DEFAULT</span><span class="p">])</span>
-</span><span id="StarescLogger.StarescLoggingFormatter-41"><a href="#StarescLogger.StarescLoggingFormatter-41"><span class="linenos">41</span></a>            <span class="n">formatter</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="n">fmt</span><span class="o">=</span><span class="n">f</span><span class="p">,</span> <span class="n">datefmt</span><span class="o">=</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">)</span>
-</span><span id="StarescLogger.StarescLoggingFormatter-42"><a href="#StarescLogger.StarescLoggingFormatter-42"><span class="linenos">42</span></a>            <span class="k">return</span> <span class="n">formatter</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">record</span><span class="p">)</span> 
+    <a class="headerlink" href="#Logger.LoggingFormatter"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="Logger.LoggingFormatter-30"><a href="#Logger.LoggingFormatter-30"><span class="linenos">30</span></a>    <span class="k">class</span> <span class="nc">LoggingFormatter</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">):</span>
+</span><span id="Logger.LoggingFormatter-31"><a href="#Logger.LoggingFormatter-31"><span class="linenos">31</span></a>
+</span><span id="Logger.LoggingFormatter-32"><a href="#Logger.LoggingFormatter-32"><span class="linenos">32</span></a>        <span class="n">FORMATS</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="Logger.LoggingFormatter-33"><a href="#Logger.LoggingFormatter-33"><span class="linenos">33</span></a>            <span class="n">DEFAULT</span> <span class="p">:</span> <span class="s1">&#39;[</span><span class="si">%(asctime)s</span><span class="s1">]:[</span><span class="si">%(levelname)s</span><span class="s1">]: </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">,</span>
+</span><span id="Logger.LoggingFormatter-34"><a href="#Logger.LoggingFormatter-34"><span class="linenos">34</span></a>            <span class="n">VULN</span>    <span class="p">:</span> <span class="s1">&#39;[SCAN]:[</span><span class="si">%(target)s</span><span class="s1">]:[</span><span class="si">%(c)s%(severity)s%(r)s</span><span class="s1">]:[</span><span class="si">%(c)s%(plugin)s%(r)s</span><span class="s1">]&#39;</span><span class="p">,</span>
+</span><span id="Logger.LoggingFormatter-35"><a href="#Logger.LoggingFormatter-35"><span class="linenos">35</span></a>            <span class="n">RAW</span>     <span class="p">:</span> <span class="s1">&#39;[RAW]:[</span><span class="si">%(target)s</span><span class="s1">]: </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">,</span>
+</span><span id="Logger.LoggingFormatter-36"><a href="#Logger.LoggingFormatter-36"><span class="linenos">36</span></a>            <span class="n">CHECK</span>   <span class="p">:</span> <span class="s1">&#39;[CHECK]:[</span><span class="si">%(asctime)s</span><span class="s1">]: </span><span class="si">%(target)s</span><span class="s1">: </span><span class="si">%(message)s</span><span class="s1">&#39;</span>
+</span><span id="Logger.LoggingFormatter-37"><a href="#Logger.LoggingFormatter-37"><span class="linenos">37</span></a>        <span class="p">}</span>
+</span><span id="Logger.LoggingFormatter-38"><a href="#Logger.LoggingFormatter-38"><span class="linenos">38</span></a>
+</span><span id="Logger.LoggingFormatter-39"><a href="#Logger.LoggingFormatter-39"><span class="linenos">39</span></a>        <span class="k">def</span> <span class="nf">format</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record</span><span class="p">):</span>  
+</span><span id="Logger.LoggingFormatter-40"><a href="#Logger.LoggingFormatter-40"><span class="linenos">40</span></a>            <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">FORMATS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">levelno</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">FORMATS</span><span class="p">[</span><span class="n">DEFAULT</span><span class="p">])</span>
+</span><span id="Logger.LoggingFormatter-41"><a href="#Logger.LoggingFormatter-41"><span class="linenos">41</span></a>            <span class="n">formatter</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="n">fmt</span><span class="o">=</span><span class="n">f</span><span class="p">,</span> <span class="n">datefmt</span><span class="o">=</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">)</span>
+</span><span id="Logger.LoggingFormatter-42"><a href="#Logger.LoggingFormatter-42"><span class="linenos">42</span></a>            <span class="k">return</span> <span class="n">formatter</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">record</span><span class="p">)</span> 
 </span></pre></div>
 
 
@@ -643,21 +652,21 @@ attributes in a LogRecord are described by:</p>
 </div>
 
 
-                            <div id="StarescLogger.StarescLoggingFormatter.format" class="classattr">
-                                        <input id="StarescLogger.StarescLoggingFormatter.format-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+                            <div id="Logger.LoggingFormatter.format" class="classattr">
+                                        <input id="Logger.LoggingFormatter.format-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">
             
         <span class="def">def</span>
         <span class="name">format</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">record</span></span><span class="return-annotation">):</span></span>
 
-                <label class="view-source-button" for="StarescLogger.StarescLoggingFormatter.format-view-source"><span>View Source</span></label>
+                <label class="view-source-button" for="Logger.LoggingFormatter.format-view-source"><span>View Source</span></label>
 
     </div>
-    <a class="headerlink" href="#StarescLogger.StarescLoggingFormatter.format"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="StarescLogger.StarescLoggingFormatter.format-39"><a href="#StarescLogger.StarescLoggingFormatter.format-39"><span class="linenos">39</span></a>        <span class="k">def</span> <span class="nf">format</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record</span><span class="p">):</span>  
-</span><span id="StarescLogger.StarescLoggingFormatter.format-40"><a href="#StarescLogger.StarescLoggingFormatter.format-40"><span class="linenos">40</span></a>            <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">FORMATS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">levelno</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">FORMATS</span><span class="p">[</span><span class="n">DEFAULT</span><span class="p">])</span>
-</span><span id="StarescLogger.StarescLoggingFormatter.format-41"><a href="#StarescLogger.StarescLoggingFormatter.format-41"><span class="linenos">41</span></a>            <span class="n">formatter</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="n">fmt</span><span class="o">=</span><span class="n">f</span><span class="p">,</span> <span class="n">datefmt</span><span class="o">=</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">)</span>
-</span><span id="StarescLogger.StarescLoggingFormatter.format-42"><a href="#StarescLogger.StarescLoggingFormatter.format-42"><span class="linenos">42</span></a>            <span class="k">return</span> <span class="n">formatter</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">record</span><span class="p">)</span> 
+    <a class="headerlink" href="#Logger.LoggingFormatter.format"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="Logger.LoggingFormatter.format-39"><a href="#Logger.LoggingFormatter.format-39"><span class="linenos">39</span></a>        <span class="k">def</span> <span class="nf">format</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record</span><span class="p">):</span>  
+</span><span id="Logger.LoggingFormatter.format-40"><a href="#Logger.LoggingFormatter.format-40"><span class="linenos">40</span></a>            <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">FORMATS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">levelno</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">FORMATS</span><span class="p">[</span><span class="n">DEFAULT</span><span class="p">])</span>
+</span><span id="Logger.LoggingFormatter.format-41"><a href="#Logger.LoggingFormatter.format-41"><span class="linenos">41</span></a>            <span class="n">formatter</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="n">fmt</span><span class="o">=</span><span class="n">f</span><span class="p">,</span> <span class="n">datefmt</span><span class="o">=</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">)</span>
+</span><span id="Logger.LoggingFormatter.format-42"><a href="#Logger.LoggingFormatter.format-42"><span class="linenos">42</span></a>            <span class="k">return</span> <span class="n">formatter</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">record</span><span class="p">)</span> 
 </span></pre></div>
 
 
@@ -679,13 +688,13 @@ it is formatted using formatException() and appended to the message.</p>
                                 <h5>Inherited Members</h5>
                                 <dl>
                                     <div><dt>logging.Formatter</dt>
-                                <dd id="StarescLogger.StarescLoggingFormatter.__init__" class="function">Formatter</dd>
-                <dd id="StarescLogger.StarescLoggingFormatter.converter" class="function">converter</dd>
-                <dd id="StarescLogger.StarescLoggingFormatter.formatTime" class="function">formatTime</dd>
-                <dd id="StarescLogger.StarescLoggingFormatter.formatException" class="function">formatException</dd>
-                <dd id="StarescLogger.StarescLoggingFormatter.usesTime" class="function">usesTime</dd>
-                <dd id="StarescLogger.StarescLoggingFormatter.formatMessage" class="function">formatMessage</dd>
-                <dd id="StarescLogger.StarescLoggingFormatter.formatStack" class="function">formatStack</dd>
+                                <dd id="Logger.LoggingFormatter.__init__" class="function">Formatter</dd>
+                <dd id="Logger.LoggingFormatter.converter" class="function">converter</dd>
+                <dd id="Logger.LoggingFormatter.formatTime" class="function">formatTime</dd>
+                <dd id="Logger.LoggingFormatter.formatException" class="function">formatException</dd>
+                <dd id="Logger.LoggingFormatter.usesTime" class="function">usesTime</dd>
+                <dd id="Logger.LoggingFormatter.formatMessage" class="function">formatMessage</dd>
+                <dd id="Logger.LoggingFormatter.formatStack" class="function">formatStack</dd>
 
             </div>
                                 </dl>

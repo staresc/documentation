@@ -32,46 +32,64 @@
         <h2>API Documentation</h2>
             <ul class="memberlist">
             <li>
-                    <a class="class" href="#StarescConnectionStringError">StarescConnectionStringError</a>
+                    <a class="class" href="#ParseError">ParseError</a>
                             <ul class="memberlist">
                         <li>
-                                <a class="function" href="#StarescConnectionStringError.__init__">StarescConnectionStringError</a>
+                                <a class="function" href="#ParseError.__init__">ParseError</a>
                         </li>
                 </ul>
 
             </li>
             <li>
-                    <a class="class" href="#StarescCommandError">StarescCommandError</a>
+                    <a class="class" href="#ConnectionStringError">ConnectionStringError</a>
                             <ul class="memberlist">
                         <li>
-                                <a class="function" href="#StarescCommandError.__init__">StarescCommandError</a>
+                                <a class="function" href="#ConnectionStringError.__init__">ConnectionStringError</a>
                         </li>
                 </ul>
 
             </li>
             <li>
-                    <a class="class" href="#StarescAuthenticationError">StarescAuthenticationError</a>
+                    <a class="class" href="#CommandError">CommandError</a>
                             <ul class="memberlist">
                         <li>
-                                <a class="function" href="#StarescAuthenticationError.__init__">StarescAuthenticationError</a>
+                                <a class="function" href="#CommandError.__init__">CommandError</a>
                         </li>
                 </ul>
 
             </li>
             <li>
-                    <a class="class" href="#StarescConnectionError">StarescConnectionError</a>
+                    <a class="class" href="#AuthenticationError">AuthenticationError</a>
                             <ul class="memberlist">
                         <li>
-                                <a class="function" href="#StarescConnectionError.__init__">StarescConnectionError</a>
+                                <a class="function" href="#AuthenticationError.__init__">AuthenticationError</a>
                         </li>
                 </ul>
 
             </li>
             <li>
-                    <a class="class" href="#StarescPluginError">StarescPluginError</a>
+                    <a class="class" href="#ConnectionError">ConnectionError</a>
                             <ul class="memberlist">
                         <li>
-                                <a class="function" href="#StarescPluginError.__init__">StarescPluginError</a>
+                                <a class="function" href="#ConnectionError.__init__">ConnectionError</a>
+                        </li>
+                </ul>
+
+            </li>
+            <li>
+                    <a class="class" href="#PluginError">PluginError</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="function" href="#PluginError.__init__">PluginError</a>
+                        </li>
+                </ul>
+
+            </li>
+            <li>
+                    <a class="class" href="#RawModeFileTransferError">RawModeFileTransferError</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="function" href="#RawModeFileTransferError.__init__">RawModeFileTransferError</a>
                         </li>
                 </ul>
 
@@ -97,86 +115,169 @@
 
                         <label class="view-source-button" for="mod-exceptions-view-source"><span>View Source</span></label>
 
-                        <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos"> 1</span></a><span class="k">class</span> <span class="nc">StarescConnectionStringError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
-</span><span id="L-2"><a href="#L-2"><span class="linenos"> 2</span></a>    <span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-3"><a href="#L-3"><span class="linenos"> 3</span></a><span class="sd">    Exception raised if the connection string is invalid</span>
-</span><span id="L-4"><a href="#L-4"><span class="linenos"> 4</span></a><span class="sd">    </span>
-</span><span id="L-5"><a href="#L-5"><span class="linenos"> 5</span></a><span class="sd">    Atributes:</span>
-</span><span id="L-6"><a href="#L-6"><span class="linenos"> 6</span></a><span class="sd">        msg -- meesage to be displayed</span>
-</span><span id="L-7"><a href="#L-7"><span class="linenos"> 7</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="L-8"><a href="#L-8"><span class="linenos"> 8</span></a>
-</span><span id="L-9"><a href="#L-9"><span class="linenos"> 9</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="L-10"><a href="#L-10"><span class="linenos">10</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+                        <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos"> 1</span></a><span class="k">class</span> <span class="nc">ParseError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+</span><span id="L-2"><a href="#L-2"><span class="linenos"> 2</span></a>    <span class="sd">&quot;&quot;&quot;Exception raised when the argument parsing fails</span>
+</span><span id="L-3"><a href="#L-3"><span class="linenos"> 3</span></a>
+</span><span id="L-4"><a href="#L-4"><span class="linenos"> 4</span></a><span class="sd">    Attributes:</span>
+</span><span id="L-5"><a href="#L-5"><span class="linenos"> 5</span></a><span class="sd">        msg -- message to be displayed</span>
+</span><span id="L-6"><a href="#L-6"><span class="linenos"> 6</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="L-7"><a href="#L-7"><span class="linenos"> 7</span></a>
+</span><span id="L-8"><a href="#L-8"><span class="linenos"> 8</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="L-9"><a href="#L-9"><span class="linenos"> 9</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</span><span id="L-10"><a href="#L-10"><span class="linenos">10</span></a>
 </span><span id="L-11"><a href="#L-11"><span class="linenos">11</span></a>
-</span><span id="L-12"><a href="#L-12"><span class="linenos">12</span></a>
-</span><span id="L-13"><a href="#L-13"><span class="linenos">13</span></a><span class="k">class</span> <span class="nc">StarescCommandError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
-</span><span id="L-14"><a href="#L-14"><span class="linenos">14</span></a>    <span class="sd">&quot;&quot;&quot;Exception raised when a command fails</span>
-</span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a>
-</span><span id="L-16"><a href="#L-16"><span class="linenos">16</span></a><span class="sd">    Attributes:</span>
-</span><span id="L-17"><a href="#L-17"><span class="linenos">17</span></a><span class="sd">        msg -- meesage to be displayed</span>
+</span><span id="L-12"><a href="#L-12"><span class="linenos">12</span></a><span class="k">class</span> <span class="nc">ConnectionStringError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+</span><span id="L-13"><a href="#L-13"><span class="linenos">13</span></a>    <span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-14"><a href="#L-14"><span class="linenos">14</span></a><span class="sd">    Exception raised if the connection string is invalid</span>
+</span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a><span class="sd">    </span>
+</span><span id="L-16"><a href="#L-16"><span class="linenos">16</span></a><span class="sd">    Atributes:</span>
+</span><span id="L-17"><a href="#L-17"><span class="linenos">17</span></a><span class="sd">        msg -- message to be displayed</span>
 </span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="L-19"><a href="#L-19"><span class="linenos">19</span></a>
-</span><span id="L-20"><a href="#L-20"><span class="linenos">20</span></a>    <span class="n">command</span><span class="p">:</span> <span class="nb">str</span>
-</span><span id="L-21"><a href="#L-21"><span class="linenos">21</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-</span><span id="L-22"><a href="#L-22"><span class="linenos">22</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</span><span id="L-20"><a href="#L-20"><span class="linenos">20</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="L-21"><a href="#L-21"><span class="linenos">21</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</span><span id="L-22"><a href="#L-22"><span class="linenos">22</span></a>
 </span><span id="L-23"><a href="#L-23"><span class="linenos">23</span></a>
-</span><span id="L-24"><a href="#L-24"><span class="linenos">24</span></a>
-</span><span id="L-25"><a href="#L-25"><span class="linenos">25</span></a><span class="k">class</span> <span class="nc">StarescAuthenticationError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
-</span><span id="L-26"><a href="#L-26"><span class="linenos">26</span></a>    <span class="sd">&quot;&quot;&quot;Exception raised when the authentication fails</span>
-</span><span id="L-27"><a href="#L-27"><span class="linenos">27</span></a>
-</span><span id="L-28"><a href="#L-28"><span class="linenos">28</span></a><span class="sd">    Attributes:</span>
-</span><span id="L-29"><a href="#L-29"><span class="linenos">29</span></a><span class="sd">        msg -- meesage to be displayed</span>
-</span><span id="L-30"><a href="#L-30"><span class="linenos">30</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="L-31"><a href="#L-31"><span class="linenos">31</span></a>
+</span><span id="L-24"><a href="#L-24"><span class="linenos">24</span></a><span class="k">class</span> <span class="nc">CommandError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+</span><span id="L-25"><a href="#L-25"><span class="linenos">25</span></a>    <span class="sd">&quot;&quot;&quot;Exception raised when a command fails</span>
+</span><span id="L-26"><a href="#L-26"><span class="linenos">26</span></a>
+</span><span id="L-27"><a href="#L-27"><span class="linenos">27</span></a><span class="sd">    Attributes:</span>
+</span><span id="L-28"><a href="#L-28"><span class="linenos">28</span></a><span class="sd">        msg -- message to be displayed</span>
+</span><span id="L-29"><a href="#L-29"><span class="linenos">29</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="L-30"><a href="#L-30"><span class="linenos">30</span></a>
+</span><span id="L-31"><a href="#L-31"><span class="linenos">31</span></a>    <span class="n">command</span><span class="p">:</span> <span class="nb">str</span>
 </span><span id="L-32"><a href="#L-32"><span class="linenos">32</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 </span><span id="L-33"><a href="#L-33"><span class="linenos">33</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 </span><span id="L-34"><a href="#L-34"><span class="linenos">34</span></a>
 </span><span id="L-35"><a href="#L-35"><span class="linenos">35</span></a>
-</span><span id="L-36"><a href="#L-36"><span class="linenos">36</span></a><span class="k">class</span> <span class="nc">StarescConnectionError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
-</span><span id="L-37"><a href="#L-37"><span class="linenos">37</span></a>    <span class="sd">&quot;&quot;&quot;Exception raised when the connection fails</span>
+</span><span id="L-36"><a href="#L-36"><span class="linenos">36</span></a><span class="k">class</span> <span class="nc">AuthenticationError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+</span><span id="L-37"><a href="#L-37"><span class="linenos">37</span></a>    <span class="sd">&quot;&quot;&quot;Exception raised when the authentication fails</span>
 </span><span id="L-38"><a href="#L-38"><span class="linenos">38</span></a>
 </span><span id="L-39"><a href="#L-39"><span class="linenos">39</span></a><span class="sd">    Attributes:</span>
-</span><span id="L-40"><a href="#L-40"><span class="linenos">40</span></a><span class="sd">        msg -- meesage to be displayed</span>
+</span><span id="L-40"><a href="#L-40"><span class="linenos">40</span></a><span class="sd">        msg -- message to be displayed</span>
 </span><span id="L-41"><a href="#L-41"><span class="linenos">41</span></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="L-42"><a href="#L-42"><span class="linenos">42</span></a>
 </span><span id="L-43"><a href="#L-43"><span class="linenos">43</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 </span><span id="L-44"><a href="#L-44"><span class="linenos">44</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 </span><span id="L-45"><a href="#L-45"><span class="linenos">45</span></a>
 </span><span id="L-46"><a href="#L-46"><span class="linenos">46</span></a>
-</span><span id="L-47"><a href="#L-47"><span class="linenos">47</span></a><span class="k">class</span> <span class="nc">StarescPluginError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
-</span><span id="L-48"><a href="#L-48"><span class="linenos">48</span></a>    <span class="sd">&quot;&quot;&quot;Exception raised when the plugin syntax is wrong</span>
+</span><span id="L-47"><a href="#L-47"><span class="linenos">47</span></a><span class="k">class</span> <span class="nc">ConnectionError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+</span><span id="L-48"><a href="#L-48"><span class="linenos">48</span></a>    <span class="sd">&quot;&quot;&quot;Exception raised when the connection fails</span>
 </span><span id="L-49"><a href="#L-49"><span class="linenos">49</span></a>
 </span><span id="L-50"><a href="#L-50"><span class="linenos">50</span></a><span class="sd">    Attributes:</span>
-</span><span id="L-51"><a href="#L-51"><span class="linenos">51</span></a><span class="sd">        msg -- meesage to be displayed</span>
+</span><span id="L-51"><a href="#L-51"><span class="linenos">51</span></a><span class="sd">        msg -- message to be displayed</span>
 </span><span id="L-52"><a href="#L-52"><span class="linenos">52</span></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="L-53"><a href="#L-53"><span class="linenos">53</span></a>
 </span><span id="L-54"><a href="#L-54"><span class="linenos">54</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 </span><span id="L-55"><a href="#L-55"><span class="linenos">55</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</span><span id="L-56"><a href="#L-56"><span class="linenos">56</span></a>
+</span><span id="L-57"><a href="#L-57"><span class="linenos">57</span></a>
+</span><span id="L-58"><a href="#L-58"><span class="linenos">58</span></a><span class="k">class</span> <span class="nc">PluginError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+</span><span id="L-59"><a href="#L-59"><span class="linenos">59</span></a>    <span class="sd">&quot;&quot;&quot;Exception raised when the plugin syntax is wrong</span>
+</span><span id="L-60"><a href="#L-60"><span class="linenos">60</span></a>
+</span><span id="L-61"><a href="#L-61"><span class="linenos">61</span></a><span class="sd">    Attributes:</span>
+</span><span id="L-62"><a href="#L-62"><span class="linenos">62</span></a><span class="sd">        msg -- message to be displayed</span>
+</span><span id="L-63"><a href="#L-63"><span class="linenos">63</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="L-64"><a href="#L-64"><span class="linenos">64</span></a>
+</span><span id="L-65"><a href="#L-65"><span class="linenos">65</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="L-66"><a href="#L-66"><span class="linenos">66</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</span><span id="L-67"><a href="#L-67"><span class="linenos">67</span></a>
+</span><span id="L-68"><a href="#L-68"><span class="linenos">68</span></a>
+</span><span id="L-69"><a href="#L-69"><span class="linenos">69</span></a><span class="k">class</span> <span class="nc">RawModeFileTransferError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+</span><span id="L-70"><a href="#L-70"><span class="linenos">70</span></a>    <span class="sd">&quot;&quot;&quot;Exception raised raw mode returns errors in file transfer</span>
+</span><span id="L-71"><a href="#L-71"><span class="linenos">71</span></a>
+</span><span id="L-72"><a href="#L-72"><span class="linenos">72</span></a><span class="sd">    Attributes:</span>
+</span><span id="L-73"><a href="#L-73"><span class="linenos">73</span></a><span class="sd">        msg -- message to be displayed</span>
+</span><span id="L-74"><a href="#L-74"><span class="linenos">74</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="L-75"><a href="#L-75"><span class="linenos">75</span></a>
+</span><span id="L-76"><a href="#L-76"><span class="linenos">76</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="L-77"><a href="#L-77"><span class="linenos">77</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 </span></pre></div>
 
 
             </section>
-                <section id="StarescConnectionStringError">
-                            <input id="StarescConnectionStringError-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+                <section id="ParseError">
+                            <input id="ParseError-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr class">
             
     <span class="def">class</span>
-    <span class="name">StarescConnectionStringError</span><wbr>(<span class="base">builtins.Exception</span>):
+    <span class="name">ParseError</span><wbr>(<span class="base">builtins.Exception</span>):
 
-                <label class="view-source-button" for="StarescConnectionStringError-view-source"><span>View Source</span></label>
+                <label class="view-source-button" for="ParseError-view-source"><span>View Source</span></label>
 
     </div>
-    <a class="headerlink" href="#StarescConnectionStringError"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="StarescConnectionStringError-2"><a href="#StarescConnectionStringError-2"><span class="linenos"> 2</span></a><span class="k">class</span> <span class="nc">StarescConnectionStringError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
-</span><span id="StarescConnectionStringError-3"><a href="#StarescConnectionStringError-3"><span class="linenos"> 3</span></a>    <span class="sd">&quot;&quot;&quot;</span>
-</span><span id="StarescConnectionStringError-4"><a href="#StarescConnectionStringError-4"><span class="linenos"> 4</span></a><span class="sd">    Exception raised if the connection string is invalid</span>
-</span><span id="StarescConnectionStringError-5"><a href="#StarescConnectionStringError-5"><span class="linenos"> 5</span></a><span class="sd">    </span>
-</span><span id="StarescConnectionStringError-6"><a href="#StarescConnectionStringError-6"><span class="linenos"> 6</span></a><span class="sd">    Atributes:</span>
-</span><span id="StarescConnectionStringError-7"><a href="#StarescConnectionStringError-7"><span class="linenos"> 7</span></a><span class="sd">        msg -- meesage to be displayed</span>
-</span><span id="StarescConnectionStringError-8"><a href="#StarescConnectionStringError-8"><span class="linenos"> 8</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="StarescConnectionStringError-9"><a href="#StarescConnectionStringError-9"><span class="linenos"> 9</span></a>
-</span><span id="StarescConnectionStringError-10"><a href="#StarescConnectionStringError-10"><span class="linenos">10</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="StarescConnectionStringError-11"><a href="#StarescConnectionStringError-11"><span class="linenos">11</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <a class="headerlink" href="#ParseError"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="ParseError-3"><a href="#ParseError-3"><span class="linenos"> 3</span></a><span class="k">class</span> <span class="nc">ParseError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+</span><span id="ParseError-4"><a href="#ParseError-4"><span class="linenos"> 4</span></a>    <span class="sd">&quot;&quot;&quot;Exception raised when the argument parsing fails</span>
+</span><span id="ParseError-5"><a href="#ParseError-5"><span class="linenos"> 5</span></a>
+</span><span id="ParseError-6"><a href="#ParseError-6"><span class="linenos"> 6</span></a><span class="sd">    Attributes:</span>
+</span><span id="ParseError-7"><a href="#ParseError-7"><span class="linenos"> 7</span></a><span class="sd">        msg -- message to be displayed</span>
+</span><span id="ParseError-8"><a href="#ParseError-8"><span class="linenos"> 8</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="ParseError-9"><a href="#ParseError-9"><span class="linenos"> 9</span></a>
+</span><span id="ParseError-10"><a href="#ParseError-10"><span class="linenos">10</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="ParseError-11"><a href="#ParseError-11"><span class="linenos">11</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>Exception raised when the argument parsing fails</p>
+
+<h6 id="attributes">Attributes</h6>
+
+<ul>
+<li>msg -- message to be displayed</li>
+</ul>
+</div>
+
+
+                            <div id="ParseError.__init__" class="classattr">
+                                        <input id="ParseError.__init__-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="name">ParseError</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">msg</span><span class="p">:</span> <span class="nb">str</span></span>)</span>
+
+                <label class="view-source-button" for="ParseError.__init__-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#ParseError.__init__"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="ParseError.__init__-10"><a href="#ParseError.__init__-10"><span class="linenos">10</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="ParseError.__init__-11"><a href="#ParseError.__init__-11"><span class="linenos">11</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</span></pre></div>
+
+
+    
+
+                            </div>
+                            <div class="inherited">
+                                <h5>Inherited Members</h5>
+                                <dl>
+                                    <div><dt>builtins.BaseException</dt>
+                                <dd id="ParseError.with_traceback" class="function">with_traceback</dd>
+
+            </div>
+                                </dl>
+                            </div>
+                </section>
+                <section id="ConnectionStringError">
+                            <input id="ConnectionStringError-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr class">
+            
+    <span class="def">class</span>
+    <span class="name">ConnectionStringError</span><wbr>(<span class="base">builtins.Exception</span>):
+
+                <label class="view-source-button" for="ConnectionStringError-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#ConnectionStringError"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="ConnectionStringError-14"><a href="#ConnectionStringError-14"><span class="linenos">14</span></a><span class="k">class</span> <span class="nc">ConnectionStringError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+</span><span id="ConnectionStringError-15"><a href="#ConnectionStringError-15"><span class="linenos">15</span></a>    <span class="sd">&quot;&quot;&quot;</span>
+</span><span id="ConnectionStringError-16"><a href="#ConnectionStringError-16"><span class="linenos">16</span></a><span class="sd">    Exception raised if the connection string is invalid</span>
+</span><span id="ConnectionStringError-17"><a href="#ConnectionStringError-17"><span class="linenos">17</span></a><span class="sd">    </span>
+</span><span id="ConnectionStringError-18"><a href="#ConnectionStringError-18"><span class="linenos">18</span></a><span class="sd">    Atributes:</span>
+</span><span id="ConnectionStringError-19"><a href="#ConnectionStringError-19"><span class="linenos">19</span></a><span class="sd">        msg -- message to be displayed</span>
+</span><span id="ConnectionStringError-20"><a href="#ConnectionStringError-20"><span class="linenos">20</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="ConnectionStringError-21"><a href="#ConnectionStringError-21"><span class="linenos">21</span></a>
+</span><span id="ConnectionStringError-22"><a href="#ConnectionStringError-22"><span class="linenos">22</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="ConnectionStringError-23"><a href="#ConnectionStringError-23"><span class="linenos">23</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 </span></pre></div>
 
 
@@ -185,23 +286,23 @@
 <h6 id="atributes">Atributes</h6>
 
 <blockquote>
-  <p>msg -- meesage to be displayed</p>
+  <p>msg -- message to be displayed</p>
 </blockquote>
 </div>
 
 
-                            <div id="StarescConnectionStringError.__init__" class="classattr">
-                                        <input id="StarescConnectionStringError.__init__-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+                            <div id="ConnectionStringError.__init__" class="classattr">
+                                        <input id="ConnectionStringError.__init__-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">
             
-        <span class="name">StarescConnectionStringError</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">msg</span><span class="p">:</span> <span class="nb">str</span></span>)</span>
+        <span class="name">ConnectionStringError</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">msg</span><span class="p">:</span> <span class="nb">str</span></span>)</span>
 
-                <label class="view-source-button" for="StarescConnectionStringError.__init__-view-source"><span>View Source</span></label>
+                <label class="view-source-button" for="ConnectionStringError.__init__-view-source"><span>View Source</span></label>
 
     </div>
-    <a class="headerlink" href="#StarescConnectionStringError.__init__"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="StarescConnectionStringError.__init__-10"><a href="#StarescConnectionStringError.__init__-10"><span class="linenos">10</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="StarescConnectionStringError.__init__-11"><a href="#StarescConnectionStringError.__init__-11"><span class="linenos">11</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <a class="headerlink" href="#ConnectionStringError.__init__"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="ConnectionStringError.__init__-22"><a href="#ConnectionStringError.__init__-22"><span class="linenos">22</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="ConnectionStringError.__init__-23"><a href="#ConnectionStringError.__init__-23"><span class="linenos">23</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 </span></pre></div>
 
 
@@ -212,33 +313,33 @@
                                 <h5>Inherited Members</h5>
                                 <dl>
                                     <div><dt>builtins.BaseException</dt>
-                                <dd id="StarescConnectionStringError.with_traceback" class="function">with_traceback</dd>
+                                <dd id="ConnectionStringError.with_traceback" class="function">with_traceback</dd>
 
             </div>
                                 </dl>
                             </div>
                 </section>
-                <section id="StarescCommandError">
-                            <input id="StarescCommandError-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+                <section id="CommandError">
+                            <input id="CommandError-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr class">
             
     <span class="def">class</span>
-    <span class="name">StarescCommandError</span><wbr>(<span class="base">builtins.Exception</span>):
+    <span class="name">CommandError</span><wbr>(<span class="base">builtins.Exception</span>):
 
-                <label class="view-source-button" for="StarescCommandError-view-source"><span>View Source</span></label>
+                <label class="view-source-button" for="CommandError-view-source"><span>View Source</span></label>
 
     </div>
-    <a class="headerlink" href="#StarescCommandError"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="StarescCommandError-14"><a href="#StarescCommandError-14"><span class="linenos">14</span></a><span class="k">class</span> <span class="nc">StarescCommandError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
-</span><span id="StarescCommandError-15"><a href="#StarescCommandError-15"><span class="linenos">15</span></a>    <span class="sd">&quot;&quot;&quot;Exception raised when a command fails</span>
-</span><span id="StarescCommandError-16"><a href="#StarescCommandError-16"><span class="linenos">16</span></a>
-</span><span id="StarescCommandError-17"><a href="#StarescCommandError-17"><span class="linenos">17</span></a><span class="sd">    Attributes:</span>
-</span><span id="StarescCommandError-18"><a href="#StarescCommandError-18"><span class="linenos">18</span></a><span class="sd">        msg -- meesage to be displayed</span>
-</span><span id="StarescCommandError-19"><a href="#StarescCommandError-19"><span class="linenos">19</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="StarescCommandError-20"><a href="#StarescCommandError-20"><span class="linenos">20</span></a>
-</span><span id="StarescCommandError-21"><a href="#StarescCommandError-21"><span class="linenos">21</span></a>    <span class="n">command</span><span class="p">:</span> <span class="nb">str</span>
-</span><span id="StarescCommandError-22"><a href="#StarescCommandError-22"><span class="linenos">22</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-</span><span id="StarescCommandError-23"><a href="#StarescCommandError-23"><span class="linenos">23</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <a class="headerlink" href="#CommandError"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="CommandError-26"><a href="#CommandError-26"><span class="linenos">26</span></a><span class="k">class</span> <span class="nc">CommandError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+</span><span id="CommandError-27"><a href="#CommandError-27"><span class="linenos">27</span></a>    <span class="sd">&quot;&quot;&quot;Exception raised when a command fails</span>
+</span><span id="CommandError-28"><a href="#CommandError-28"><span class="linenos">28</span></a>
+</span><span id="CommandError-29"><a href="#CommandError-29"><span class="linenos">29</span></a><span class="sd">    Attributes:</span>
+</span><span id="CommandError-30"><a href="#CommandError-30"><span class="linenos">30</span></a><span class="sd">        msg -- message to be displayed</span>
+</span><span id="CommandError-31"><a href="#CommandError-31"><span class="linenos">31</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="CommandError-32"><a href="#CommandError-32"><span class="linenos">32</span></a>
+</span><span id="CommandError-33"><a href="#CommandError-33"><span class="linenos">33</span></a>    <span class="n">command</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="CommandError-34"><a href="#CommandError-34"><span class="linenos">34</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="CommandError-35"><a href="#CommandError-35"><span class="linenos">35</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 </span></pre></div>
 
 
@@ -247,23 +348,23 @@
 <h6 id="attributes">Attributes</h6>
 
 <ul>
-<li>msg -- meesage to be displayed</li>
+<li>msg -- message to be displayed</li>
 </ul>
 </div>
 
 
-                            <div id="StarescCommandError.__init__" class="classattr">
-                                        <input id="StarescCommandError.__init__-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+                            <div id="CommandError.__init__" class="classattr">
+                                        <input id="CommandError.__init__-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">
             
-        <span class="name">StarescCommandError</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">msg</span><span class="p">:</span> <span class="nb">str</span></span>)</span>
+        <span class="name">CommandError</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">msg</span><span class="p">:</span> <span class="nb">str</span></span>)</span>
 
-                <label class="view-source-button" for="StarescCommandError.__init__-view-source"><span>View Source</span></label>
+                <label class="view-source-button" for="CommandError.__init__-view-source"><span>View Source</span></label>
 
     </div>
-    <a class="headerlink" href="#StarescCommandError.__init__"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="StarescCommandError.__init__-22"><a href="#StarescCommandError.__init__-22"><span class="linenos">22</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-</span><span id="StarescCommandError.__init__-23"><a href="#StarescCommandError.__init__-23"><span class="linenos">23</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <a class="headerlink" href="#CommandError.__init__"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="CommandError.__init__-34"><a href="#CommandError.__init__-34"><span class="linenos">34</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="CommandError.__init__-35"><a href="#CommandError.__init__-35"><span class="linenos">35</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 </span></pre></div>
 
 
@@ -274,32 +375,32 @@
                                 <h5>Inherited Members</h5>
                                 <dl>
                                     <div><dt>builtins.BaseException</dt>
-                                <dd id="StarescCommandError.with_traceback" class="function">with_traceback</dd>
+                                <dd id="CommandError.with_traceback" class="function">with_traceback</dd>
 
             </div>
                                 </dl>
                             </div>
                 </section>
-                <section id="StarescAuthenticationError">
-                            <input id="StarescAuthenticationError-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+                <section id="AuthenticationError">
+                            <input id="AuthenticationError-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr class">
             
     <span class="def">class</span>
-    <span class="name">StarescAuthenticationError</span><wbr>(<span class="base">builtins.Exception</span>):
+    <span class="name">AuthenticationError</span><wbr>(<span class="base">builtins.Exception</span>):
 
-                <label class="view-source-button" for="StarescAuthenticationError-view-source"><span>View Source</span></label>
+                <label class="view-source-button" for="AuthenticationError-view-source"><span>View Source</span></label>
 
     </div>
-    <a class="headerlink" href="#StarescAuthenticationError"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="StarescAuthenticationError-26"><a href="#StarescAuthenticationError-26"><span class="linenos">26</span></a><span class="k">class</span> <span class="nc">StarescAuthenticationError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
-</span><span id="StarescAuthenticationError-27"><a href="#StarescAuthenticationError-27"><span class="linenos">27</span></a>    <span class="sd">&quot;&quot;&quot;Exception raised when the authentication fails</span>
-</span><span id="StarescAuthenticationError-28"><a href="#StarescAuthenticationError-28"><span class="linenos">28</span></a>
-</span><span id="StarescAuthenticationError-29"><a href="#StarescAuthenticationError-29"><span class="linenos">29</span></a><span class="sd">    Attributes:</span>
-</span><span id="StarescAuthenticationError-30"><a href="#StarescAuthenticationError-30"><span class="linenos">30</span></a><span class="sd">        msg -- meesage to be displayed</span>
-</span><span id="StarescAuthenticationError-31"><a href="#StarescAuthenticationError-31"><span class="linenos">31</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="StarescAuthenticationError-32"><a href="#StarescAuthenticationError-32"><span class="linenos">32</span></a>
-</span><span id="StarescAuthenticationError-33"><a href="#StarescAuthenticationError-33"><span class="linenos">33</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-</span><span id="StarescAuthenticationError-34"><a href="#StarescAuthenticationError-34"><span class="linenos">34</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <a class="headerlink" href="#AuthenticationError"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="AuthenticationError-38"><a href="#AuthenticationError-38"><span class="linenos">38</span></a><span class="k">class</span> <span class="nc">AuthenticationError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+</span><span id="AuthenticationError-39"><a href="#AuthenticationError-39"><span class="linenos">39</span></a>    <span class="sd">&quot;&quot;&quot;Exception raised when the authentication fails</span>
+</span><span id="AuthenticationError-40"><a href="#AuthenticationError-40"><span class="linenos">40</span></a>
+</span><span id="AuthenticationError-41"><a href="#AuthenticationError-41"><span class="linenos">41</span></a><span class="sd">    Attributes:</span>
+</span><span id="AuthenticationError-42"><a href="#AuthenticationError-42"><span class="linenos">42</span></a><span class="sd">        msg -- message to be displayed</span>
+</span><span id="AuthenticationError-43"><a href="#AuthenticationError-43"><span class="linenos">43</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="AuthenticationError-44"><a href="#AuthenticationError-44"><span class="linenos">44</span></a>
+</span><span id="AuthenticationError-45"><a href="#AuthenticationError-45"><span class="linenos">45</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="AuthenticationError-46"><a href="#AuthenticationError-46"><span class="linenos">46</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 </span></pre></div>
 
 
@@ -308,23 +409,23 @@
 <h6 id="attributes">Attributes</h6>
 
 <ul>
-<li>msg -- meesage to be displayed</li>
+<li>msg -- message to be displayed</li>
 </ul>
 </div>
 
 
-                            <div id="StarescAuthenticationError.__init__" class="classattr">
-                                        <input id="StarescAuthenticationError.__init__-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+                            <div id="AuthenticationError.__init__" class="classattr">
+                                        <input id="AuthenticationError.__init__-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">
             
-        <span class="name">StarescAuthenticationError</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">msg</span><span class="p">:</span> <span class="nb">str</span></span>)</span>
+        <span class="name">AuthenticationError</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">msg</span><span class="p">:</span> <span class="nb">str</span></span>)</span>
 
-                <label class="view-source-button" for="StarescAuthenticationError.__init__-view-source"><span>View Source</span></label>
+                <label class="view-source-button" for="AuthenticationError.__init__-view-source"><span>View Source</span></label>
 
     </div>
-    <a class="headerlink" href="#StarescAuthenticationError.__init__"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="StarescAuthenticationError.__init__-33"><a href="#StarescAuthenticationError.__init__-33"><span class="linenos">33</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-</span><span id="StarescAuthenticationError.__init__-34"><a href="#StarescAuthenticationError.__init__-34"><span class="linenos">34</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <a class="headerlink" href="#AuthenticationError.__init__"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="AuthenticationError.__init__-45"><a href="#AuthenticationError.__init__-45"><span class="linenos">45</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="AuthenticationError.__init__-46"><a href="#AuthenticationError.__init__-46"><span class="linenos">46</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 </span></pre></div>
 
 
@@ -335,32 +436,32 @@
                                 <h5>Inherited Members</h5>
                                 <dl>
                                     <div><dt>builtins.BaseException</dt>
-                                <dd id="StarescAuthenticationError.with_traceback" class="function">with_traceback</dd>
+                                <dd id="AuthenticationError.with_traceback" class="function">with_traceback</dd>
 
             </div>
                                 </dl>
                             </div>
                 </section>
-                <section id="StarescConnectionError">
-                            <input id="StarescConnectionError-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+                <section id="ConnectionError">
+                            <input id="ConnectionError-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr class">
             
     <span class="def">class</span>
-    <span class="name">StarescConnectionError</span><wbr>(<span class="base">builtins.Exception</span>):
+    <span class="name">ConnectionError</span><wbr>(<span class="base">builtins.Exception</span>):
 
-                <label class="view-source-button" for="StarescConnectionError-view-source"><span>View Source</span></label>
+                <label class="view-source-button" for="ConnectionError-view-source"><span>View Source</span></label>
 
     </div>
-    <a class="headerlink" href="#StarescConnectionError"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="StarescConnectionError-37"><a href="#StarescConnectionError-37"><span class="linenos">37</span></a><span class="k">class</span> <span class="nc">StarescConnectionError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
-</span><span id="StarescConnectionError-38"><a href="#StarescConnectionError-38"><span class="linenos">38</span></a>    <span class="sd">&quot;&quot;&quot;Exception raised when the connection fails</span>
-</span><span id="StarescConnectionError-39"><a href="#StarescConnectionError-39"><span class="linenos">39</span></a>
-</span><span id="StarescConnectionError-40"><a href="#StarescConnectionError-40"><span class="linenos">40</span></a><span class="sd">    Attributes:</span>
-</span><span id="StarescConnectionError-41"><a href="#StarescConnectionError-41"><span class="linenos">41</span></a><span class="sd">        msg -- meesage to be displayed</span>
-</span><span id="StarescConnectionError-42"><a href="#StarescConnectionError-42"><span class="linenos">42</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="StarescConnectionError-43"><a href="#StarescConnectionError-43"><span class="linenos">43</span></a>
-</span><span id="StarescConnectionError-44"><a href="#StarescConnectionError-44"><span class="linenos">44</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-</span><span id="StarescConnectionError-45"><a href="#StarescConnectionError-45"><span class="linenos">45</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <a class="headerlink" href="#ConnectionError"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="ConnectionError-49"><a href="#ConnectionError-49"><span class="linenos">49</span></a><span class="k">class</span> <span class="nc">ConnectionError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+</span><span id="ConnectionError-50"><a href="#ConnectionError-50"><span class="linenos">50</span></a>    <span class="sd">&quot;&quot;&quot;Exception raised when the connection fails</span>
+</span><span id="ConnectionError-51"><a href="#ConnectionError-51"><span class="linenos">51</span></a>
+</span><span id="ConnectionError-52"><a href="#ConnectionError-52"><span class="linenos">52</span></a><span class="sd">    Attributes:</span>
+</span><span id="ConnectionError-53"><a href="#ConnectionError-53"><span class="linenos">53</span></a><span class="sd">        msg -- message to be displayed</span>
+</span><span id="ConnectionError-54"><a href="#ConnectionError-54"><span class="linenos">54</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="ConnectionError-55"><a href="#ConnectionError-55"><span class="linenos">55</span></a>
+</span><span id="ConnectionError-56"><a href="#ConnectionError-56"><span class="linenos">56</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="ConnectionError-57"><a href="#ConnectionError-57"><span class="linenos">57</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 </span></pre></div>
 
 
@@ -369,23 +470,23 @@
 <h6 id="attributes">Attributes</h6>
 
 <ul>
-<li>msg -- meesage to be displayed</li>
+<li>msg -- message to be displayed</li>
 </ul>
 </div>
 
 
-                            <div id="StarescConnectionError.__init__" class="classattr">
-                                        <input id="StarescConnectionError.__init__-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+                            <div id="ConnectionError.__init__" class="classattr">
+                                        <input id="ConnectionError.__init__-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">
             
-        <span class="name">StarescConnectionError</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">msg</span><span class="p">:</span> <span class="nb">str</span></span>)</span>
+        <span class="name">ConnectionError</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">msg</span><span class="p">:</span> <span class="nb">str</span></span>)</span>
 
-                <label class="view-source-button" for="StarescConnectionError.__init__-view-source"><span>View Source</span></label>
+                <label class="view-source-button" for="ConnectionError.__init__-view-source"><span>View Source</span></label>
 
     </div>
-    <a class="headerlink" href="#StarescConnectionError.__init__"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="StarescConnectionError.__init__-44"><a href="#StarescConnectionError.__init__-44"><span class="linenos">44</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-</span><span id="StarescConnectionError.__init__-45"><a href="#StarescConnectionError.__init__-45"><span class="linenos">45</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <a class="headerlink" href="#ConnectionError.__init__"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="ConnectionError.__init__-56"><a href="#ConnectionError.__init__-56"><span class="linenos">56</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="ConnectionError.__init__-57"><a href="#ConnectionError.__init__-57"><span class="linenos">57</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 </span></pre></div>
 
 
@@ -396,32 +497,32 @@
                                 <h5>Inherited Members</h5>
                                 <dl>
                                     <div><dt>builtins.BaseException</dt>
-                                <dd id="StarescConnectionError.with_traceback" class="function">with_traceback</dd>
+                                <dd id="ConnectionError.with_traceback" class="function">with_traceback</dd>
 
             </div>
                                 </dl>
                             </div>
                 </section>
-                <section id="StarescPluginError">
-                            <input id="StarescPluginError-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+                <section id="PluginError">
+                            <input id="PluginError-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr class">
             
     <span class="def">class</span>
-    <span class="name">StarescPluginError</span><wbr>(<span class="base">builtins.Exception</span>):
+    <span class="name">PluginError</span><wbr>(<span class="base">builtins.Exception</span>):
 
-                <label class="view-source-button" for="StarescPluginError-view-source"><span>View Source</span></label>
+                <label class="view-source-button" for="PluginError-view-source"><span>View Source</span></label>
 
     </div>
-    <a class="headerlink" href="#StarescPluginError"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="StarescPluginError-48"><a href="#StarescPluginError-48"><span class="linenos">48</span></a><span class="k">class</span> <span class="nc">StarescPluginError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
-</span><span id="StarescPluginError-49"><a href="#StarescPluginError-49"><span class="linenos">49</span></a>    <span class="sd">&quot;&quot;&quot;Exception raised when the plugin syntax is wrong</span>
-</span><span id="StarescPluginError-50"><a href="#StarescPluginError-50"><span class="linenos">50</span></a>
-</span><span id="StarescPluginError-51"><a href="#StarescPluginError-51"><span class="linenos">51</span></a><span class="sd">    Attributes:</span>
-</span><span id="StarescPluginError-52"><a href="#StarescPluginError-52"><span class="linenos">52</span></a><span class="sd">        msg -- meesage to be displayed</span>
-</span><span id="StarescPluginError-53"><a href="#StarescPluginError-53"><span class="linenos">53</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="StarescPluginError-54"><a href="#StarescPluginError-54"><span class="linenos">54</span></a>
-</span><span id="StarescPluginError-55"><a href="#StarescPluginError-55"><span class="linenos">55</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-</span><span id="StarescPluginError-56"><a href="#StarescPluginError-56"><span class="linenos">56</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <a class="headerlink" href="#PluginError"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="PluginError-60"><a href="#PluginError-60"><span class="linenos">60</span></a><span class="k">class</span> <span class="nc">PluginError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+</span><span id="PluginError-61"><a href="#PluginError-61"><span class="linenos">61</span></a>    <span class="sd">&quot;&quot;&quot;Exception raised when the plugin syntax is wrong</span>
+</span><span id="PluginError-62"><a href="#PluginError-62"><span class="linenos">62</span></a>
+</span><span id="PluginError-63"><a href="#PluginError-63"><span class="linenos">63</span></a><span class="sd">    Attributes:</span>
+</span><span id="PluginError-64"><a href="#PluginError-64"><span class="linenos">64</span></a><span class="sd">        msg -- message to be displayed</span>
+</span><span id="PluginError-65"><a href="#PluginError-65"><span class="linenos">65</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="PluginError-66"><a href="#PluginError-66"><span class="linenos">66</span></a>
+</span><span id="PluginError-67"><a href="#PluginError-67"><span class="linenos">67</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="PluginError-68"><a href="#PluginError-68"><span class="linenos">68</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 </span></pre></div>
 
 
@@ -430,23 +531,23 @@
 <h6 id="attributes">Attributes</h6>
 
 <ul>
-<li>msg -- meesage to be displayed</li>
+<li>msg -- message to be displayed</li>
 </ul>
 </div>
 
 
-                            <div id="StarescPluginError.__init__" class="classattr">
-                                        <input id="StarescPluginError.__init__-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+                            <div id="PluginError.__init__" class="classattr">
+                                        <input id="PluginError.__init__-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">
             
-        <span class="name">StarescPluginError</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">msg</span><span class="p">:</span> <span class="nb">str</span></span>)</span>
+        <span class="name">PluginError</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">msg</span><span class="p">:</span> <span class="nb">str</span></span>)</span>
 
-                <label class="view-source-button" for="StarescPluginError.__init__-view-source"><span>View Source</span></label>
+                <label class="view-source-button" for="PluginError.__init__-view-source"><span>View Source</span></label>
 
     </div>
-    <a class="headerlink" href="#StarescPluginError.__init__"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="StarescPluginError.__init__-55"><a href="#StarescPluginError.__init__-55"><span class="linenos">55</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-</span><span id="StarescPluginError.__init__-56"><a href="#StarescPluginError.__init__-56"><span class="linenos">56</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <a class="headerlink" href="#PluginError.__init__"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="PluginError.__init__-67"><a href="#PluginError.__init__-67"><span class="linenos">67</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="PluginError.__init__-68"><a href="#PluginError.__init__-68"><span class="linenos">68</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 </span></pre></div>
 
 
@@ -457,7 +558,68 @@
                                 <h5>Inherited Members</h5>
                                 <dl>
                                     <div><dt>builtins.BaseException</dt>
-                                <dd id="StarescPluginError.with_traceback" class="function">with_traceback</dd>
+                                <dd id="PluginError.with_traceback" class="function">with_traceback</dd>
+
+            </div>
+                                </dl>
+                            </div>
+                </section>
+                <section id="RawModeFileTransferError">
+                            <input id="RawModeFileTransferError-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr class">
+            
+    <span class="def">class</span>
+    <span class="name">RawModeFileTransferError</span><wbr>(<span class="base">builtins.Exception</span>):
+
+                <label class="view-source-button" for="RawModeFileTransferError-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#RawModeFileTransferError"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="RawModeFileTransferError-71"><a href="#RawModeFileTransferError-71"><span class="linenos">71</span></a><span class="k">class</span> <span class="nc">RawModeFileTransferError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+</span><span id="RawModeFileTransferError-72"><a href="#RawModeFileTransferError-72"><span class="linenos">72</span></a>    <span class="sd">&quot;&quot;&quot;Exception raised raw mode returns errors in file transfer</span>
+</span><span id="RawModeFileTransferError-73"><a href="#RawModeFileTransferError-73"><span class="linenos">73</span></a>
+</span><span id="RawModeFileTransferError-74"><a href="#RawModeFileTransferError-74"><span class="linenos">74</span></a><span class="sd">    Attributes:</span>
+</span><span id="RawModeFileTransferError-75"><a href="#RawModeFileTransferError-75"><span class="linenos">75</span></a><span class="sd">        msg -- message to be displayed</span>
+</span><span id="RawModeFileTransferError-76"><a href="#RawModeFileTransferError-76"><span class="linenos">76</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="RawModeFileTransferError-77"><a href="#RawModeFileTransferError-77"><span class="linenos">77</span></a>
+</span><span id="RawModeFileTransferError-78"><a href="#RawModeFileTransferError-78"><span class="linenos">78</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="RawModeFileTransferError-79"><a href="#RawModeFileTransferError-79"><span class="linenos">79</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>Exception raised raw mode returns errors in file transfer</p>
+
+<h6 id="attributes">Attributes</h6>
+
+<ul>
+<li>msg -- message to be displayed</li>
+</ul>
+</div>
+
+
+                            <div id="RawModeFileTransferError.__init__" class="classattr">
+                                        <input id="RawModeFileTransferError.__init__-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="name">RawModeFileTransferError</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">msg</span><span class="p">:</span> <span class="nb">str</span></span>)</span>
+
+                <label class="view-source-button" for="RawModeFileTransferError.__init__-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#RawModeFileTransferError.__init__"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="RawModeFileTransferError.__init__-78"><a href="#RawModeFileTransferError.__init__-78"><span class="linenos">78</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="RawModeFileTransferError.__init__-79"><a href="#RawModeFileTransferError.__init__-79"><span class="linenos">79</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</span></pre></div>
+
+
+    
+
+                            </div>
+                            <div class="inherited">
+                                <h5>Inherited Members</h5>
+                                <dl>
+                                    <div><dt>builtins.BaseException</dt>
+                                <dd id="RawModeFileTransferError.with_traceback" class="function">with_traceback</dd>
 
             </div>
                                 </dl>

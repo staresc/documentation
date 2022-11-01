@@ -32,16 +32,16 @@
         <h2>API Documentation</h2>
             <ul class="memberlist">
             <li>
-                    <a class="class" href="#StarescTests">StarescTests</a>
+                    <a class="class" href="#IntegrityTests">IntegrityTests</a>
                             <ul class="memberlist">
                         <li>
-                                <a class="function" href="#StarescTests.test_unreachable_target">test_unreachable_target</a>
+                                <a class="function" href="#IntegrityTests.test_unreachable_target">test_unreachable_target</a>
                         </li>
                         <li>
-                                <a class="function" href="#StarescTests.test_connection">test_connection</a>
+                                <a class="function" href="#IntegrityTests.test_connection">test_connection</a>
                         </li>
                         <li>
-                                <a class="function" href="#StarescTests.test_wrong_credentials">test_wrong_credentials</a>
+                                <a class="function" href="#IntegrityTests.test_wrong_credentials">test_wrong_credentials</a>
                         </li>
                 </ul>
 
@@ -70,7 +70,7 @@
                         <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos"> 1</span></a><span class="kn">import</span> <span class="nn">unittest</span>
 </span><span id="L-2"><a href="#L-2"><span class="linenos"> 2</span></a>
 </span><span id="L-3"><a href="#L-3"><span class="linenos"> 3</span></a><span class="kn">import</span> <span class="nn">staresc.connection</span> <span class="k">as</span> <span class="nn">conn</span>
-</span><span id="L-4"><a href="#L-4"><span class="linenos"> 4</span></a><span class="kn">from</span> <span class="nn">staresc.exceptions</span> <span class="kn">import</span> <span class="n">StarescConnectionError</span><span class="p">,</span> <span class="n">StarescAuthenticationError</span>
+</span><span id="L-4"><a href="#L-4"><span class="linenos"> 4</span></a><span class="kn">from</span> <span class="nn">staresc.exceptions</span> <span class="kn">import</span> <span class="ne">ConnectionError</span><span class="p">,</span> <span class="n">AuthenticationError</span>
 </span><span id="L-5"><a href="#L-5"><span class="linenos"> 5</span></a>
 </span><span id="L-6"><a href="#L-6"><span class="linenos"> 6</span></a><span class="n">UNREACHABLES</span> <span class="o">=</span> <span class="p">{</span>
 </span><span id="L-7"><a href="#L-7"><span class="linenos"> 7</span></a>    <span class="s2">&quot;ssh://u:p@127.0.0.1:9999/&quot;</span>    <span class="p">:</span> <span class="n">conn</span><span class="o">.</span><span class="n">SSHConnection</span><span class="p">,</span>
@@ -94,7 +94,7 @@
 </span><span id="L-25"><a href="#L-25"><span class="linenos">25</span></a>
 </span><span id="L-26"><a href="#L-26"><span class="linenos">26</span></a>
 </span><span id="L-27"><a href="#L-27"><span class="linenos">27</span></a>
-</span><span id="L-28"><a href="#L-28"><span class="linenos">28</span></a><span class="k">class</span> <span class="nc">StarescTests</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+</span><span id="L-28"><a href="#L-28"><span class="linenos">28</span></a><span class="k">class</span> <span class="nc">IntegrityTests</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
 </span><span id="L-29"><a href="#L-29"><span class="linenos">29</span></a>
 </span><span id="L-30"><a href="#L-30"><span class="linenos">30</span></a>    <span class="n">TESTLIST</span> <span class="o">=</span> <span class="p">[</span>
 </span><span id="L-31"><a href="#L-31"><span class="linenos">31</span></a>        <span class="s2">&quot;test_unreachable_target&quot;</span><span class="p">,</span>
@@ -110,7 +110,7 @@
 </span><span id="L-41"><a href="#L-41"><span class="linenos">41</span></a>                <span class="n">c</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </span><span id="L-42"><a href="#L-42"><span class="linenos">42</span></a>
 </span><span id="L-43"><a href="#L-43"><span class="linenos">43</span></a>            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-</span><span id="L-44"><a href="#L-44"><span class="linenos">44</span></a>                <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">StarescConnectionError</span><span class="p">))</span>
+</span><span id="L-44"><a href="#L-44"><span class="linenos">44</span></a>                <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="ne">ConnectionError</span><span class="p">))</span>
 </span><span id="L-45"><a href="#L-45"><span class="linenos">45</span></a>
 </span><span id="L-46"><a href="#L-46"><span class="linenos">46</span></a>    
 </span><span id="L-47"><a href="#L-47"><span class="linenos">47</span></a>    <span class="k">def</span> <span class="nf">test_connection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -128,57 +128,57 @@
 </span><span id="L-59"><a href="#L-59"><span class="linenos">59</span></a>                <span class="n">c</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
 </span><span id="L-60"><a href="#L-60"><span class="linenos">60</span></a>
 </span><span id="L-61"><a href="#L-61"><span class="linenos">61</span></a>            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-</span><span id="L-62"><a href="#L-62"><span class="linenos">62</span></a>                <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">StarescAuthenticationError</span><span class="p">))</span>
+</span><span id="L-62"><a href="#L-62"><span class="linenos">62</span></a>                <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">AuthenticationError</span><span class="p">))</span>
 </span></pre></div>
 
 
             </section>
-                <section id="StarescTests">
-                            <input id="StarescTests-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+                <section id="IntegrityTests">
+                            <input id="IntegrityTests-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr class">
             
     <span class="def">class</span>
-    <span class="name">StarescTests</span><wbr>(<span class="base">unittest.case.TestCase</span>):
+    <span class="name">IntegrityTests</span><wbr>(<span class="base">unittest.case.TestCase</span>):
 
-                <label class="view-source-button" for="StarescTests-view-source"><span>View Source</span></label>
+                <label class="view-source-button" for="IntegrityTests-view-source"><span>View Source</span></label>
 
     </div>
-    <a class="headerlink" href="#StarescTests"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="StarescTests-29"><a href="#StarescTests-29"><span class="linenos">29</span></a><span class="k">class</span> <span class="nc">StarescTests</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
-</span><span id="StarescTests-30"><a href="#StarescTests-30"><span class="linenos">30</span></a>
-</span><span id="StarescTests-31"><a href="#StarescTests-31"><span class="linenos">31</span></a>    <span class="n">TESTLIST</span> <span class="o">=</span> <span class="p">[</span>
-</span><span id="StarescTests-32"><a href="#StarescTests-32"><span class="linenos">32</span></a>        <span class="s2">&quot;test_unreachable_target&quot;</span><span class="p">,</span>
-</span><span id="StarescTests-33"><a href="#StarescTests-33"><span class="linenos">33</span></a>        <span class="s2">&quot;test_connection&quot;</span><span class="p">,</span>
-</span><span id="StarescTests-34"><a href="#StarescTests-34"><span class="linenos">34</span></a>        <span class="s2">&quot;test_wrong_credentials&quot;</span><span class="p">,</span>
-</span><span id="StarescTests-35"><a href="#StarescTests-35"><span class="linenos">35</span></a>    <span class="p">]</span>
-</span><span id="StarescTests-36"><a href="#StarescTests-36"><span class="linenos">36</span></a>
-</span><span id="StarescTests-37"><a href="#StarescTests-37"><span class="linenos">37</span></a>    <span class="k">def</span> <span class="nf">test_unreachable_target</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="StarescTests-38"><a href="#StarescTests-38"><span class="linenos">38</span></a>        <span class="k">for</span> <span class="n">conn_str</span> <span class="ow">in</span> <span class="n">UNREACHABLES</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-</span><span id="StarescTests-39"><a href="#StarescTests-39"><span class="linenos">39</span></a>            <span class="k">try</span><span class="p">:</span>
-</span><span id="StarescTests-40"><a href="#StarescTests-40"><span class="linenos">40</span></a>                <span class="n">c</span> <span class="o">=</span> <span class="n">UNREACHABLES</span><span class="p">[</span><span class="n">conn_str</span><span class="p">](</span><span class="n">conn_str</span><span class="p">)</span>
-</span><span id="StarescTests-41"><a href="#StarescTests-41"><span class="linenos">41</span></a>                <span class="n">c</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
-</span><span id="StarescTests-42"><a href="#StarescTests-42"><span class="linenos">42</span></a>                <span class="n">c</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</span><span id="StarescTests-43"><a href="#StarescTests-43"><span class="linenos">43</span></a>
-</span><span id="StarescTests-44"><a href="#StarescTests-44"><span class="linenos">44</span></a>            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-</span><span id="StarescTests-45"><a href="#StarescTests-45"><span class="linenos">45</span></a>                <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">StarescConnectionError</span><span class="p">))</span>
-</span><span id="StarescTests-46"><a href="#StarescTests-46"><span class="linenos">46</span></a>
-</span><span id="StarescTests-47"><a href="#StarescTests-47"><span class="linenos">47</span></a>    
-</span><span id="StarescTests-48"><a href="#StarescTests-48"><span class="linenos">48</span></a>    <span class="k">def</span> <span class="nf">test_connection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="StarescTests-49"><a href="#StarescTests-49"><span class="linenos">49</span></a>        <span class="k">for</span> <span class="n">conn_str</span> <span class="ow">in</span> <span class="n">REACHABLES</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-</span><span id="StarescTests-50"><a href="#StarescTests-50"><span class="linenos">50</span></a>            <span class="n">c</span> <span class="o">=</span> <span class="n">REACHABLES</span><span class="p">[</span><span class="n">conn_str</span><span class="p">](</span><span class="n">conn_str</span><span class="p">)</span>
-</span><span id="StarescTests-51"><a href="#StarescTests-51"><span class="linenos">51</span></a>            <span class="n">c</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span> 
-</span><span id="StarescTests-52"><a href="#StarescTests-52"><span class="linenos">52</span></a>            <span class="n">_</span><span class="p">,</span> <span class="n">stdout</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">COMMAND_ANSWER</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-</span><span id="StarescTests-53"><a href="#StarescTests-53"><span class="linenos">53</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="n">COMMAND_ANSWER</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-</span><span id="StarescTests-54"><a href="#StarescTests-54"><span class="linenos">54</span></a>
-</span><span id="StarescTests-55"><a href="#StarescTests-55"><span class="linenos">55</span></a>
-</span><span id="StarescTests-56"><a href="#StarescTests-56"><span class="linenos">56</span></a>    <span class="k">def</span> <span class="nf">test_wrong_credentials</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="StarescTests-57"><a href="#StarescTests-57"><span class="linenos">57</span></a>        <span class="k">for</span> <span class="n">conn_str</span> <span class="ow">in</span> <span class="n">WRONG_CREDS</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-</span><span id="StarescTests-58"><a href="#StarescTests-58"><span class="linenos">58</span></a>            <span class="k">try</span><span class="p">:</span>
-</span><span id="StarescTests-59"><a href="#StarescTests-59"><span class="linenos">59</span></a>                <span class="n">c</span> <span class="o">=</span> <span class="n">WRONG_CREDS</span><span class="p">[</span><span class="n">conn_str</span><span class="p">](</span><span class="n">conn_str</span><span class="p">)</span>
-</span><span id="StarescTests-60"><a href="#StarescTests-60"><span class="linenos">60</span></a>                <span class="n">c</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
-</span><span id="StarescTests-61"><a href="#StarescTests-61"><span class="linenos">61</span></a>
-</span><span id="StarescTests-62"><a href="#StarescTests-62"><span class="linenos">62</span></a>            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-</span><span id="StarescTests-63"><a href="#StarescTests-63"><span class="linenos">63</span></a>                <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">StarescAuthenticationError</span><span class="p">))</span>
+    <a class="headerlink" href="#IntegrityTests"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="IntegrityTests-29"><a href="#IntegrityTests-29"><span class="linenos">29</span></a><span class="k">class</span> <span class="nc">IntegrityTests</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+</span><span id="IntegrityTests-30"><a href="#IntegrityTests-30"><span class="linenos">30</span></a>
+</span><span id="IntegrityTests-31"><a href="#IntegrityTests-31"><span class="linenos">31</span></a>    <span class="n">TESTLIST</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="IntegrityTests-32"><a href="#IntegrityTests-32"><span class="linenos">32</span></a>        <span class="s2">&quot;test_unreachable_target&quot;</span><span class="p">,</span>
+</span><span id="IntegrityTests-33"><a href="#IntegrityTests-33"><span class="linenos">33</span></a>        <span class="s2">&quot;test_connection&quot;</span><span class="p">,</span>
+</span><span id="IntegrityTests-34"><a href="#IntegrityTests-34"><span class="linenos">34</span></a>        <span class="s2">&quot;test_wrong_credentials&quot;</span><span class="p">,</span>
+</span><span id="IntegrityTests-35"><a href="#IntegrityTests-35"><span class="linenos">35</span></a>    <span class="p">]</span>
+</span><span id="IntegrityTests-36"><a href="#IntegrityTests-36"><span class="linenos">36</span></a>
+</span><span id="IntegrityTests-37"><a href="#IntegrityTests-37"><span class="linenos">37</span></a>    <span class="k">def</span> <span class="nf">test_unreachable_target</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="IntegrityTests-38"><a href="#IntegrityTests-38"><span class="linenos">38</span></a>        <span class="k">for</span> <span class="n">conn_str</span> <span class="ow">in</span> <span class="n">UNREACHABLES</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+</span><span id="IntegrityTests-39"><a href="#IntegrityTests-39"><span class="linenos">39</span></a>            <span class="k">try</span><span class="p">:</span>
+</span><span id="IntegrityTests-40"><a href="#IntegrityTests-40"><span class="linenos">40</span></a>                <span class="n">c</span> <span class="o">=</span> <span class="n">UNREACHABLES</span><span class="p">[</span><span class="n">conn_str</span><span class="p">](</span><span class="n">conn_str</span><span class="p">)</span>
+</span><span id="IntegrityTests-41"><a href="#IntegrityTests-41"><span class="linenos">41</span></a>                <span class="n">c</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+</span><span id="IntegrityTests-42"><a href="#IntegrityTests-42"><span class="linenos">42</span></a>                <span class="n">c</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span><span id="IntegrityTests-43"><a href="#IntegrityTests-43"><span class="linenos">43</span></a>
+</span><span id="IntegrityTests-44"><a href="#IntegrityTests-44"><span class="linenos">44</span></a>            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span><span id="IntegrityTests-45"><a href="#IntegrityTests-45"><span class="linenos">45</span></a>                <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="ne">ConnectionError</span><span class="p">))</span>
+</span><span id="IntegrityTests-46"><a href="#IntegrityTests-46"><span class="linenos">46</span></a>
+</span><span id="IntegrityTests-47"><a href="#IntegrityTests-47"><span class="linenos">47</span></a>    
+</span><span id="IntegrityTests-48"><a href="#IntegrityTests-48"><span class="linenos">48</span></a>    <span class="k">def</span> <span class="nf">test_connection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="IntegrityTests-49"><a href="#IntegrityTests-49"><span class="linenos">49</span></a>        <span class="k">for</span> <span class="n">conn_str</span> <span class="ow">in</span> <span class="n">REACHABLES</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+</span><span id="IntegrityTests-50"><a href="#IntegrityTests-50"><span class="linenos">50</span></a>            <span class="n">c</span> <span class="o">=</span> <span class="n">REACHABLES</span><span class="p">[</span><span class="n">conn_str</span><span class="p">](</span><span class="n">conn_str</span><span class="p">)</span>
+</span><span id="IntegrityTests-51"><a href="#IntegrityTests-51"><span class="linenos">51</span></a>            <span class="n">c</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span> 
+</span><span id="IntegrityTests-52"><a href="#IntegrityTests-52"><span class="linenos">52</span></a>            <span class="n">_</span><span class="p">,</span> <span class="n">stdout</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">COMMAND_ANSWER</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span><span id="IntegrityTests-53"><a href="#IntegrityTests-53"><span class="linenos">53</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="n">COMMAND_ANSWER</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</span><span id="IntegrityTests-54"><a href="#IntegrityTests-54"><span class="linenos">54</span></a>
+</span><span id="IntegrityTests-55"><a href="#IntegrityTests-55"><span class="linenos">55</span></a>
+</span><span id="IntegrityTests-56"><a href="#IntegrityTests-56"><span class="linenos">56</span></a>    <span class="k">def</span> <span class="nf">test_wrong_credentials</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="IntegrityTests-57"><a href="#IntegrityTests-57"><span class="linenos">57</span></a>        <span class="k">for</span> <span class="n">conn_str</span> <span class="ow">in</span> <span class="n">WRONG_CREDS</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+</span><span id="IntegrityTests-58"><a href="#IntegrityTests-58"><span class="linenos">58</span></a>            <span class="k">try</span><span class="p">:</span>
+</span><span id="IntegrityTests-59"><a href="#IntegrityTests-59"><span class="linenos">59</span></a>                <span class="n">c</span> <span class="o">=</span> <span class="n">WRONG_CREDS</span><span class="p">[</span><span class="n">conn_str</span><span class="p">](</span><span class="n">conn_str</span><span class="p">)</span>
+</span><span id="IntegrityTests-60"><a href="#IntegrityTests-60"><span class="linenos">60</span></a>                <span class="n">c</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+</span><span id="IntegrityTests-61"><a href="#IntegrityTests-61"><span class="linenos">61</span></a>
+</span><span id="IntegrityTests-62"><a href="#IntegrityTests-62"><span class="linenos">62</span></a>            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span><span id="IntegrityTests-63"><a href="#IntegrityTests-63"><span class="linenos">63</span></a>                <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">AuthenticationError</span><span class="p">))</span>
 </span></pre></div>
 
 
@@ -218,74 +218,74 @@ attribute so can be configured by individual tests if required.</li>
 </div>
 
 
-                            <div id="StarescTests.test_unreachable_target" class="classattr">
-                                        <input id="StarescTests.test_unreachable_target-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+                            <div id="IntegrityTests.test_unreachable_target" class="classattr">
+                                        <input id="IntegrityTests.test_unreachable_target-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">
             
         <span class="def">def</span>
         <span class="name">test_unreachable_target</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">):</span></span>
 
-                <label class="view-source-button" for="StarescTests.test_unreachable_target-view-source"><span>View Source</span></label>
+                <label class="view-source-button" for="IntegrityTests.test_unreachable_target-view-source"><span>View Source</span></label>
 
     </div>
-    <a class="headerlink" href="#StarescTests.test_unreachable_target"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="StarescTests.test_unreachable_target-37"><a href="#StarescTests.test_unreachable_target-37"><span class="linenos">37</span></a>    <span class="k">def</span> <span class="nf">test_unreachable_target</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="StarescTests.test_unreachable_target-38"><a href="#StarescTests.test_unreachable_target-38"><span class="linenos">38</span></a>        <span class="k">for</span> <span class="n">conn_str</span> <span class="ow">in</span> <span class="n">UNREACHABLES</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-</span><span id="StarescTests.test_unreachable_target-39"><a href="#StarescTests.test_unreachable_target-39"><span class="linenos">39</span></a>            <span class="k">try</span><span class="p">:</span>
-</span><span id="StarescTests.test_unreachable_target-40"><a href="#StarescTests.test_unreachable_target-40"><span class="linenos">40</span></a>                <span class="n">c</span> <span class="o">=</span> <span class="n">UNREACHABLES</span><span class="p">[</span><span class="n">conn_str</span><span class="p">](</span><span class="n">conn_str</span><span class="p">)</span>
-</span><span id="StarescTests.test_unreachable_target-41"><a href="#StarescTests.test_unreachable_target-41"><span class="linenos">41</span></a>                <span class="n">c</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
-</span><span id="StarescTests.test_unreachable_target-42"><a href="#StarescTests.test_unreachable_target-42"><span class="linenos">42</span></a>                <span class="n">c</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</span><span id="StarescTests.test_unreachable_target-43"><a href="#StarescTests.test_unreachable_target-43"><span class="linenos">43</span></a>
-</span><span id="StarescTests.test_unreachable_target-44"><a href="#StarescTests.test_unreachable_target-44"><span class="linenos">44</span></a>            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-</span><span id="StarescTests.test_unreachable_target-45"><a href="#StarescTests.test_unreachable_target-45"><span class="linenos">45</span></a>                <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">StarescConnectionError</span><span class="p">))</span>
+    <a class="headerlink" href="#IntegrityTests.test_unreachable_target"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="IntegrityTests.test_unreachable_target-37"><a href="#IntegrityTests.test_unreachable_target-37"><span class="linenos">37</span></a>    <span class="k">def</span> <span class="nf">test_unreachable_target</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="IntegrityTests.test_unreachable_target-38"><a href="#IntegrityTests.test_unreachable_target-38"><span class="linenos">38</span></a>        <span class="k">for</span> <span class="n">conn_str</span> <span class="ow">in</span> <span class="n">UNREACHABLES</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+</span><span id="IntegrityTests.test_unreachable_target-39"><a href="#IntegrityTests.test_unreachable_target-39"><span class="linenos">39</span></a>            <span class="k">try</span><span class="p">:</span>
+</span><span id="IntegrityTests.test_unreachable_target-40"><a href="#IntegrityTests.test_unreachable_target-40"><span class="linenos">40</span></a>                <span class="n">c</span> <span class="o">=</span> <span class="n">UNREACHABLES</span><span class="p">[</span><span class="n">conn_str</span><span class="p">](</span><span class="n">conn_str</span><span class="p">)</span>
+</span><span id="IntegrityTests.test_unreachable_target-41"><a href="#IntegrityTests.test_unreachable_target-41"><span class="linenos">41</span></a>                <span class="n">c</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+</span><span id="IntegrityTests.test_unreachable_target-42"><a href="#IntegrityTests.test_unreachable_target-42"><span class="linenos">42</span></a>                <span class="n">c</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span><span id="IntegrityTests.test_unreachable_target-43"><a href="#IntegrityTests.test_unreachable_target-43"><span class="linenos">43</span></a>
+</span><span id="IntegrityTests.test_unreachable_target-44"><a href="#IntegrityTests.test_unreachable_target-44"><span class="linenos">44</span></a>            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span><span id="IntegrityTests.test_unreachable_target-45"><a href="#IntegrityTests.test_unreachable_target-45"><span class="linenos">45</span></a>                <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="ne">ConnectionError</span><span class="p">))</span>
 </span></pre></div>
 
 
     
 
                             </div>
-                            <div id="StarescTests.test_connection" class="classattr">
-                                        <input id="StarescTests.test_connection-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+                            <div id="IntegrityTests.test_connection" class="classattr">
+                                        <input id="IntegrityTests.test_connection-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">
             
         <span class="def">def</span>
         <span class="name">test_connection</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">):</span></span>
 
-                <label class="view-source-button" for="StarescTests.test_connection-view-source"><span>View Source</span></label>
+                <label class="view-source-button" for="IntegrityTests.test_connection-view-source"><span>View Source</span></label>
 
     </div>
-    <a class="headerlink" href="#StarescTests.test_connection"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="StarescTests.test_connection-48"><a href="#StarescTests.test_connection-48"><span class="linenos">48</span></a>    <span class="k">def</span> <span class="nf">test_connection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="StarescTests.test_connection-49"><a href="#StarescTests.test_connection-49"><span class="linenos">49</span></a>        <span class="k">for</span> <span class="n">conn_str</span> <span class="ow">in</span> <span class="n">REACHABLES</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-</span><span id="StarescTests.test_connection-50"><a href="#StarescTests.test_connection-50"><span class="linenos">50</span></a>            <span class="n">c</span> <span class="o">=</span> <span class="n">REACHABLES</span><span class="p">[</span><span class="n">conn_str</span><span class="p">](</span><span class="n">conn_str</span><span class="p">)</span>
-</span><span id="StarescTests.test_connection-51"><a href="#StarescTests.test_connection-51"><span class="linenos">51</span></a>            <span class="n">c</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span> 
-</span><span id="StarescTests.test_connection-52"><a href="#StarescTests.test_connection-52"><span class="linenos">52</span></a>            <span class="n">_</span><span class="p">,</span> <span class="n">stdout</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">COMMAND_ANSWER</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-</span><span id="StarescTests.test_connection-53"><a href="#StarescTests.test_connection-53"><span class="linenos">53</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="n">COMMAND_ANSWER</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <a class="headerlink" href="#IntegrityTests.test_connection"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="IntegrityTests.test_connection-48"><a href="#IntegrityTests.test_connection-48"><span class="linenos">48</span></a>    <span class="k">def</span> <span class="nf">test_connection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="IntegrityTests.test_connection-49"><a href="#IntegrityTests.test_connection-49"><span class="linenos">49</span></a>        <span class="k">for</span> <span class="n">conn_str</span> <span class="ow">in</span> <span class="n">REACHABLES</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+</span><span id="IntegrityTests.test_connection-50"><a href="#IntegrityTests.test_connection-50"><span class="linenos">50</span></a>            <span class="n">c</span> <span class="o">=</span> <span class="n">REACHABLES</span><span class="p">[</span><span class="n">conn_str</span><span class="p">](</span><span class="n">conn_str</span><span class="p">)</span>
+</span><span id="IntegrityTests.test_connection-51"><a href="#IntegrityTests.test_connection-51"><span class="linenos">51</span></a>            <span class="n">c</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span> 
+</span><span id="IntegrityTests.test_connection-52"><a href="#IntegrityTests.test_connection-52"><span class="linenos">52</span></a>            <span class="n">_</span><span class="p">,</span> <span class="n">stdout</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">COMMAND_ANSWER</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span><span id="IntegrityTests.test_connection-53"><a href="#IntegrityTests.test_connection-53"><span class="linenos">53</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">stdout</span><span class="p">,</span> <span class="n">COMMAND_ANSWER</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 </span></pre></div>
 
 
     
 
                             </div>
-                            <div id="StarescTests.test_wrong_credentials" class="classattr">
-                                        <input id="StarescTests.test_wrong_credentials-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+                            <div id="IntegrityTests.test_wrong_credentials" class="classattr">
+                                        <input id="IntegrityTests.test_wrong_credentials-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">
             
         <span class="def">def</span>
         <span class="name">test_wrong_credentials</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">):</span></span>
 
-                <label class="view-source-button" for="StarescTests.test_wrong_credentials-view-source"><span>View Source</span></label>
+                <label class="view-source-button" for="IntegrityTests.test_wrong_credentials-view-source"><span>View Source</span></label>
 
     </div>
-    <a class="headerlink" href="#StarescTests.test_wrong_credentials"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="StarescTests.test_wrong_credentials-56"><a href="#StarescTests.test_wrong_credentials-56"><span class="linenos">56</span></a>    <span class="k">def</span> <span class="nf">test_wrong_credentials</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="StarescTests.test_wrong_credentials-57"><a href="#StarescTests.test_wrong_credentials-57"><span class="linenos">57</span></a>        <span class="k">for</span> <span class="n">conn_str</span> <span class="ow">in</span> <span class="n">WRONG_CREDS</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-</span><span id="StarescTests.test_wrong_credentials-58"><a href="#StarescTests.test_wrong_credentials-58"><span class="linenos">58</span></a>            <span class="k">try</span><span class="p">:</span>
-</span><span id="StarescTests.test_wrong_credentials-59"><a href="#StarescTests.test_wrong_credentials-59"><span class="linenos">59</span></a>                <span class="n">c</span> <span class="o">=</span> <span class="n">WRONG_CREDS</span><span class="p">[</span><span class="n">conn_str</span><span class="p">](</span><span class="n">conn_str</span><span class="p">)</span>
-</span><span id="StarescTests.test_wrong_credentials-60"><a href="#StarescTests.test_wrong_credentials-60"><span class="linenos">60</span></a>                <span class="n">c</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
-</span><span id="StarescTests.test_wrong_credentials-61"><a href="#StarescTests.test_wrong_credentials-61"><span class="linenos">61</span></a>
-</span><span id="StarescTests.test_wrong_credentials-62"><a href="#StarescTests.test_wrong_credentials-62"><span class="linenos">62</span></a>            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-</span><span id="StarescTests.test_wrong_credentials-63"><a href="#StarescTests.test_wrong_credentials-63"><span class="linenos">63</span></a>                <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">StarescAuthenticationError</span><span class="p">))</span>
+    <a class="headerlink" href="#IntegrityTests.test_wrong_credentials"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="IntegrityTests.test_wrong_credentials-56"><a href="#IntegrityTests.test_wrong_credentials-56"><span class="linenos">56</span></a>    <span class="k">def</span> <span class="nf">test_wrong_credentials</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="IntegrityTests.test_wrong_credentials-57"><a href="#IntegrityTests.test_wrong_credentials-57"><span class="linenos">57</span></a>        <span class="k">for</span> <span class="n">conn_str</span> <span class="ow">in</span> <span class="n">WRONG_CREDS</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+</span><span id="IntegrityTests.test_wrong_credentials-58"><a href="#IntegrityTests.test_wrong_credentials-58"><span class="linenos">58</span></a>            <span class="k">try</span><span class="p">:</span>
+</span><span id="IntegrityTests.test_wrong_credentials-59"><a href="#IntegrityTests.test_wrong_credentials-59"><span class="linenos">59</span></a>                <span class="n">c</span> <span class="o">=</span> <span class="n">WRONG_CREDS</span><span class="p">[</span><span class="n">conn_str</span><span class="p">](</span><span class="n">conn_str</span><span class="p">)</span>
+</span><span id="IntegrityTests.test_wrong_credentials-60"><a href="#IntegrityTests.test_wrong_credentials-60"><span class="linenos">60</span></a>                <span class="n">c</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+</span><span id="IntegrityTests.test_wrong_credentials-61"><a href="#IntegrityTests.test_wrong_credentials-61"><span class="linenos">61</span></a>
+</span><span id="IntegrityTests.test_wrong_credentials-62"><a href="#IntegrityTests.test_wrong_credentials-62"><span class="linenos">62</span></a>            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span><span id="IntegrityTests.test_wrong_credentials-63"><a href="#IntegrityTests.test_wrong_credentials-63"><span class="linenos">63</span></a>                <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">AuthenticationError</span><span class="p">))</span>
 </span></pre></div>
 
 
@@ -296,75 +296,75 @@ attribute so can be configured by individual tests if required.</li>
                                 <h5>Inherited Members</h5>
                                 <dl>
                                     <div><dt>unittest.case.TestCase</dt>
-                                <dd id="StarescTests.__init__" class="function">TestCase</dd>
-                <dd id="StarescTests.failureException" class="class">failureException</dd>
-                <dd id="StarescTests.addTypeEqualityFunc" class="function">addTypeEqualityFunc</dd>
-                <dd id="StarescTests.addCleanup" class="function">addCleanup</dd>
-                <dd id="StarescTests.addClassCleanup" class="function">addClassCleanup</dd>
-                <dd id="StarescTests.setUp" class="function">setUp</dd>
-                <dd id="StarescTests.tearDown" class="function">tearDown</dd>
-                <dd id="StarescTests.setUpClass" class="function">setUpClass</dd>
-                <dd id="StarescTests.tearDownClass" class="function">tearDownClass</dd>
-                <dd id="StarescTests.countTestCases" class="function">countTestCases</dd>
-                <dd id="StarescTests.defaultTestResult" class="function">defaultTestResult</dd>
-                <dd id="StarescTests.shortDescription" class="function">shortDescription</dd>
-                <dd id="StarescTests.id" class="function">id</dd>
-                <dd id="StarescTests.subTest" class="function">subTest</dd>
-                <dd id="StarescTests.run" class="function">run</dd>
-                <dd id="StarescTests.doCleanups" class="function">doCleanups</dd>
-                <dd id="StarescTests.doClassCleanups" class="function">doClassCleanups</dd>
-                <dd id="StarescTests.debug" class="function">debug</dd>
-                <dd id="StarescTests.skipTest" class="function">skipTest</dd>
-                <dd id="StarescTests.fail" class="function">fail</dd>
-                <dd id="StarescTests.assertFalse" class="function">assertFalse</dd>
-                <dd id="StarescTests.assertTrue" class="function">assertTrue</dd>
-                <dd id="StarescTests.assertRaises" class="function">assertRaises</dd>
-                <dd id="StarescTests.assertWarns" class="function">assertWarns</dd>
-                <dd id="StarescTests.assertLogs" class="function">assertLogs</dd>
-                <dd id="StarescTests.assertNoLogs" class="function">assertNoLogs</dd>
-                <dd id="StarescTests.assertEqual" class="function">assertEqual</dd>
-                <dd id="StarescTests.assertNotEqual" class="function">assertNotEqual</dd>
-                <dd id="StarescTests.assertAlmostEqual" class="function">assertAlmostEqual</dd>
-                <dd id="StarescTests.assertNotAlmostEqual" class="function">assertNotAlmostEqual</dd>
-                <dd id="StarescTests.assertSequenceEqual" class="function">assertSequenceEqual</dd>
-                <dd id="StarescTests.assertListEqual" class="function">assertListEqual</dd>
-                <dd id="StarescTests.assertTupleEqual" class="function">assertTupleEqual</dd>
-                <dd id="StarescTests.assertSetEqual" class="function">assertSetEqual</dd>
-                <dd id="StarescTests.assertIn" class="function">assertIn</dd>
-                <dd id="StarescTests.assertNotIn" class="function">assertNotIn</dd>
-                <dd id="StarescTests.assertIs" class="function">assertIs</dd>
-                <dd id="StarescTests.assertIsNot" class="function">assertIsNot</dd>
-                <dd id="StarescTests.assertDictEqual" class="function">assertDictEqual</dd>
-                <dd id="StarescTests.assertDictContainsSubset" class="function">assertDictContainsSubset</dd>
-                <dd id="StarescTests.assertCountEqual" class="function">assertCountEqual</dd>
-                <dd id="StarescTests.assertMultiLineEqual" class="function">assertMultiLineEqual</dd>
-                <dd id="StarescTests.assertLess" class="function">assertLess</dd>
-                <dd id="StarescTests.assertLessEqual" class="function">assertLessEqual</dd>
-                <dd id="StarescTests.assertGreater" class="function">assertGreater</dd>
-                <dd id="StarescTests.assertGreaterEqual" class="function">assertGreaterEqual</dd>
-                <dd id="StarescTests.assertIsNone" class="function">assertIsNone</dd>
-                <dd id="StarescTests.assertIsNotNone" class="function">assertIsNotNone</dd>
-                <dd id="StarescTests.assertIsInstance" class="function">assertIsInstance</dd>
-                <dd id="StarescTests.assertNotIsInstance" class="function">assertNotIsInstance</dd>
-                <dd id="StarescTests.assertRaisesRegex" class="function">assertRaisesRegex</dd>
-                <dd id="StarescTests.assertWarnsRegex" class="function">assertWarnsRegex</dd>
-                <dd id="StarescTests.assertRegex" class="function">assertRegex</dd>
-                <dd id="StarescTests.assertNotRegex" class="function">assertNotRegex</dd>
-                <dd id="StarescTests.failUnlessRaises" class="function">failUnlessRaises</dd>
-                <dd id="StarescTests.failIf" class="function">failIf</dd>
-                <dd id="StarescTests.assertRaisesRegexp" class="function">assertRaisesRegexp</dd>
-                <dd id="StarescTests.assertRegexpMatches" class="function">assertRegexpMatches</dd>
-                <dd id="StarescTests.assertNotRegexpMatches" class="function">assertNotRegexpMatches</dd>
-                <dd id="StarescTests.failUnlessEqual" class="function">failUnlessEqual</dd>
-                <dd id="StarescTests.assertEquals" class="function">assertEquals</dd>
-                <dd id="StarescTests.failIfEqual" class="function">failIfEqual</dd>
-                <dd id="StarescTests.assertNotEquals" class="function">assertNotEquals</dd>
-                <dd id="StarescTests.failUnlessAlmostEqual" class="function">failUnlessAlmostEqual</dd>
-                <dd id="StarescTests.assertAlmostEquals" class="function">assertAlmostEquals</dd>
-                <dd id="StarescTests.failIfAlmostEqual" class="function">failIfAlmostEqual</dd>
-                <dd id="StarescTests.assertNotAlmostEquals" class="function">assertNotAlmostEquals</dd>
-                <dd id="StarescTests.failUnless" class="function">failUnless</dd>
-                <dd id="StarescTests.assert_" class="function">assert_</dd>
+                                <dd id="IntegrityTests.__init__" class="function">TestCase</dd>
+                <dd id="IntegrityTests.failureException" class="class">failureException</dd>
+                <dd id="IntegrityTests.addTypeEqualityFunc" class="function">addTypeEqualityFunc</dd>
+                <dd id="IntegrityTests.addCleanup" class="function">addCleanup</dd>
+                <dd id="IntegrityTests.addClassCleanup" class="function">addClassCleanup</dd>
+                <dd id="IntegrityTests.setUp" class="function">setUp</dd>
+                <dd id="IntegrityTests.tearDown" class="function">tearDown</dd>
+                <dd id="IntegrityTests.setUpClass" class="function">setUpClass</dd>
+                <dd id="IntegrityTests.tearDownClass" class="function">tearDownClass</dd>
+                <dd id="IntegrityTests.countTestCases" class="function">countTestCases</dd>
+                <dd id="IntegrityTests.defaultTestResult" class="function">defaultTestResult</dd>
+                <dd id="IntegrityTests.shortDescription" class="function">shortDescription</dd>
+                <dd id="IntegrityTests.id" class="function">id</dd>
+                <dd id="IntegrityTests.subTest" class="function">subTest</dd>
+                <dd id="IntegrityTests.run" class="function">run</dd>
+                <dd id="IntegrityTests.doCleanups" class="function">doCleanups</dd>
+                <dd id="IntegrityTests.doClassCleanups" class="function">doClassCleanups</dd>
+                <dd id="IntegrityTests.debug" class="function">debug</dd>
+                <dd id="IntegrityTests.skipTest" class="function">skipTest</dd>
+                <dd id="IntegrityTests.fail" class="function">fail</dd>
+                <dd id="IntegrityTests.assertFalse" class="function">assertFalse</dd>
+                <dd id="IntegrityTests.assertTrue" class="function">assertTrue</dd>
+                <dd id="IntegrityTests.assertRaises" class="function">assertRaises</dd>
+                <dd id="IntegrityTests.assertWarns" class="function">assertWarns</dd>
+                <dd id="IntegrityTests.assertLogs" class="function">assertLogs</dd>
+                <dd id="IntegrityTests.assertNoLogs" class="function">assertNoLogs</dd>
+                <dd id="IntegrityTests.assertEqual" class="function">assertEqual</dd>
+                <dd id="IntegrityTests.assertNotEqual" class="function">assertNotEqual</dd>
+                <dd id="IntegrityTests.assertAlmostEqual" class="function">assertAlmostEqual</dd>
+                <dd id="IntegrityTests.assertNotAlmostEqual" class="function">assertNotAlmostEqual</dd>
+                <dd id="IntegrityTests.assertSequenceEqual" class="function">assertSequenceEqual</dd>
+                <dd id="IntegrityTests.assertListEqual" class="function">assertListEqual</dd>
+                <dd id="IntegrityTests.assertTupleEqual" class="function">assertTupleEqual</dd>
+                <dd id="IntegrityTests.assertSetEqual" class="function">assertSetEqual</dd>
+                <dd id="IntegrityTests.assertIn" class="function">assertIn</dd>
+                <dd id="IntegrityTests.assertNotIn" class="function">assertNotIn</dd>
+                <dd id="IntegrityTests.assertIs" class="function">assertIs</dd>
+                <dd id="IntegrityTests.assertIsNot" class="function">assertIsNot</dd>
+                <dd id="IntegrityTests.assertDictEqual" class="function">assertDictEqual</dd>
+                <dd id="IntegrityTests.assertDictContainsSubset" class="function">assertDictContainsSubset</dd>
+                <dd id="IntegrityTests.assertCountEqual" class="function">assertCountEqual</dd>
+                <dd id="IntegrityTests.assertMultiLineEqual" class="function">assertMultiLineEqual</dd>
+                <dd id="IntegrityTests.assertLess" class="function">assertLess</dd>
+                <dd id="IntegrityTests.assertLessEqual" class="function">assertLessEqual</dd>
+                <dd id="IntegrityTests.assertGreater" class="function">assertGreater</dd>
+                <dd id="IntegrityTests.assertGreaterEqual" class="function">assertGreaterEqual</dd>
+                <dd id="IntegrityTests.assertIsNone" class="function">assertIsNone</dd>
+                <dd id="IntegrityTests.assertIsNotNone" class="function">assertIsNotNone</dd>
+                <dd id="IntegrityTests.assertIsInstance" class="function">assertIsInstance</dd>
+                <dd id="IntegrityTests.assertNotIsInstance" class="function">assertNotIsInstance</dd>
+                <dd id="IntegrityTests.assertRaisesRegex" class="function">assertRaisesRegex</dd>
+                <dd id="IntegrityTests.assertWarnsRegex" class="function">assertWarnsRegex</dd>
+                <dd id="IntegrityTests.assertRegex" class="function">assertRegex</dd>
+                <dd id="IntegrityTests.assertNotRegex" class="function">assertNotRegex</dd>
+                <dd id="IntegrityTests.failUnlessRaises" class="function">failUnlessRaises</dd>
+                <dd id="IntegrityTests.failIf" class="function">failIf</dd>
+                <dd id="IntegrityTests.assertRaisesRegexp" class="function">assertRaisesRegexp</dd>
+                <dd id="IntegrityTests.assertRegexpMatches" class="function">assertRegexpMatches</dd>
+                <dd id="IntegrityTests.assertNotRegexpMatches" class="function">assertNotRegexpMatches</dd>
+                <dd id="IntegrityTests.failUnlessEqual" class="function">failUnlessEqual</dd>
+                <dd id="IntegrityTests.assertEquals" class="function">assertEquals</dd>
+                <dd id="IntegrityTests.failIfEqual" class="function">failIfEqual</dd>
+                <dd id="IntegrityTests.assertNotEquals" class="function">assertNotEquals</dd>
+                <dd id="IntegrityTests.failUnlessAlmostEqual" class="function">failUnlessAlmostEqual</dd>
+                <dd id="IntegrityTests.assertAlmostEquals" class="function">assertAlmostEquals</dd>
+                <dd id="IntegrityTests.failIfAlmostEqual" class="function">failIfAlmostEqual</dd>
+                <dd id="IntegrityTests.assertNotAlmostEquals" class="function">assertNotAlmostEquals</dd>
+                <dd id="IntegrityTests.failUnless" class="function">failUnless</dd>
+                <dd id="IntegrityTests.assert_" class="function">assert_</dd>
 
             </div>
                                 </dl>

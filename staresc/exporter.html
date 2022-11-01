@@ -30,8 +30,13 @@
 
         <h2>Submodules</h2>
         <ul>
+                <li><a href="exporter/csv_handler.html">csv_handler</a></li>
                 <li><a href="exporter/exporter.html">exporter</a></li>
-                <li><a href="exporter/handlers.html">handlers</a></li>
+                <li><a href="exporter/handler.html">handler</a></li>
+                <li><a href="exporter/json_handler.html">json_handler</a></li>
+                <li><a href="exporter/raw_handler.html">raw_handler</a></li>
+                <li><a href="exporter/scan_handler.html">scan_handler</a></li>
+                <li><a href="exporter/xlsx_handler.html">xlsx_handler</a></li>
         </ul>
 
 
@@ -57,13 +62,18 @@
 
                         <label class="view-source-button" for="mod-exporter-view-source"><span>View Source</span></label>
 
-                        <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos">1</span></a><span class="sd">&quot;&quot;&quot;Exporter module</span>
-</span><span id="L-2"><a href="#L-2"><span class="linenos">2</span></a>
-</span><span id="L-3"><a href="#L-3"><span class="linenos">3</span></a><span class="sd">This module is responsible for the output of Staresc</span>
-</span><span id="L-4"><a href="#L-4"><span class="linenos">4</span></a><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="L-5"><a href="#L-5"><span class="linenos">5</span></a>
-</span><span id="L-6"><a href="#L-6"><span class="linenos">6</span></a><span class="kn">from</span> <span class="nn">.exporter</span> <span class="kn">import</span> <span class="n">StarescExporter</span>
-</span><span id="L-7"><a href="#L-7"><span class="linenos">7</span></a><span class="kn">from</span> <span class="nn">.handlers</span> <span class="kn">import</span> <span class="n">StarescHandler</span><span class="p">,</span> <span class="n">StarescCSVHandler</span><span class="p">,</span> <span class="n">StarescStdoutHandler</span><span class="p">,</span> <span class="n">StarescXLSXHandler</span><span class="p">,</span> <span class="n">StarescJSONHandler</span><span class="p">,</span> <span class="n">StarescRawHandler</span>
+                        <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos"> 1</span></a><span class="sd">&quot;&quot;&quot;Exporter module</span>
+</span><span id="L-2"><a href="#L-2"><span class="linenos"> 2</span></a>
+</span><span id="L-3"><a href="#L-3"><span class="linenos"> 3</span></a><span class="sd">This module is responsible for the output of Staresc</span>
+</span><span id="L-4"><a href="#L-4"><span class="linenos"> 4</span></a><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="L-5"><a href="#L-5"><span class="linenos"> 5</span></a>
+</span><span id="L-6"><a href="#L-6"><span class="linenos"> 6</span></a><span class="kn">from</span> <span class="nn">.exporter</span> <span class="kn">import</span> <span class="n">Exporter</span>
+</span><span id="L-7"><a href="#L-7"><span class="linenos"> 7</span></a><span class="kn">from</span> <span class="nn">.handler</span> <span class="kn">import</span> <span class="n">Handler</span>
+</span><span id="L-8"><a href="#L-8"><span class="linenos"> 8</span></a><span class="kn">from</span> <span class="nn">.csv_handler</span> <span class="kn">import</span> <span class="n">CSVHandler</span>
+</span><span id="L-9"><a href="#L-9"><span class="linenos"> 9</span></a><span class="kn">from</span> <span class="nn">.json_handler</span> <span class="kn">import</span> <span class="n">JSONHandler</span>
+</span><span id="L-10"><a href="#L-10"><span class="linenos">10</span></a><span class="kn">from</span> <span class="nn">.raw_handler</span> <span class="kn">import</span> <span class="n">RawHandler</span>
+</span><span id="L-11"><a href="#L-11"><span class="linenos">11</span></a><span class="kn">from</span> <span class="nn">.xlsx_handler</span> <span class="kn">import</span> <span class="n">XLSXHandler</span>
+</span><span id="L-12"><a href="#L-12"><span class="linenos">12</span></a><span class="kn">from</span> <span class="nn">.scan_handler</span> <span class="kn">import</span> <span class="n">ScanHandler</span>
 </span></pre></div>
 
 

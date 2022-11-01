@@ -90,7 +90,7 @@
 
                         <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos">  1</span></a><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
 </span><span id="L-2"><a href="#L-2"><span class="linenos">  2</span></a>
-</span><span id="L-3"><a href="#L-3"><span class="linenos">  3</span></a><span class="kn">from</span> <span class="nn">staresc.exceptions</span> <span class="kn">import</span> <span class="n">StarescPluginError</span>
+</span><span id="L-3"><a href="#L-3"><span class="linenos">  3</span></a><span class="kn">from</span> <span class="nn">staresc.exceptions</span> <span class="kn">import</span> <span class="n">PluginError</span>
 </span><span id="L-4"><a href="#L-4"><span class="linenos">  4</span></a>
 </span><span id="L-5"><a href="#L-5"><span class="linenos">  5</span></a><span class="c1"># parent class of matcher and extractor</span>
 </span><span id="L-6"><a href="#L-6"><span class="linenos">  6</span></a><span class="c1"># it represents a parser with its rule</span>
@@ -164,7 +164,7 @@
 </span><span id="L-74"><a href="#L-74"><span class="linenos"> 74</span></a>            <span class="k">return</span> <span class="p">[</span> <span class="n">selected</span> <span class="p">]</span>
 </span><span id="L-75"><a href="#L-75"><span class="linenos"> 75</span></a>        <span class="k">else</span><span class="p">:</span>
 </span><span id="L-76"><a href="#L-76"><span class="linenos"> 76</span></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Invalid part value&quot;</span>
-</span><span id="L-77"><a href="#L-77"><span class="linenos"> 77</span></a>            <span class="k">raise</span> <span class="n">StarescPluginError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</span><span id="L-77"><a href="#L-77"><span class="linenos"> 77</span></a>            <span class="k">raise</span> <span class="n">PluginError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 </span><span id="L-78"><a href="#L-78"><span class="linenos"> 78</span></a>            
 </span><span id="L-79"><a href="#L-79"><span class="linenos"> 79</span></a>
 </span><span id="L-80"><a href="#L-80"><span class="linenos"> 80</span></a>    <span class="nd">@staticmethod</span>
@@ -178,13 +178,13 @@
 </span><span id="L-88"><a href="#L-88"><span class="linenos"> 88</span></a>        
 </span><span id="L-89"><a href="#L-89"><span class="linenos"> 89</span></a>        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
 </span><span id="L-90"><a href="#L-90"><span class="linenos"> 90</span></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;No rule_type specified in parser definition&quot;</span>
-</span><span id="L-91"><a href="#L-91"><span class="linenos"> 91</span></a>            <span class="k">raise</span> <span class="n">StarescPluginError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</span><span id="L-91"><a href="#L-91"><span class="linenos"> 91</span></a>            <span class="k">raise</span> <span class="n">PluginError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 </span><span id="L-92"><a href="#L-92"><span class="linenos"> 92</span></a>
 </span><span id="L-93"><a href="#L-93"><span class="linenos"> 93</span></a>        <span class="k">if</span> <span class="n">selected</span> <span class="ow">in</span> <span class="n">Parser</span><span class="o">.</span><span class="n">ALLOWED_RULES</span><span class="p">:</span>
 </span><span id="L-94"><a href="#L-94"><span class="linenos"> 94</span></a>            <span class="k">return</span> <span class="n">selected</span>
 </span><span id="L-95"><a href="#L-95"><span class="linenos"> 95</span></a>        <span class="k">else</span><span class="p">:</span>
 </span><span id="L-96"><a href="#L-96"><span class="linenos"> 96</span></a>            <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Unsupported rule_type: </span><span class="si">{</span><span class="n">selected</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span id="L-97"><a href="#L-97"><span class="linenos"> 97</span></a>            <span class="k">raise</span> <span class="n">StarescPluginError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</span><span id="L-97"><a href="#L-97"><span class="linenos"> 97</span></a>            <span class="k">raise</span> <span class="n">PluginError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 </span><span id="L-98"><a href="#L-98"><span class="linenos"> 98</span></a>
 </span><span id="L-99"><a href="#L-99"><span class="linenos"> 99</span></a>
 </span><span id="L-100"><a href="#L-100"><span class="linenos">100</span></a>    <span class="nd">@staticmethod</span>
@@ -203,7 +203,7 @@
 </span><span id="L-113"><a href="#L-113"><span class="linenos">113</span></a>            <span class="k">return</span> <span class="n">selected</span>
 </span><span id="L-114"><a href="#L-114"><span class="linenos">114</span></a>        <span class="k">else</span><span class="p">:</span>
 </span><span id="L-115"><a href="#L-115"><span class="linenos">115</span></a>            <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Invalid condition </span><span class="si">{</span><span class="n">selected</span><span class="si">}</span><span class="s1">&#39;</span>
-</span><span id="L-116"><a href="#L-116"><span class="linenos">116</span></a>            <span class="k">raise</span> <span class="n">StarescPluginError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</span><span id="L-116"><a href="#L-116"><span class="linenos">116</span></a>            <span class="k">raise</span> <span class="n">PluginError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 </span><span id="L-117"><a href="#L-117"><span class="linenos">117</span></a>
 </span><span id="L-118"><a href="#L-118"><span class="linenos">118</span></a>
 </span><span id="L-119"><a href="#L-119"><span class="linenos">119</span></a>    <span class="nd">@staticmethod</span>
@@ -217,13 +217,13 @@
 </span><span id="L-127"><a href="#L-127"><span class="linenos">127</span></a>        
 </span><span id="L-128"><a href="#L-128"><span class="linenos">128</span></a>        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
 </span><span id="L-129"><a href="#L-129"><span class="linenos">129</span></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;No rule_type specified in parser definition&quot;</span>
-</span><span id="L-130"><a href="#L-130"><span class="linenos">130</span></a>            <span class="k">raise</span> <span class="n">StarescPluginError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</span><span id="L-130"><a href="#L-130"><span class="linenos">130</span></a>            <span class="k">raise</span> <span class="n">PluginError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 </span><span id="L-131"><a href="#L-131"><span class="linenos">131</span></a>
 </span><span id="L-132"><a href="#L-132"><span class="linenos">132</span></a>        <span class="k">if</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">selected</span><span class="p">,</span> <span class="nb">list</span><span class="p">))</span> <span class="ow">and</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">selected</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
 </span><span id="L-133"><a href="#L-133"><span class="linenos">133</span></a>            <span class="k">return</span> <span class="n">selected</span>
 </span><span id="L-134"><a href="#L-134"><span class="linenos">134</span></a>        <span class="k">else</span><span class="p">:</span>
 </span><span id="L-135"><a href="#L-135"><span class="linenos">135</span></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;No rule specified&quot;</span>
-</span><span id="L-136"><a href="#L-136"><span class="linenos">136</span></a>            <span class="k">raise</span> <span class="n">StarescPluginError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</span><span id="L-136"><a href="#L-136"><span class="linenos">136</span></a>            <span class="k">raise</span> <span class="n">PluginError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 </span><span id="L-137"><a href="#L-137"><span class="linenos">137</span></a>
 </span><span id="L-138"><a href="#L-138"><span class="linenos">138</span></a>
 </span><span id="L-139"><a href="#L-139"><span class="linenos">139</span></a>    <span class="nd">@staticmethod</span>
@@ -242,7 +242,7 @@
 </span><span id="L-152"><a href="#L-152"><span class="linenos">152</span></a>            <span class="k">return</span> <span class="n">selected</span>
 </span><span id="L-153"><a href="#L-153"><span class="linenos">153</span></a>        <span class="k">else</span><span class="p">:</span>
 </span><span id="L-154"><a href="#L-154"><span class="linenos">154</span></a>            <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Invalid invert_match </span><span class="si">{</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;invert_match&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span id="L-155"><a href="#L-155"><span class="linenos">155</span></a>            <span class="k">raise</span> <span class="n">StarescPluginError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</span><span id="L-155"><a href="#L-155"><span class="linenos">155</span></a>            <span class="k">raise</span> <span class="n">PluginError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 </span><span id="L-156"><a href="#L-156"><span class="linenos">156</span></a>            
 </span><span id="L-157"><a href="#L-157"><span class="linenos">157</span></a>
 </span><span id="L-158"><a href="#L-158"><span class="linenos">158</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parser_content</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
@@ -251,21 +251,20 @@
 </span><span id="L-161"><a href="#L-161"><span class="linenos">161</span></a><span class="sd">        Attributes:</span>
 </span><span id="L-162"><a href="#L-162"><span class="linenos">162</span></a><span class="sd">           parser_content -- dict containing data of the given parser read from the YAML file</span>
 </span><span id="L-163"><a href="#L-163"><span class="linenos">163</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="L-164"><a href="#L-164"><span class="linenos">164</span></a>        <span class="c1"># TODO user can specify more parts in yaml file. VERY LOW PRIORITY!!</span>
-</span><span id="L-165"><a href="#L-165"><span class="linenos">165</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">parts</span>        <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_part</span><span class="p">(</span><span class="n">parser_content</span><span class="p">)</span>
-</span><span id="L-166"><a href="#L-166"><span class="linenos">166</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">rule_type</span>    <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_rule_type</span><span class="p">(</span><span class="n">parser_content</span><span class="p">)</span>
-</span><span id="L-167"><a href="#L-167"><span class="linenos">167</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">condition</span>    <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_condition</span><span class="p">(</span><span class="n">parser_content</span><span class="p">)</span>
-</span><span id="L-168"><a href="#L-168"><span class="linenos">168</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">rules</span>        <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_rules</span><span class="p">(</span><span class="n">parser_content</span><span class="p">)</span>
-</span><span id="L-169"><a href="#L-169"><span class="linenos">169</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">invert_match</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_invert_match</span><span class="p">(</span><span class="n">parser_content</span><span class="p">)</span>
+</span><span id="L-164"><a href="#L-164"><span class="linenos">164</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">parts</span>        <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_part</span><span class="p">(</span><span class="n">parser_content</span><span class="p">)</span>
+</span><span id="L-165"><a href="#L-165"><span class="linenos">165</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">rule_type</span>    <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_rule_type</span><span class="p">(</span><span class="n">parser_content</span><span class="p">)</span>
+</span><span id="L-166"><a href="#L-166"><span class="linenos">166</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">condition</span>    <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_condition</span><span class="p">(</span><span class="n">parser_content</span><span class="p">)</span>
+</span><span id="L-167"><a href="#L-167"><span class="linenos">167</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">rules</span>        <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_rules</span><span class="p">(</span><span class="n">parser_content</span><span class="p">)</span>
+</span><span id="L-168"><a href="#L-168"><span class="linenos">168</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">invert_match</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_invert_match</span><span class="p">(</span><span class="n">parser_content</span><span class="p">)</span>
+</span><span id="L-169"><a href="#L-169"><span class="linenos">169</span></a>
 </span><span id="L-170"><a href="#L-170"><span class="linenos">170</span></a>
-</span><span id="L-171"><a href="#L-171"><span class="linenos">171</span></a>
-</span><span id="L-172"><a href="#L-172"><span class="linenos">172</span></a>    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">result</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span>
-</span><span id="L-173"><a href="#L-173"><span class="linenos">173</span></a>        <span class="sd">&quot;&quot;&quot;Method used to parse the result of a command and to check if the vuln is found</span>
-</span><span id="L-174"><a href="#L-174"><span class="linenos">174</span></a>
-</span><span id="L-175"><a href="#L-175"><span class="linenos">175</span></a><span class="sd">        Attributes:</span>
-</span><span id="L-176"><a href="#L-176"><span class="linenos">176</span></a><span class="sd">            result -- dict containing the result of the command executed on the target machine, it has the following format: {&quot;stdout&quot;: command_stdout, &quot;stderr&quot;: command_stderr}</span>
-</span><span id="L-177"><a href="#L-177"><span class="linenos">177</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="L-178"><a href="#L-178"><span class="linenos">178</span></a>        <span class="k">pass</span>
+</span><span id="L-171"><a href="#L-171"><span class="linenos">171</span></a>    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">result</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span>
+</span><span id="L-172"><a href="#L-172"><span class="linenos">172</span></a>        <span class="sd">&quot;&quot;&quot;Method used to parse the result of a command and to check if the vuln is found</span>
+</span><span id="L-173"><a href="#L-173"><span class="linenos">173</span></a>
+</span><span id="L-174"><a href="#L-174"><span class="linenos">174</span></a><span class="sd">        Attributes:</span>
+</span><span id="L-175"><a href="#L-175"><span class="linenos">175</span></a><span class="sd">            result -- dict containing the result of the command executed on the target machine, it has the following format: {&quot;stdout&quot;: command_stdout, &quot;stderr&quot;: command_stderr}</span>
+</span><span id="L-176"><a href="#L-176"><span class="linenos">176</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="L-177"><a href="#L-177"><span class="linenos">177</span></a>        <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="p">{}</span>
 </span></pre></div>
 
 
@@ -351,7 +350,7 @@
 </span><span id="Parser-75"><a href="#Parser-75"><span class="linenos"> 75</span></a>            <span class="k">return</span> <span class="p">[</span> <span class="n">selected</span> <span class="p">]</span>
 </span><span id="Parser-76"><a href="#Parser-76"><span class="linenos"> 76</span></a>        <span class="k">else</span><span class="p">:</span>
 </span><span id="Parser-77"><a href="#Parser-77"><span class="linenos"> 77</span></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Invalid part value&quot;</span>
-</span><span id="Parser-78"><a href="#Parser-78"><span class="linenos"> 78</span></a>            <span class="k">raise</span> <span class="n">StarescPluginError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</span><span id="Parser-78"><a href="#Parser-78"><span class="linenos"> 78</span></a>            <span class="k">raise</span> <span class="n">PluginError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 </span><span id="Parser-79"><a href="#Parser-79"><span class="linenos"> 79</span></a>            
 </span><span id="Parser-80"><a href="#Parser-80"><span class="linenos"> 80</span></a>
 </span><span id="Parser-81"><a href="#Parser-81"><span class="linenos"> 81</span></a>    <span class="nd">@staticmethod</span>
@@ -365,13 +364,13 @@
 </span><span id="Parser-89"><a href="#Parser-89"><span class="linenos"> 89</span></a>        
 </span><span id="Parser-90"><a href="#Parser-90"><span class="linenos"> 90</span></a>        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
 </span><span id="Parser-91"><a href="#Parser-91"><span class="linenos"> 91</span></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;No rule_type specified in parser definition&quot;</span>
-</span><span id="Parser-92"><a href="#Parser-92"><span class="linenos"> 92</span></a>            <span class="k">raise</span> <span class="n">StarescPluginError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</span><span id="Parser-92"><a href="#Parser-92"><span class="linenos"> 92</span></a>            <span class="k">raise</span> <span class="n">PluginError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 </span><span id="Parser-93"><a href="#Parser-93"><span class="linenos"> 93</span></a>
 </span><span id="Parser-94"><a href="#Parser-94"><span class="linenos"> 94</span></a>        <span class="k">if</span> <span class="n">selected</span> <span class="ow">in</span> <span class="n">Parser</span><span class="o">.</span><span class="n">ALLOWED_RULES</span><span class="p">:</span>
 </span><span id="Parser-95"><a href="#Parser-95"><span class="linenos"> 95</span></a>            <span class="k">return</span> <span class="n">selected</span>
 </span><span id="Parser-96"><a href="#Parser-96"><span class="linenos"> 96</span></a>        <span class="k">else</span><span class="p">:</span>
 </span><span id="Parser-97"><a href="#Parser-97"><span class="linenos"> 97</span></a>            <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Unsupported rule_type: </span><span class="si">{</span><span class="n">selected</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span id="Parser-98"><a href="#Parser-98"><span class="linenos"> 98</span></a>            <span class="k">raise</span> <span class="n">StarescPluginError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</span><span id="Parser-98"><a href="#Parser-98"><span class="linenos"> 98</span></a>            <span class="k">raise</span> <span class="n">PluginError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 </span><span id="Parser-99"><a href="#Parser-99"><span class="linenos"> 99</span></a>
 </span><span id="Parser-100"><a href="#Parser-100"><span class="linenos">100</span></a>
 </span><span id="Parser-101"><a href="#Parser-101"><span class="linenos">101</span></a>    <span class="nd">@staticmethod</span>
@@ -390,7 +389,7 @@
 </span><span id="Parser-114"><a href="#Parser-114"><span class="linenos">114</span></a>            <span class="k">return</span> <span class="n">selected</span>
 </span><span id="Parser-115"><a href="#Parser-115"><span class="linenos">115</span></a>        <span class="k">else</span><span class="p">:</span>
 </span><span id="Parser-116"><a href="#Parser-116"><span class="linenos">116</span></a>            <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Invalid condition </span><span class="si">{</span><span class="n">selected</span><span class="si">}</span><span class="s1">&#39;</span>
-</span><span id="Parser-117"><a href="#Parser-117"><span class="linenos">117</span></a>            <span class="k">raise</span> <span class="n">StarescPluginError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</span><span id="Parser-117"><a href="#Parser-117"><span class="linenos">117</span></a>            <span class="k">raise</span> <span class="n">PluginError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 </span><span id="Parser-118"><a href="#Parser-118"><span class="linenos">118</span></a>
 </span><span id="Parser-119"><a href="#Parser-119"><span class="linenos">119</span></a>
 </span><span id="Parser-120"><a href="#Parser-120"><span class="linenos">120</span></a>    <span class="nd">@staticmethod</span>
@@ -404,13 +403,13 @@
 </span><span id="Parser-128"><a href="#Parser-128"><span class="linenos">128</span></a>        
 </span><span id="Parser-129"><a href="#Parser-129"><span class="linenos">129</span></a>        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
 </span><span id="Parser-130"><a href="#Parser-130"><span class="linenos">130</span></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;No rule_type specified in parser definition&quot;</span>
-</span><span id="Parser-131"><a href="#Parser-131"><span class="linenos">131</span></a>            <span class="k">raise</span> <span class="n">StarescPluginError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</span><span id="Parser-131"><a href="#Parser-131"><span class="linenos">131</span></a>            <span class="k">raise</span> <span class="n">PluginError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 </span><span id="Parser-132"><a href="#Parser-132"><span class="linenos">132</span></a>
 </span><span id="Parser-133"><a href="#Parser-133"><span class="linenos">133</span></a>        <span class="k">if</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">selected</span><span class="p">,</span> <span class="nb">list</span><span class="p">))</span> <span class="ow">and</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">selected</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
 </span><span id="Parser-134"><a href="#Parser-134"><span class="linenos">134</span></a>            <span class="k">return</span> <span class="n">selected</span>
 </span><span id="Parser-135"><a href="#Parser-135"><span class="linenos">135</span></a>        <span class="k">else</span><span class="p">:</span>
 </span><span id="Parser-136"><a href="#Parser-136"><span class="linenos">136</span></a>            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;No rule specified&quot;</span>
-</span><span id="Parser-137"><a href="#Parser-137"><span class="linenos">137</span></a>            <span class="k">raise</span> <span class="n">StarescPluginError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</span><span id="Parser-137"><a href="#Parser-137"><span class="linenos">137</span></a>            <span class="k">raise</span> <span class="n">PluginError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 </span><span id="Parser-138"><a href="#Parser-138"><span class="linenos">138</span></a>
 </span><span id="Parser-139"><a href="#Parser-139"><span class="linenos">139</span></a>
 </span><span id="Parser-140"><a href="#Parser-140"><span class="linenos">140</span></a>    <span class="nd">@staticmethod</span>
@@ -429,7 +428,7 @@
 </span><span id="Parser-153"><a href="#Parser-153"><span class="linenos">153</span></a>            <span class="k">return</span> <span class="n">selected</span>
 </span><span id="Parser-154"><a href="#Parser-154"><span class="linenos">154</span></a>        <span class="k">else</span><span class="p">:</span>
 </span><span id="Parser-155"><a href="#Parser-155"><span class="linenos">155</span></a>            <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Invalid invert_match </span><span class="si">{</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;invert_match&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span id="Parser-156"><a href="#Parser-156"><span class="linenos">156</span></a>            <span class="k">raise</span> <span class="n">StarescPluginError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</span><span id="Parser-156"><a href="#Parser-156"><span class="linenos">156</span></a>            <span class="k">raise</span> <span class="n">PluginError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 </span><span id="Parser-157"><a href="#Parser-157"><span class="linenos">157</span></a>            
 </span><span id="Parser-158"><a href="#Parser-158"><span class="linenos">158</span></a>
 </span><span id="Parser-159"><a href="#Parser-159"><span class="linenos">159</span></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parser_content</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
@@ -438,21 +437,20 @@
 </span><span id="Parser-162"><a href="#Parser-162"><span class="linenos">162</span></a><span class="sd">        Attributes:</span>
 </span><span id="Parser-163"><a href="#Parser-163"><span class="linenos">163</span></a><span class="sd">           parser_content -- dict containing data of the given parser read from the YAML file</span>
 </span><span id="Parser-164"><a href="#Parser-164"><span class="linenos">164</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="Parser-165"><a href="#Parser-165"><span class="linenos">165</span></a>        <span class="c1"># TODO user can specify more parts in yaml file. VERY LOW PRIORITY!!</span>
-</span><span id="Parser-166"><a href="#Parser-166"><span class="linenos">166</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">parts</span>        <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_part</span><span class="p">(</span><span class="n">parser_content</span><span class="p">)</span>
-</span><span id="Parser-167"><a href="#Parser-167"><span class="linenos">167</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">rule_type</span>    <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_rule_type</span><span class="p">(</span><span class="n">parser_content</span><span class="p">)</span>
-</span><span id="Parser-168"><a href="#Parser-168"><span class="linenos">168</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">condition</span>    <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_condition</span><span class="p">(</span><span class="n">parser_content</span><span class="p">)</span>
-</span><span id="Parser-169"><a href="#Parser-169"><span class="linenos">169</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">rules</span>        <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_rules</span><span class="p">(</span><span class="n">parser_content</span><span class="p">)</span>
-</span><span id="Parser-170"><a href="#Parser-170"><span class="linenos">170</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">invert_match</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_invert_match</span><span class="p">(</span><span class="n">parser_content</span><span class="p">)</span>
+</span><span id="Parser-165"><a href="#Parser-165"><span class="linenos">165</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">parts</span>        <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_part</span><span class="p">(</span><span class="n">parser_content</span><span class="p">)</span>
+</span><span id="Parser-166"><a href="#Parser-166"><span class="linenos">166</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">rule_type</span>    <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_rule_type</span><span class="p">(</span><span class="n">parser_content</span><span class="p">)</span>
+</span><span id="Parser-167"><a href="#Parser-167"><span class="linenos">167</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">condition</span>    <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_condition</span><span class="p">(</span><span class="n">parser_content</span><span class="p">)</span>
+</span><span id="Parser-168"><a href="#Parser-168"><span class="linenos">168</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">rules</span>        <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_rules</span><span class="p">(</span><span class="n">parser_content</span><span class="p">)</span>
+</span><span id="Parser-169"><a href="#Parser-169"><span class="linenos">169</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">invert_match</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_invert_match</span><span class="p">(</span><span class="n">parser_content</span><span class="p">)</span>
+</span><span id="Parser-170"><a href="#Parser-170"><span class="linenos">170</span></a>
 </span><span id="Parser-171"><a href="#Parser-171"><span class="linenos">171</span></a>
-</span><span id="Parser-172"><a href="#Parser-172"><span class="linenos">172</span></a>
-</span><span id="Parser-173"><a href="#Parser-173"><span class="linenos">173</span></a>    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">result</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span>
-</span><span id="Parser-174"><a href="#Parser-174"><span class="linenos">174</span></a>        <span class="sd">&quot;&quot;&quot;Method used to parse the result of a command and to check if the vuln is found</span>
-</span><span id="Parser-175"><a href="#Parser-175"><span class="linenos">175</span></a>
-</span><span id="Parser-176"><a href="#Parser-176"><span class="linenos">176</span></a><span class="sd">        Attributes:</span>
-</span><span id="Parser-177"><a href="#Parser-177"><span class="linenos">177</span></a><span class="sd">            result -- dict containing the result of the command executed on the target machine, it has the following format: {&quot;stdout&quot;: command_stdout, &quot;stderr&quot;: command_stderr}</span>
-</span><span id="Parser-178"><a href="#Parser-178"><span class="linenos">178</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="Parser-179"><a href="#Parser-179"><span class="linenos">179</span></a>        <span class="k">pass</span>
+</span><span id="Parser-172"><a href="#Parser-172"><span class="linenos">172</span></a>    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">result</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span>
+</span><span id="Parser-173"><a href="#Parser-173"><span class="linenos">173</span></a>        <span class="sd">&quot;&quot;&quot;Method used to parse the result of a command and to check if the vuln is found</span>
+</span><span id="Parser-174"><a href="#Parser-174"><span class="linenos">174</span></a>
+</span><span id="Parser-175"><a href="#Parser-175"><span class="linenos">175</span></a><span class="sd">        Attributes:</span>
+</span><span id="Parser-176"><a href="#Parser-176"><span class="linenos">176</span></a><span class="sd">            result -- dict containing the result of the command executed on the target machine, it has the following format: {&quot;stdout&quot;: command_stdout, &quot;stderr&quot;: command_stderr}</span>
+</span><span id="Parser-177"><a href="#Parser-177"><span class="linenos">177</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="Parser-178"><a href="#Parser-178"><span class="linenos">178</span></a>        <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="p">{}</span>
 </span></pre></div>
 
 
@@ -479,12 +477,11 @@ This class is extended when a new type of parser is implemented</p>
 </span><span id="Parser.__init__-162"><a href="#Parser.__init__-162"><span class="linenos">162</span></a><span class="sd">        Attributes:</span>
 </span><span id="Parser.__init__-163"><a href="#Parser.__init__-163"><span class="linenos">163</span></a><span class="sd">           parser_content -- dict containing data of the given parser read from the YAML file</span>
 </span><span id="Parser.__init__-164"><a href="#Parser.__init__-164"><span class="linenos">164</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="Parser.__init__-165"><a href="#Parser.__init__-165"><span class="linenos">165</span></a>        <span class="c1"># TODO user can specify more parts in yaml file. VERY LOW PRIORITY!!</span>
-</span><span id="Parser.__init__-166"><a href="#Parser.__init__-166"><span class="linenos">166</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">parts</span>        <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_part</span><span class="p">(</span><span class="n">parser_content</span><span class="p">)</span>
-</span><span id="Parser.__init__-167"><a href="#Parser.__init__-167"><span class="linenos">167</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">rule_type</span>    <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_rule_type</span><span class="p">(</span><span class="n">parser_content</span><span class="p">)</span>
-</span><span id="Parser.__init__-168"><a href="#Parser.__init__-168"><span class="linenos">168</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">condition</span>    <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_condition</span><span class="p">(</span><span class="n">parser_content</span><span class="p">)</span>
-</span><span id="Parser.__init__-169"><a href="#Parser.__init__-169"><span class="linenos">169</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">rules</span>        <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_rules</span><span class="p">(</span><span class="n">parser_content</span><span class="p">)</span>
-</span><span id="Parser.__init__-170"><a href="#Parser.__init__-170"><span class="linenos">170</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">invert_match</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_invert_match</span><span class="p">(</span><span class="n">parser_content</span><span class="p">)</span>
+</span><span id="Parser.__init__-165"><a href="#Parser.__init__-165"><span class="linenos">165</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">parts</span>        <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_part</span><span class="p">(</span><span class="n">parser_content</span><span class="p">)</span>
+</span><span id="Parser.__init__-166"><a href="#Parser.__init__-166"><span class="linenos">166</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">rule_type</span>    <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_rule_type</span><span class="p">(</span><span class="n">parser_content</span><span class="p">)</span>
+</span><span id="Parser.__init__-167"><a href="#Parser.__init__-167"><span class="linenos">167</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">condition</span>    <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_condition</span><span class="p">(</span><span class="n">parser_content</span><span class="p">)</span>
+</span><span id="Parser.__init__-168"><a href="#Parser.__init__-168"><span class="linenos">168</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">rules</span>        <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_rules</span><span class="p">(</span><span class="n">parser_content</span><span class="p">)</span>
+</span><span id="Parser.__init__-169"><a href="#Parser.__init__-169"><span class="linenos">169</span></a>        <span class="bp">self</span><span class="o">.</span><span class="n">invert_match</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_invert_match</span><span class="p">(</span><span class="n">parser_content</span><span class="p">)</span>
 </span></pre></div>
 
 
@@ -632,13 +629,13 @@ an "or" value implies that just one rule have to return true.</p>
 
     </div>
     <a class="headerlink" href="#Parser.parse"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="Parser.parse-173"><a href="#Parser.parse-173"><span class="linenos">173</span></a>    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">result</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span>
-</span><span id="Parser.parse-174"><a href="#Parser.parse-174"><span class="linenos">174</span></a>        <span class="sd">&quot;&quot;&quot;Method used to parse the result of a command and to check if the vuln is found</span>
-</span><span id="Parser.parse-175"><a href="#Parser.parse-175"><span class="linenos">175</span></a>
-</span><span id="Parser.parse-176"><a href="#Parser.parse-176"><span class="linenos">176</span></a><span class="sd">        Attributes:</span>
-</span><span id="Parser.parse-177"><a href="#Parser.parse-177"><span class="linenos">177</span></a><span class="sd">            result -- dict containing the result of the command executed on the target machine, it has the following format: {&quot;stdout&quot;: command_stdout, &quot;stderr&quot;: command_stderr}</span>
-</span><span id="Parser.parse-178"><a href="#Parser.parse-178"><span class="linenos">178</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="Parser.parse-179"><a href="#Parser.parse-179"><span class="linenos">179</span></a>        <span class="k">pass</span>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="Parser.parse-172"><a href="#Parser.parse-172"><span class="linenos">172</span></a>    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">result</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span>
+</span><span id="Parser.parse-173"><a href="#Parser.parse-173"><span class="linenos">173</span></a>        <span class="sd">&quot;&quot;&quot;Method used to parse the result of a command and to check if the vuln is found</span>
+</span><span id="Parser.parse-174"><a href="#Parser.parse-174"><span class="linenos">174</span></a>
+</span><span id="Parser.parse-175"><a href="#Parser.parse-175"><span class="linenos">175</span></a><span class="sd">        Attributes:</span>
+</span><span id="Parser.parse-176"><a href="#Parser.parse-176"><span class="linenos">176</span></a><span class="sd">            result -- dict containing the result of the command executed on the target machine, it has the following format: {&quot;stdout&quot;: command_stdout, &quot;stderr&quot;: command_stderr}</span>
+</span><span id="Parser.parse-177"><a href="#Parser.parse-177"><span class="linenos">177</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="Parser.parse-178"><a href="#Parser.parse-178"><span class="linenos">178</span></a>        <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="p">{}</span>
 </span></pre></div>
 
 

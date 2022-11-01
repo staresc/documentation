@@ -32,19 +32,19 @@
         <h2>API Documentation</h2>
             <ul class="memberlist">
             <li>
-                    <a class="class" href="#StarescExporter">StarescExporter</a>
+                    <a class="class" href="#Exporter">Exporter</a>
                             <ul class="memberlist">
                         <li>
-                                <a class="function" href="#StarescExporter.__init__">StarescExporter</a>
+                                <a class="function" href="#Exporter.__init__">Exporter</a>
                         </li>
                         <li>
-                                <a class="function" href="#StarescExporter.register_handler">register_handler</a>
+                                <a class="function" href="#Exporter.register_handler">register_handler</a>
                         </li>
                         <li>
-                                <a class="function" href="#StarescExporter.import_output">import_output</a>
+                                <a class="function" href="#Exporter.import_output">import_output</a>
                         </li>
                         <li>
-                                <a class="function" href="#StarescExporter.export">export</a>
+                                <a class="function" href="#Exporter.export">export</a>
                         </li>
                 </ul>
 
@@ -72,10 +72,10 @@
 
                         <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos"> 1</span></a><span class="kn">from</span> <span class="nn">queue</span> <span class="kn">import</span> <span class="n">Queue</span>
 </span><span id="L-2"><a href="#L-2"><span class="linenos"> 2</span></a>
-</span><span id="L-3"><a href="#L-3"><span class="linenos"> 3</span></a><span class="kn">from</span> <span class="nn">staresc.exporter.handlers</span> <span class="kn">import</span> <span class="n">StarescHandler</span>
+</span><span id="L-3"><a href="#L-3"><span class="linenos"> 3</span></a><span class="kn">from</span> <span class="nn">staresc.exporter.handler</span> <span class="kn">import</span> <span class="n">Handler</span>
 </span><span id="L-4"><a href="#L-4"><span class="linenos"> 4</span></a><span class="kn">from</span> <span class="nn">staresc.output</span> <span class="kn">import</span> <span class="n">Output</span>
 </span><span id="L-5"><a href="#L-5"><span class="linenos"> 5</span></a>
-</span><span id="L-6"><a href="#L-6"><span class="linenos"> 6</span></a><span class="k">class</span> <span class="nc">StarescExporter</span><span class="p">():</span>
+</span><span id="L-6"><a href="#L-6"><span class="linenos"> 6</span></a><span class="k">class</span> <span class="nc">Exporter</span><span class="p">():</span>
 </span><span id="L-7"><a href="#L-7"><span class="linenos"> 7</span></a>    <span class="sd">&quot;&quot;&quot;Handle Staresc output</span>
 </span><span id="L-8"><a href="#L-8"><span class="linenos"> 8</span></a>
 </span><span id="L-9"><a href="#L-9"><span class="linenos"> 9</span></a><span class="sd">    This class is never istanciated, has class methods and an output queue</span>
@@ -84,10 +84,10 @@
 </span><span id="L-12"><a href="#L-12"><span class="linenos">12</span></a><span class="sd">    &quot;&quot;&quot;</span>
 </span><span id="L-13"><a href="#L-13"><span class="linenos">13</span></a>
 </span><span id="L-14"><a href="#L-14"><span class="linenos">14</span></a>    <span class="n">runs_results</span><span class="p">:</span> <span class="n">Queue</span><span class="p">[</span><span class="n">Output</span><span class="p">]</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">()</span>
-</span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a>    <span class="n">handlers</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">StarescHandler</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a>    <span class="n">handlers</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Handler</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 </span><span id="L-16"><a href="#L-16"><span class="linenos">16</span></a>
 </span><span id="L-17"><a href="#L-17"><span class="linenos">17</span></a>    <span class="nd">@classmethod</span>
-</span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a>    <span class="k">def</span> <span class="nf">register_handler</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">handler</span><span class="p">:</span> <span class="n">StarescHandler</span><span class="p">):</span>
+</span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a>    <span class="k">def</span> <span class="nf">register_handler</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">handler</span><span class="p">:</span> <span class="n">Handler</span><span class="p">):</span>
 </span><span id="L-19"><a href="#L-19"><span class="linenos">19</span></a>        <span class="sd">&quot;&quot;&quot;Called to add an handler to the class&quot;&quot;&quot;</span>
 </span><span id="L-20"><a href="#L-20"><span class="linenos">20</span></a>        <span class="bp">cls</span><span class="o">.</span><span class="n">handlers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">handler</span><span class="p">)</span>
 </span><span id="L-21"><a href="#L-21"><span class="linenos">21</span></a>
@@ -111,49 +111,49 @@
 
 
             </section>
-                <section id="StarescExporter">
-                            <input id="StarescExporter-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+                <section id="Exporter">
+                            <input id="Exporter-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr class">
             
     <span class="def">class</span>
-    <span class="name">StarescExporter</span>:
+    <span class="name">Exporter</span>:
 
-                <label class="view-source-button" for="StarescExporter-view-source"><span>View Source</span></label>
+                <label class="view-source-button" for="Exporter-view-source"><span>View Source</span></label>
 
     </div>
-    <a class="headerlink" href="#StarescExporter"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="StarescExporter-7"><a href="#StarescExporter-7"><span class="linenos"> 7</span></a><span class="k">class</span> <span class="nc">StarescExporter</span><span class="p">():</span>
-</span><span id="StarescExporter-8"><a href="#StarescExporter-8"><span class="linenos"> 8</span></a>    <span class="sd">&quot;&quot;&quot;Handle Staresc output</span>
-</span><span id="StarescExporter-9"><a href="#StarescExporter-9"><span class="linenos"> 9</span></a>
-</span><span id="StarescExporter-10"><a href="#StarescExporter-10"><span class="linenos">10</span></a><span class="sd">    This class is never istanciated, has class methods and an output queue</span>
-</span><span id="StarescExporter-11"><a href="#StarescExporter-11"><span class="linenos">11</span></a><span class="sd">    which is handled by a list of handlers objects both when an output is added </span>
-</span><span id="StarescExporter-12"><a href="#StarescExporter-12"><span class="linenos">12</span></a><span class="sd">    to the queue and when an output is taken from the queue</span>
-</span><span id="StarescExporter-13"><a href="#StarescExporter-13"><span class="linenos">13</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="StarescExporter-14"><a href="#StarescExporter-14"><span class="linenos">14</span></a>
-</span><span id="StarescExporter-15"><a href="#StarescExporter-15"><span class="linenos">15</span></a>    <span class="n">runs_results</span><span class="p">:</span> <span class="n">Queue</span><span class="p">[</span><span class="n">Output</span><span class="p">]</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">()</span>
-</span><span id="StarescExporter-16"><a href="#StarescExporter-16"><span class="linenos">16</span></a>    <span class="n">handlers</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">StarescHandler</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="StarescExporter-17"><a href="#StarescExporter-17"><span class="linenos">17</span></a>
-</span><span id="StarescExporter-18"><a href="#StarescExporter-18"><span class="linenos">18</span></a>    <span class="nd">@classmethod</span>
-</span><span id="StarescExporter-19"><a href="#StarescExporter-19"><span class="linenos">19</span></a>    <span class="k">def</span> <span class="nf">register_handler</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">handler</span><span class="p">:</span> <span class="n">StarescHandler</span><span class="p">):</span>
-</span><span id="StarescExporter-20"><a href="#StarescExporter-20"><span class="linenos">20</span></a>        <span class="sd">&quot;&quot;&quot;Called to add an handler to the class&quot;&quot;&quot;</span>
-</span><span id="StarescExporter-21"><a href="#StarescExporter-21"><span class="linenos">21</span></a>        <span class="bp">cls</span><span class="o">.</span><span class="n">handlers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">handler</span><span class="p">)</span>
-</span><span id="StarescExporter-22"><a href="#StarescExporter-22"><span class="linenos">22</span></a>
-</span><span id="StarescExporter-23"><a href="#StarescExporter-23"><span class="linenos">23</span></a>    <span class="nd">@classmethod</span>
-</span><span id="StarescExporter-24"><a href="#StarescExporter-24"><span class="linenos">24</span></a>    <span class="k">def</span> <span class="nf">import_output</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">output</span><span class="p">:</span> <span class="n">Output</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="StarescExporter-25"><a href="#StarescExporter-25"><span class="linenos">25</span></a>        <span class="sd">&quot;&quot;&quot;Called when an output has to be added to the queue&quot;&quot;&quot;</span>
-</span><span id="StarescExporter-26"><a href="#StarescExporter-26"><span class="linenos">26</span></a>        <span class="bp">cls</span><span class="o">.</span><span class="n">runs_results</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
-</span><span id="StarescExporter-27"><a href="#StarescExporter-27"><span class="linenos">27</span></a>        <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">handlers</span><span class="p">:</span>
-</span><span id="StarescExporter-28"><a href="#StarescExporter-28"><span class="linenos">28</span></a>            <span class="n">h</span><span class="o">.</span><span class="n">import_handler</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
-</span><span id="StarescExporter-29"><a href="#StarescExporter-29"><span class="linenos">29</span></a>
-</span><span id="StarescExporter-30"><a href="#StarescExporter-30"><span class="linenos">30</span></a>    <span class="nd">@classmethod</span>
-</span><span id="StarescExporter-31"><a href="#StarescExporter-31"><span class="linenos">31</span></a>    <span class="k">def</span> <span class="nf">export</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="StarescExporter-32"><a href="#StarescExporter-32"><span class="linenos">32</span></a>        <span class="sd">&quot;&quot;&quot;Called at the end of execution to produce results&quot;&quot;&quot;</span>
-</span><span id="StarescExporter-33"><a href="#StarescExporter-33"><span class="linenos">33</span></a>        <span class="n">outputs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Output</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="StarescExporter-34"><a href="#StarescExporter-34"><span class="linenos">34</span></a>        <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">runs_results</span><span class="o">.</span><span class="n">queue</span><span class="p">):</span>
-</span><span id="StarescExporter-35"><a href="#StarescExporter-35"><span class="linenos">35</span></a>            <span class="n">outputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>
-</span><span id="StarescExporter-36"><a href="#StarescExporter-36"><span class="linenos">36</span></a>
-</span><span id="StarescExporter-37"><a href="#StarescExporter-37"><span class="linenos">37</span></a>        <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">handlers</span><span class="p">:</span>
-</span><span id="StarescExporter-38"><a href="#StarescExporter-38"><span class="linenos">38</span></a>            <span class="n">h</span><span class="o">.</span><span class="n">export_handler</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="n">h</span><span class="o">.</span><span class="n">out</span><span class="p">)</span>
+    <a class="headerlink" href="#Exporter"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="Exporter-7"><a href="#Exporter-7"><span class="linenos"> 7</span></a><span class="k">class</span> <span class="nc">Exporter</span><span class="p">():</span>
+</span><span id="Exporter-8"><a href="#Exporter-8"><span class="linenos"> 8</span></a>    <span class="sd">&quot;&quot;&quot;Handle Staresc output</span>
+</span><span id="Exporter-9"><a href="#Exporter-9"><span class="linenos"> 9</span></a>
+</span><span id="Exporter-10"><a href="#Exporter-10"><span class="linenos">10</span></a><span class="sd">    This class is never istanciated, has class methods and an output queue</span>
+</span><span id="Exporter-11"><a href="#Exporter-11"><span class="linenos">11</span></a><span class="sd">    which is handled by a list of handlers objects both when an output is added </span>
+</span><span id="Exporter-12"><a href="#Exporter-12"><span class="linenos">12</span></a><span class="sd">    to the queue and when an output is taken from the queue</span>
+</span><span id="Exporter-13"><a href="#Exporter-13"><span class="linenos">13</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="Exporter-14"><a href="#Exporter-14"><span class="linenos">14</span></a>
+</span><span id="Exporter-15"><a href="#Exporter-15"><span class="linenos">15</span></a>    <span class="n">runs_results</span><span class="p">:</span> <span class="n">Queue</span><span class="p">[</span><span class="n">Output</span><span class="p">]</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">()</span>
+</span><span id="Exporter-16"><a href="#Exporter-16"><span class="linenos">16</span></a>    <span class="n">handlers</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Handler</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="Exporter-17"><a href="#Exporter-17"><span class="linenos">17</span></a>
+</span><span id="Exporter-18"><a href="#Exporter-18"><span class="linenos">18</span></a>    <span class="nd">@classmethod</span>
+</span><span id="Exporter-19"><a href="#Exporter-19"><span class="linenos">19</span></a>    <span class="k">def</span> <span class="nf">register_handler</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">handler</span><span class="p">:</span> <span class="n">Handler</span><span class="p">):</span>
+</span><span id="Exporter-20"><a href="#Exporter-20"><span class="linenos">20</span></a>        <span class="sd">&quot;&quot;&quot;Called to add an handler to the class&quot;&quot;&quot;</span>
+</span><span id="Exporter-21"><a href="#Exporter-21"><span class="linenos">21</span></a>        <span class="bp">cls</span><span class="o">.</span><span class="n">handlers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">handler</span><span class="p">)</span>
+</span><span id="Exporter-22"><a href="#Exporter-22"><span class="linenos">22</span></a>
+</span><span id="Exporter-23"><a href="#Exporter-23"><span class="linenos">23</span></a>    <span class="nd">@classmethod</span>
+</span><span id="Exporter-24"><a href="#Exporter-24"><span class="linenos">24</span></a>    <span class="k">def</span> <span class="nf">import_output</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">output</span><span class="p">:</span> <span class="n">Output</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="Exporter-25"><a href="#Exporter-25"><span class="linenos">25</span></a>        <span class="sd">&quot;&quot;&quot;Called when an output has to be added to the queue&quot;&quot;&quot;</span>
+</span><span id="Exporter-26"><a href="#Exporter-26"><span class="linenos">26</span></a>        <span class="bp">cls</span><span class="o">.</span><span class="n">runs_results</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+</span><span id="Exporter-27"><a href="#Exporter-27"><span class="linenos">27</span></a>        <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">handlers</span><span class="p">:</span>
+</span><span id="Exporter-28"><a href="#Exporter-28"><span class="linenos">28</span></a>            <span class="n">h</span><span class="o">.</span><span class="n">import_handler</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+</span><span id="Exporter-29"><a href="#Exporter-29"><span class="linenos">29</span></a>
+</span><span id="Exporter-30"><a href="#Exporter-30"><span class="linenos">30</span></a>    <span class="nd">@classmethod</span>
+</span><span id="Exporter-31"><a href="#Exporter-31"><span class="linenos">31</span></a>    <span class="k">def</span> <span class="nf">export</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="Exporter-32"><a href="#Exporter-32"><span class="linenos">32</span></a>        <span class="sd">&quot;&quot;&quot;Called at the end of execution to produce results&quot;&quot;&quot;</span>
+</span><span id="Exporter-33"><a href="#Exporter-33"><span class="linenos">33</span></a>        <span class="n">outputs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Output</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="Exporter-34"><a href="#Exporter-34"><span class="linenos">34</span></a>        <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">runs_results</span><span class="o">.</span><span class="n">queue</span><span class="p">):</span>
+</span><span id="Exporter-35"><a href="#Exporter-35"><span class="linenos">35</span></a>            <span class="n">outputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>
+</span><span id="Exporter-36"><a href="#Exporter-36"><span class="linenos">36</span></a>
+</span><span id="Exporter-37"><a href="#Exporter-37"><span class="linenos">37</span></a>        <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">handlers</span><span class="p">:</span>
+</span><span id="Exporter-38"><a href="#Exporter-38"><span class="linenos">38</span></a>            <span class="n">h</span><span class="o">.</span><span class="n">export_handler</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="n">h</span><span class="o">.</span><span class="n">out</span><span class="p">)</span>
 </span></pre></div>
 
 
@@ -165,34 +165,34 @@ to the queue and when an output is taken from the queue</p>
 </div>
 
 
-                            <div id="StarescExporter.__init__" class="classattr">
+                            <div id="Exporter.__init__" class="classattr">
                                 <div class="attr function">
             
-        <span class="name">StarescExporter</span><span class="signature pdoc-code condensed">()</span>
+        <span class="name">Exporter</span><span class="signature pdoc-code condensed">()</span>
 
         
     </div>
-    <a class="headerlink" href="#StarescExporter.__init__"></a>
+    <a class="headerlink" href="#Exporter.__init__"></a>
     
     
 
                             </div>
-                            <div id="StarescExporter.register_handler" class="classattr">
-                                        <input id="StarescExporter.register_handler-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+                            <div id="Exporter.register_handler" class="classattr">
+                                        <input id="Exporter.register_handler-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">
                     <div class="decorator">@classmethod</div>
 
         <span class="def">def</span>
-        <span class="name">register_handler</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">cls</span>, </span><span class="param"><span class="n">handler</span><span class="p">:</span> <span class="n"><a href="handlers.html#StarescHandler">staresc.exporter.handlers.StarescHandler</a></span></span><span class="return-annotation">):</span></span>
+        <span class="name">register_handler</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">cls</span>, </span><span class="param"><span class="n">handler</span><span class="p">:</span> <span class="n"><a href="handler.html#Handler">staresc.exporter.handler.Handler</a></span></span><span class="return-annotation">):</span></span>
 
-                <label class="view-source-button" for="StarescExporter.register_handler-view-source"><span>View Source</span></label>
+                <label class="view-source-button" for="Exporter.register_handler-view-source"><span>View Source</span></label>
 
     </div>
-    <a class="headerlink" href="#StarescExporter.register_handler"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="StarescExporter.register_handler-18"><a href="#StarescExporter.register_handler-18"><span class="linenos">18</span></a>    <span class="nd">@classmethod</span>
-</span><span id="StarescExporter.register_handler-19"><a href="#StarescExporter.register_handler-19"><span class="linenos">19</span></a>    <span class="k">def</span> <span class="nf">register_handler</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">handler</span><span class="p">:</span> <span class="n">StarescHandler</span><span class="p">):</span>
-</span><span id="StarescExporter.register_handler-20"><a href="#StarescExporter.register_handler-20"><span class="linenos">20</span></a>        <span class="sd">&quot;&quot;&quot;Called to add an handler to the class&quot;&quot;&quot;</span>
-</span><span id="StarescExporter.register_handler-21"><a href="#StarescExporter.register_handler-21"><span class="linenos">21</span></a>        <span class="bp">cls</span><span class="o">.</span><span class="n">handlers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">handler</span><span class="p">)</span>
+    <a class="headerlink" href="#Exporter.register_handler"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="Exporter.register_handler-18"><a href="#Exporter.register_handler-18"><span class="linenos">18</span></a>    <span class="nd">@classmethod</span>
+</span><span id="Exporter.register_handler-19"><a href="#Exporter.register_handler-19"><span class="linenos">19</span></a>    <span class="k">def</span> <span class="nf">register_handler</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">handler</span><span class="p">:</span> <span class="n">Handler</span><span class="p">):</span>
+</span><span id="Exporter.register_handler-20"><a href="#Exporter.register_handler-20"><span class="linenos">20</span></a>        <span class="sd">&quot;&quot;&quot;Called to add an handler to the class&quot;&quot;&quot;</span>
+</span><span id="Exporter.register_handler-21"><a href="#Exporter.register_handler-21"><span class="linenos">21</span></a>        <span class="bp">cls</span><span class="o">.</span><span class="n">handlers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">handler</span><span class="p">)</span>
 </span></pre></div>
 
 
@@ -201,24 +201,24 @@ to the queue and when an output is taken from the queue</p>
 
 
                             </div>
-                            <div id="StarescExporter.import_output" class="classattr">
-                                        <input id="StarescExporter.import_output-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+                            <div id="Exporter.import_output" class="classattr">
+                                        <input id="Exporter.import_output-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">
                     <div class="decorator">@classmethod</div>
 
         <span class="def">def</span>
         <span class="name">import_output</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">cls</span>, </span><span class="param"><span class="n">output</span><span class="p">:</span> <span class="n"><a href="../output.html#Output">staresc.output.Output</a></span></span><span class="return-annotation">) -> <span class="kc">None</span>:</span></span>
 
-                <label class="view-source-button" for="StarescExporter.import_output-view-source"><span>View Source</span></label>
+                <label class="view-source-button" for="Exporter.import_output-view-source"><span>View Source</span></label>
 
     </div>
-    <a class="headerlink" href="#StarescExporter.import_output"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="StarescExporter.import_output-23"><a href="#StarescExporter.import_output-23"><span class="linenos">23</span></a>    <span class="nd">@classmethod</span>
-</span><span id="StarescExporter.import_output-24"><a href="#StarescExporter.import_output-24"><span class="linenos">24</span></a>    <span class="k">def</span> <span class="nf">import_output</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">output</span><span class="p">:</span> <span class="n">Output</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="StarescExporter.import_output-25"><a href="#StarescExporter.import_output-25"><span class="linenos">25</span></a>        <span class="sd">&quot;&quot;&quot;Called when an output has to be added to the queue&quot;&quot;&quot;</span>
-</span><span id="StarescExporter.import_output-26"><a href="#StarescExporter.import_output-26"><span class="linenos">26</span></a>        <span class="bp">cls</span><span class="o">.</span><span class="n">runs_results</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
-</span><span id="StarescExporter.import_output-27"><a href="#StarescExporter.import_output-27"><span class="linenos">27</span></a>        <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">handlers</span><span class="p">:</span>
-</span><span id="StarescExporter.import_output-28"><a href="#StarescExporter.import_output-28"><span class="linenos">28</span></a>            <span class="n">h</span><span class="o">.</span><span class="n">import_handler</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+    <a class="headerlink" href="#Exporter.import_output"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="Exporter.import_output-23"><a href="#Exporter.import_output-23"><span class="linenos">23</span></a>    <span class="nd">@classmethod</span>
+</span><span id="Exporter.import_output-24"><a href="#Exporter.import_output-24"><span class="linenos">24</span></a>    <span class="k">def</span> <span class="nf">import_output</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">output</span><span class="p">:</span> <span class="n">Output</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="Exporter.import_output-25"><a href="#Exporter.import_output-25"><span class="linenos">25</span></a>        <span class="sd">&quot;&quot;&quot;Called when an output has to be added to the queue&quot;&quot;&quot;</span>
+</span><span id="Exporter.import_output-26"><a href="#Exporter.import_output-26"><span class="linenos">26</span></a>        <span class="bp">cls</span><span class="o">.</span><span class="n">runs_results</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+</span><span id="Exporter.import_output-27"><a href="#Exporter.import_output-27"><span class="linenos">27</span></a>        <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">handlers</span><span class="p">:</span>
+</span><span id="Exporter.import_output-28"><a href="#Exporter.import_output-28"><span class="linenos">28</span></a>            <span class="n">h</span><span class="o">.</span><span class="n">import_handler</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
 </span></pre></div>
 
 
@@ -227,27 +227,27 @@ to the queue and when an output is taken from the queue</p>
 
 
                             </div>
-                            <div id="StarescExporter.export" class="classattr">
-                                        <input id="StarescExporter.export-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+                            <div id="Exporter.export" class="classattr">
+                                        <input id="Exporter.export-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">
                     <div class="decorator">@classmethod</div>
 
         <span class="def">def</span>
         <span class="name">export</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">cls</span></span><span class="return-annotation">) -> <span class="kc">None</span>:</span></span>
 
-                <label class="view-source-button" for="StarescExporter.export-view-source"><span>View Source</span></label>
+                <label class="view-source-button" for="Exporter.export-view-source"><span>View Source</span></label>
 
     </div>
-    <a class="headerlink" href="#StarescExporter.export"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="StarescExporter.export-30"><a href="#StarescExporter.export-30"><span class="linenos">30</span></a>    <span class="nd">@classmethod</span>
-</span><span id="StarescExporter.export-31"><a href="#StarescExporter.export-31"><span class="linenos">31</span></a>    <span class="k">def</span> <span class="nf">export</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="StarescExporter.export-32"><a href="#StarescExporter.export-32"><span class="linenos">32</span></a>        <span class="sd">&quot;&quot;&quot;Called at the end of execution to produce results&quot;&quot;&quot;</span>
-</span><span id="StarescExporter.export-33"><a href="#StarescExporter.export-33"><span class="linenos">33</span></a>        <span class="n">outputs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Output</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span id="StarescExporter.export-34"><a href="#StarescExporter.export-34"><span class="linenos">34</span></a>        <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">runs_results</span><span class="o">.</span><span class="n">queue</span><span class="p">):</span>
-</span><span id="StarescExporter.export-35"><a href="#StarescExporter.export-35"><span class="linenos">35</span></a>            <span class="n">outputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>
-</span><span id="StarescExporter.export-36"><a href="#StarescExporter.export-36"><span class="linenos">36</span></a>
-</span><span id="StarescExporter.export-37"><a href="#StarescExporter.export-37"><span class="linenos">37</span></a>        <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">handlers</span><span class="p">:</span>
-</span><span id="StarescExporter.export-38"><a href="#StarescExporter.export-38"><span class="linenos">38</span></a>            <span class="n">h</span><span class="o">.</span><span class="n">export_handler</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="n">h</span><span class="o">.</span><span class="n">out</span><span class="p">)</span>
+    <a class="headerlink" href="#Exporter.export"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="Exporter.export-30"><a href="#Exporter.export-30"><span class="linenos">30</span></a>    <span class="nd">@classmethod</span>
+</span><span id="Exporter.export-31"><a href="#Exporter.export-31"><span class="linenos">31</span></a>    <span class="k">def</span> <span class="nf">export</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="Exporter.export-32"><a href="#Exporter.export-32"><span class="linenos">32</span></a>        <span class="sd">&quot;&quot;&quot;Called at the end of execution to produce results&quot;&quot;&quot;</span>
+</span><span id="Exporter.export-33"><a href="#Exporter.export-33"><span class="linenos">33</span></a>        <span class="n">outputs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Output</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="Exporter.export-34"><a href="#Exporter.export-34"><span class="linenos">34</span></a>        <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">runs_results</span><span class="o">.</span><span class="n">queue</span><span class="p">):</span>
+</span><span id="Exporter.export-35"><a href="#Exporter.export-35"><span class="linenos">35</span></a>            <span class="n">outputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>
+</span><span id="Exporter.export-36"><a href="#Exporter.export-36"><span class="linenos">36</span></a>
+</span><span id="Exporter.export-37"><a href="#Exporter.export-37"><span class="linenos">37</span></a>        <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">handlers</span><span class="p">:</span>
+</span><span id="Exporter.export-38"><a href="#Exporter.export-38"><span class="linenos">38</span></a>            <span class="n">h</span><span class="o">.</span><span class="n">export_handler</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="n">h</span><span class="o">.</span><span class="n">out</span><span class="p">)</span>
 </span></pre></div>
 
 

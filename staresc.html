@@ -56,9 +56,9 @@ staresc    </h1>
                         <label class="view-source-button" for="mod-staresc-view-source"><span>View Source</span></label>
 
                         <div class="pdoc-code codehilite"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos"> 1</span></a><span class="ch">#!/usr/bin/python</span>
-</span><span id="L-2"><a href="#L-2"><span class="linenos"> 2</span></a>
+</span><span id="L-2"><a href="#L-2"><span class="linenos"> 2</span></a><span class="kn">import</span> <span class="nn">os</span>
 </span><span id="L-3"><a href="#L-3"><span class="linenos"> 3</span></a>
-</span><span id="L-4"><a href="#L-4"><span class="linenos"> 4</span></a><span class="n">VERSION</span> <span class="o">=</span> <span class="s2">&quot;v2.3&quot;</span>
+</span><span id="L-4"><a href="#L-4"><span class="linenos"> 4</span></a><span class="n">VERSION</span> <span class="o">=</span> <span class="s2">&quot;v2.4&quot;</span>
 </span><span id="L-5"><a href="#L-5"><span class="linenos"> 5</span></a>
 </span><span id="L-6"><a href="#L-6"><span class="linenos"> 6</span></a>
 </span><span id="L-7"><a href="#L-7"><span class="linenos"> 7</span></a><span class="n">BANNER</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot; _______ _________ _______  _______  _______  _______  _______ </span>
@@ -71,6 +71,10 @@ staresc    </h1>
 </span><span id="L-14"><a href="#L-14"><span class="linenos">14</span></a><span class="se">\\</span><span class="s2">_______)   )_(   |/     </span><span class="se">\\</span><span class="s2">||/   </span><span class="se">\\</span><span class="s2">__/(_______/</span><span class="se">\\</span><span class="s2">_______)(_______/</span>
 </span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a><span class="s2">                                             - by 5amu &amp; cekout</span>
 </span><span id="L-16"><a href="#L-16"><span class="linenos">16</span></a><span class="s2">&quot;&quot;&quot;</span>
+</span><span id="L-17"><a href="#L-17"><span class="linenos">17</span></a>
+</span><span id="L-18"><a href="#L-18"><span class="linenos">18</span></a><span class="n">DEFAULT_PLUGIN_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;HOME&quot;</span><span class="p">,</span> <span class="s2">&quot;~/&quot;</span><span class="p">),</span> <span class="s1">&#39;.local/&#39;</span><span class="p">,</span> <span class="s1">&#39;staresc-plugins&#39;</span><span class="p">)</span>
+</span><span id="L-19"><a href="#L-19"><span class="linenos">19</span></a><span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">DEFAULT_PLUGIN_DIR</span><span class="p">):</span>
+</span><span id="L-20"><a href="#L-20"><span class="linenos">20</span></a>      <span class="n">DEFAULT_PLUGIN_DIR</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 </span></pre></div>
 
 
